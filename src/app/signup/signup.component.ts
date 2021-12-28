@@ -11,8 +11,21 @@ export class SignupComponent implements OnInit {
 
   // to be implemented later
   Roles: any = ['Admin', 'User'];
+  firstname!: string;
+  lastname!: string;
+  age!: number;
+  username!: string;
+  email!: string;
+  password!: string;
 
   ngOnInit(): void {
   }
+
+  //service layer here
+  submit() {
+
+  }
+
+
 
 }

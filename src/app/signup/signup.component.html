@@ -43,7 +43,12 @@
 
       </mat-card-content>
 
-      <button mat-stroked-button color="primary" class="btn-block">Sign up</button>
+      <!-- <p></p>  errorMessage goes here -->
+
+      <button mat-stroked-button color="primary" class="btn-block" (click)="submit()">Sign up</button>
+     <br>
+     <br>
+      <a routerLink="">Already have an account? Login</a>
 
     </form>
   </mat-card>

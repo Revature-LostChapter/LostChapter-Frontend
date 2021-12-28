@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -13,19 +13,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  form: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-  });
+  username!: string;
+  password!: string;
+  errorMessage!: string;
 
   // perform service layer functionality here
   submit() {
-    if (this.form.valid) {
-      this.submitEM.emit(this.form.value);
-    }
-  }
 
-  @Input()errorMessage!: string | null;
-  @Output() submitEM = new EventEmitter();
+  }
 
 }
