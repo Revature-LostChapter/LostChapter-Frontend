@@ -1,0 +1,20 @@
+<app-indexnavbar></app-indexnavbar>
+<body>
+  <div class="content">
+    <div class="flex-div">
+        <form [formGroup]="form">
+          <h2>The Lost Chapter</h2>
+          <div class="login-header">
+            <p>Log In</p>
+            <p>Stay updated with available books<p>
+          </div>
+          <input type="text" placeholder="Email or Username" required />
+          <input type="password" placeholder="Password" required>
+          <button class="login" (click)="form">Log In</button>
+          <a routerLink="#">Forgot Password ?</a>
+          <hr>
+          <a routerLink="#"><button class="create-account">Create New Account</button></a>
+        </form>
+    </div>
+  </div>
+</body>
