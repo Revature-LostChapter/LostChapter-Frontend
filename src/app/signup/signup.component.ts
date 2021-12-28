@@ -9,6 +9,9 @@ export class SignupComponent implements OnInit {
 
   constructor() { }
 
+  // to be implemented later
+  Roles: any = ['Admin', 'User'];
+
   ngOnInit(): void {
   }
 
