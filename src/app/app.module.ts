@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from 'app-routing.module';
@@ -11,6 +12,7 @@ import { MatCardModule} from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { IndexnavbarComponent } from './indexnavbar/indexnavbar.component';
@@ -26,7 +28,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FooterComponent,
     IndexnavbarComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +45,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     FormsModule,
     MatSelectModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
