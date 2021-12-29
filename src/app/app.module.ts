@@ -20,6 +20,7 @@ import { SignupComponent } from './signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     IndexnavbarComponent,
     SignupComponent,
     LoginComponent,
-    CartComponent
+    CartComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

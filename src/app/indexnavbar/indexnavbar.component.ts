@@ -9,6 +9,7 @@ export class IndexnavbarComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit(): void {
   }
 
