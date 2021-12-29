@@ -1,0 +1,37 @@
+.header {
+  background-color: #f46036;
+}
+.container {
+  width: 50%;
+  border: solid;
+  border-color: 69626d;
+  height: auto;
+  margin-left: 25%;
+}
+
+.listTitle {
+  background-color: #80a4ed;
+  height: auto;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+}
+
+h2 {
+  margin-left: 10px;
+}
+h3 {
+  text-align: center;
+}
+
+p {
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+button {
+  margin-left: 10px;
+  font-size: 18px;
+}
