@@ -8,7 +8,8 @@
 
     
         <mat-card id="payment-panel">
-            <h2 class="material-icons credit_card">Payment Information</h2>
+            <span class="material-icons">credit_card</span>
+            <h2>Payment Information</h2>
             <div class="payment" id="card-number">
                 <label id="card-number-label" class="payment" for="card-number-input">Card number:</label>
                 <input id="card-number-input" class="payment" type="text" placeholder="4200-0000-0000-0000">
@@ -36,6 +37,9 @@
         <br>
 
         <mat-card id="shipping-information">
+            <span class="material-icons">
+                local_shipping
+                </span>
             <h2>Shipping Information</h2>
             <div id="address">
                 <label id="address-input-street-label" class="payment" for="address-input-street">Street name:</label>
@@ -56,6 +60,7 @@
 
         <mat-card id="delivery-date">
             <!-- Using angular material design, https://material.angular.io/ -->
+            <span class="material-icons"> markunread_mailbox</span>
             <h2>Delivery Date</h2>
             <div>
                 <mat-radio-group aria-label="Select an option">
