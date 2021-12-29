@@ -6,8 +6,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatListModule} from '@angular/material/list';
+import { MatIconModule} from '@angular/material/icon';
+import { MatListModule} from '@angular/material/list';
+import { MatRadioModule} from '@angular/material/radio';
 import { MatCardModule} from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
@@ -18,8 +19,10 @@ import { FooterComponent } from './footer/footer.component';
 import { IndexnavbarComponent } from './indexnavbar/indexnavbar.component';
 import { SignupComponent } from './signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule} from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CheckoutSummaryComponent } from './checkout-summary/checkout-summary.component';
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     IndexnavbarComponent,
     SignupComponent,
     LoginComponent,
-    CartComponent
+    CartComponent,
+    CheckoutComponent,
+    CheckoutSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatIconModule,
     MatListModule,
+    MatRadioModule, 
     MatCardModule,
     ReactiveFormsModule,
     FormsModule,
