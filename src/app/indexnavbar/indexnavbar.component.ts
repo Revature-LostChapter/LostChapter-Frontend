@@ -11,5 +11,4 @@ export class IndexnavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

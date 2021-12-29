@@ -26,6 +26,9 @@ export class SignupComponent implements OnInit {
 
   }
 
+  toggleDarkTheme(): void {
+    document.body.classList.toggle('dark-theme');
+  }
 
 
 }
