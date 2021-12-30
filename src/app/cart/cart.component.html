@@ -1,4 +1,5 @@
-<div class="container" *ngFor="let p of cart.quantities">
+<div class="container">
+  <!-- *ngFor="let p of cart.quantities" -->
   <table id="cart" class="table table-hover table-condensed">
     <thead>
       <tr>
@@ -21,8 +22,9 @@
               />
             </div>
             <div class="col-sm-10">
-              <h4 class="nomargin">Product 1</h4>
-              <!--{{p.product.name}}-->
+              <h4 class="nomargin"></h4>
+              <!-- {{ p.product.name }} -->
+
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -31,15 +33,13 @@
           </div>
         </td>
         <td data-th="Price"></td>
+        <!-- {{ p.product.price }} -->
 
         <td data-th="Quantity">
-          <input
-            type="number"
-            class="form-control text-center"
-            {{p.product.quantity}}
-          />
+          <input type="number" class="form-control text-center" />
+          <!-- {{p.product.quantity}} -->
         </td>
-        <td data-th="Total" class="text-center">{{ p.product.price }}</td>
+        <td data-th="Total" class="text-center"></td>
         <!--{{p * quantity * p.product.price}}-->
         <td class="actions" data-th="">
           <button class="btn btn-info btn-sm">
@@ -54,7 +54,8 @@
     <tfoot>
       <tr class="visible-xs">
         <td class="text-center">
-          <strong>Total: {{ p.quantity * p.product.price }}</strong>
+          <strong>Total: </strong>
+          <!-- {{ p.quantity * p.product.price }} -->
         </td>
         <!--{{p * quantity * p.product.price}}-->
       </tr>
