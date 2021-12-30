@@ -8,7 +8,7 @@ import { UserProfileComponent } from 'src/app/user-profile/user-profile.componen
 const routes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'user-profile', component: UserProfileComponent}
+  {path: '', component: UserProfileComponent}
 ];
 
 @NgModule({
