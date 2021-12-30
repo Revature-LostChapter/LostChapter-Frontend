@@ -17,6 +17,9 @@ export class LoginComponent implements OnInit {
   password!: string;
   errorMessage!: string;
 
+  // show / hide password
+  hide = true;
+
   // perform service layer functionality here
   submit() {
 

@@ -17,6 +17,11 @@ export class SignupComponent implements OnInit {
   username!: string;
   email!: string;
   password!: string;
+  errorMessage!: string;
+
+  // show / hide password
+  hide = true;
+
 
   ngOnInit(): void {
   }
@@ -26,7 +31,4 @@ export class SignupComponent implements OnInit {
 
   }
 
-  toggleDarkTheme(): void {
-    document.body.classList.toggle('dark-theme');
-  }
 }
