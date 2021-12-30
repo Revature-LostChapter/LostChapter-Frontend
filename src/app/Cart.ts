@@ -12,5 +12,5 @@ export interface Cart {
       price: number;
     };
     quantity: number;
-  };
+  }[];
 }
