@@ -4,6 +4,7 @@
       <mat-card-title>Sign up</mat-card-title>
     </mat-card-header>
 
+    <br />
     <form class="signup-form">
       <mat-card-content>
         <mat-form-field class="signup-full-width">
@@ -27,7 +28,16 @@
         </mat-form-field>
 
         <mat-form-field class="signup-full-width">
-          <input matInput placeholder="Password" id="password" />
+          <input
+            matInput
+            placeholder="Password"
+            [type]="hide ? 'password' : 'text'"
+            id="password"
+            required
+          />
+          <mat-icon matSuffix (click)="hide = !hide">{{
+            hide ? "visibility_off" : "visibility"
+          }}</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="signup-full-width">
