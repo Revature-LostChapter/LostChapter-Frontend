@@ -21,6 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatMenuModule} from '@angular/material/menu'
 
 
 @NgModule({
@@ -49,7 +52,10 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MatSelectModule,
     FlexLayoutModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],
