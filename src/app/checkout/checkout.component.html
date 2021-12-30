@@ -1,0 +1,83 @@
+<div class="container">
+  <div style="border: 5px solid #f46036;;
+  "class="checkout-wrapper">
+       <mat-card-title>
+           <h1>Checkout</h1>
+       </mat-card-title>
+
+
+       <mat-card id="payment-panel">
+           <span class="material-icons">credit_card</span>
+           <h2>Payment Information</h2>
+           <div class="payment" id="card-number" style="margin: auto;">
+               <label id="card-number-label" class="payment" for="card-number-input">Card number:</label>
+               <input id="card-number-input" class="payment" style="margin: auto;" type="text" placeholder="4200-0000-0000-0000">
+           </div>
+           <div class="payment"  id="experiation-date" style="margin: auto;">
+               <!-- Use flexbox to style expiration dates separately -->
+               <label id="experiation-date-month-label" class="payment" for="experiation-date-month">Month:</label>
+               <input id="experiation-date-month"  class="payment" type="number" placeholder="02">
+
+               <label id="experiation-date-year-label" class="payment"  for="experiation-date-year">Year: </label>
+               <input id="experiation-date-year" class="payment" type="number" placeholder="2025">
+           </div>
+           <div class="payment"  id="ccv" style="margin: auto;">
+               <label id="ccv-input-label" class="payment" for="ccv-input">CCV:</label>
+               <input id="ccv-input" class="payment" type="text" placeholder="000">
+           </div>
+           <div  class="payment" id="cardholder-name" style="margin: auto;">
+               <label id="cardholder-name-input-label" class="payment" for="cardholder-name-input">Cardholder Name:</label>
+               <input id="cardholder-name-input" class="payment" type="text" placeholder="Billy bob">
+           </div>
+       </mat-card>
+
+       <br>
+       <mat-divider></mat-divider>
+       <br>
+
+       <mat-card id="shipping-information">
+           <span class="material-icons">
+               local_shipping
+               </span>
+           <h2>Shipping Information</h2>
+           <div id="address" style="margin: auto;">
+               <label id="address-input-street-label" class="payment" for="address-input-street">Street name:</label>
+               <input id="address-input-street" class="payment" type="text" placeholder="1234 Elm St">
+           </div>
+           <div id="name" style="margin: auto;">
+               <label id="first-name-input-label" class="payment" for="first-name-input">First name:</label>
+               <input  id="first-name-input" class="payment" type="text" placeholder="Billy">
+
+               <label id="last-name-input-label" class="payment" style="margin: auto;" for="last-name-input-label">Last name: </label>
+               <input  id="last-name-input" class="payment" type="text" placeholder="Bob">
+           </div>
+       </mat-card>
+
+       <br>
+       <mat-divider></mat-divider>
+       <br>
+
+       <mat-card id="delivery-date">
+           <!-- Using angular material design, https://material.angular.io/ -->
+           <span class="material-icons"> markunread_mailbox</span>
+           <h2>Delivery Date</h2>
+           <div>
+               <mat-radio-group aria-label="Select an option">
+               <!-- useful link for selecting shipping date from angular material, https://material.angular.io/components/datepicker/examples -->
+                   <mat-radio-button value="1">Option 1</mat-radio-button>
+                   <mat-radio-button value="2">Option 2</mat-radio-button>
+               </mat-radio-group>
+           </div>
+       </mat-card>
+
+       <br>
+       <mat-divider></mat-divider>
+       <br>
+
+       <div id="purchase-order">
+           <button class="cart-btn" routerLink="/cart">Back to Cart</button>
+           <button class="submit-button-btn" routerLink="/checkout-summary">Purchase Order</button>
+           <!-- class="btn btn-secondary pull-left" and "btn btn-danger pull-right" -->
+       </div>
+  </div>
+</div>

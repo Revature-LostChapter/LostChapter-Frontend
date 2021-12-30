@@ -1,0 +1,83 @@
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+}
+label{
+    text-transform: capitalize;
+    color: #69626d;
+    font-weight: 500;
+}
+
+.checkout-wrapper{
+    border: solid;
+    border-radius: 20px;
+}
+
+h2{
+    text-transform: capitalize;
+    color: #69626d;
+}
+
+payment-panel h2{
+    display: inline-block;
+}
+
+mat-card-title h1{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f46036;
+    text-align: center;
+    max-width: 25%;
+    border-radius: 5px 0px 10px 0px;
+    color: #ffffff;
+}
+
+.payment{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 8px;
+}
+
+#purchase-order{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin:8px;
+}
+
+.cart-btn{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #69626d;
+    line-height: 2.5;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 20%;
+    border-style: none;
+    box-shadow: 3px 3px 3px #69626d;
+}
+
+.submit-button-btn{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f46036;
+    line-height: 2.5;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 5px;
+    margin-left: 47.5%;
+    margin-bottom: 10px;
+    border-style: none;
+    box-shadow: 3px 3px 3px #f46036;
+}
+
+
+
+/*
+mat-radio-button mat-accent mat-radio-checked mat-radio-outer-circle{
+    border-color:rgb(66, 134, 244);
+}
+
+mat-radio-button mat-accent mat-radio-inner-circle{
+    color:rgb(66, 134, 244);
+    background-color:rgb(66, 134, 244) ;
+}
+
+mat-radio-button mat-accent mat-radio-ripple mat-ripple-element {
+    background-color:rgb(255, 37, 37,.26);
+} */
