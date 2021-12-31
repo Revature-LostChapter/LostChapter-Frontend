@@ -117,7 +117,7 @@
         <main class="col-lg-9" >
            <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 mb-4 pb-4 g-4">
 
-              <div class="col"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+              <div class="col" *ngFor="let item of displayResults"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
                  <div class="card h-50">
                     <img src="https://images.booksamillion.com/content/images/b54e2d92d103a8a1ad601aae70c16750.jpg" style="object-fit: fill;" alt="Placeholder">
                     <br>
@@ -125,7 +125,7 @@
                     </div>
                     <div class="book-title">Author:</div>
                     <div class="book-title">Published Year:</div>
-                    <div class="book-title">Genere:</div>
+                    <div class="book-title">Genre:</div>
 
                     <br>
 
