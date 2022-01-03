@@ -8,12 +8,24 @@
     <form class="login-form">
       <mat-card-content>
         <mat-form-field class="login-full-width">
-          <input matInput placeholder="Username" id="username" />
+          <input
+            type="text"
+            [(ngModel)]="username"
+            matInput
+            name="username"
+            ngDefaultControl
+            placeholder="Username"
+            id="username"
+          />
         </mat-form-field>
 
         <mat-form-field class="login-full-width">
           <input
+            type="text"
+            [(ngModel)]="password"
             matInput
+            name="password"
+            ngDefaultControl
             placeholder="Password"
             [type]="hide ? 'password' : 'text'"
             id="password"
@@ -25,20 +37,22 @@
         </mat-form-field>
       </mat-card-content>
 
-      <!-- <p></p>  errorMessage goes here -->
+      <div *ngIf="errorMessage" id="error-message" class="text-danger">
+        {{ errorMessage }}
+      </div>
 
       <button
         mat-flat-button
         color="primary"
         class="btn-block"
-        (click)="submit()"
+        (click)="onLoggedIn()"
       >
         Log in
       </button>
 
       <hr />
       <br />
-      <a routerLink="signup">Don't have an account? Create a new account</a>
+      <a routerLink="/signup">Don't have an account? Create a new account</a>
     </form>
   </mat-card>
 </div>
