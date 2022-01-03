@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { SearchProducts } from 'SearchProduct';
 import { SearchProductsService } from '../search-products.service';
@@ -18,13 +18,8 @@ export class SearchResultsComponent implements OnInit {
 
   selected = 'option2';
 
-  searchItem!: string;
-  displayResults: SearchProducts[] = [];
+  @Input() displayResults: SearchProducts[] = [];
 
-  // for page pagination
-
-  // p: number = 1;
-  // collection: any[] = someArrayOfThings;
-
+  // for page pagination -> // p: number = 1;
 
 }

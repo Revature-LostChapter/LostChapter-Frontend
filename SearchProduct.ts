@@ -1,5 +1,4 @@
 export interface SearchProducts  {
-
   title: string;
   authors: [string];
   publisher: string;
@@ -8,4 +7,5 @@ export interface SearchProducts  {
   industryIdentifiers: [ {identifier: string}];
   categories: [string];
   imageLinks: {thumbnail: string};
+  salesInfo: {listPrice: {amount: number}};
 }

@@ -11,7 +11,8 @@
         <div id="nav-search">
           <form id="nav-search-bar-form">
             <div class="nav-fill">
-              <input type="text" placeholder="Search for books">
+              <input type="text" placeholder="Search for books"
+               [(ngModel)]="searchProduct" name="searchProduct">
             </div>
             <div class="nav-right">
               <button type="submit" style="color: white;" (click)="displaySearchReults()">Search</button>

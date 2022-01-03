@@ -119,19 +119,19 @@
 
               <div class="col" *ngFor="let item of displayResults"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
                  <div class="card h-50">
-                    <img src="https://images.booksamillion.com/content/images/b54e2d92d103a8a1ad601aae70c16750.jpg" style="object-fit: fill;" alt="Placeholder">
+                    <img src="" style="object-fit: fill;" alt="Placeholder"> {{item.imageLinks.thumbnail}}
                     <br>
-                    <div class="book-title" style="margin: auto;">Book Title
+                    <div class="book-title" style="margin: auto;">Book Title {{item.title}}
                     </div>
-                    <div class="book-title">Author:</div>
-                    <div class="book-title">Published Year:</div>
-                    <div class="book-title">Genre:</div>
-
+                    <div class="book-title">Author:</div> {{item.authors}}
+                    <div class="book-title">Published Year:</div> {{item.publisherDate}}
+                    <div class="book-title">Genre:</div> {{item.categories}}
+                    <div class="book-title">Description:</div> {{item.description}}
                     <br>
 
                     <div >
                        <div class="d-flex flex-row justify-content-between align-items-center">
-                          <span class="flex-grow-1">Price:</span>
+                          <span class="flex-grow-1">Price:</span> {{item.salesInfo.listPrice}}
                           <a routerLink="#"> <button mat-raised-button color="primary">Add to cart
                             <i class="material-icons">shopping_cart</i></button> </a>
                        </div>
