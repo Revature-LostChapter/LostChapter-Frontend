@@ -23,6 +23,10 @@ import { MatSelectModule} from '@angular/material/select';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CheckoutSummaryComponent } from './checkout-summary/checkout-summary.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatMenuModule} from '@angular/material/menu'
 
 
 @NgModule({
@@ -34,7 +38,8 @@ import { CheckoutSummaryComponent } from './checkout-summary/checkout-summary.co
     LoginComponent,
     CartComponent,
     CheckoutComponent,
-    CheckoutSummaryComponent
+    CheckoutSummaryComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,10 @@ import { CheckoutSummaryComponent } from './checkout-summary/checkout-summary.co
     MatSelectModule,
     FlexLayoutModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],
