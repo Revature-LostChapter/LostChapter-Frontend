@@ -4,7 +4,7 @@ export interface SearchProducts  {
   publisher: string;
   publisherDate: string;
   description: string;
-  industryIdentifiers: [ {identifier: string}];
+  industryIdentifiers: {identifier: string}[];
   categories: [string];
   imageLinks: {thumbnail: string};
   salesInfo: {listPrice: {amount: number}};
