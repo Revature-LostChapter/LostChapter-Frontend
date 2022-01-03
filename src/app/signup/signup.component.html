@@ -50,7 +50,7 @@
       <div  class="text-success" *ngIf="successMessage" id="success-message">{{successMessage}}</div>
       <div  class="text-danger" *ngIf="errorMessage" id="error-message">{{errorMessage}}</div>
 
-      <button mat-flat-button color="primary" class="btn-block" (click)="onSignupClick()">Sign up</button>
+      <button mat-flat-button color="primary" class="btn-block" (click)="onSignupClick()" id="signup-button">Sign up</button>
      <br>
      <br>
       <a routerLink="/login">Already have an account? Login</a>
