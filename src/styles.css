@@ -1,6 +1,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.mat-form-field-placeholder {
+  display:block !important;
+}
+
 :root {
 	--main-header-bg: #fff;
 	--second-header-bg: #f46036;
