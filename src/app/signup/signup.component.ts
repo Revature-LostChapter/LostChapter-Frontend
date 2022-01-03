@@ -32,6 +32,7 @@ export class SignupComponent implements OnInit {
   errorMessage!: string;
 
   ngOnInit(): void {
+    this.checkIfLoggedIn();
   }
 
   checkIfLoggedIn() {
@@ -59,7 +60,6 @@ export class SignupComponent implements OnInit {
         if (res.body){
             this.successMessage = res.body;
             setTimeout(() => window.location.reload(), 5000); // reload page after 5 secs
-            this.checkIfLoggedIn();
         }
       }
     }, (err) => {
