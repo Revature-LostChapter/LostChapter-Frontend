@@ -64,7 +64,6 @@ export class SignupComponent implements OnInit {
       }
     }, (err) => {
       this.errorMessage = err.error;
-      this.errorMessage = "";
     } )
   }
 
