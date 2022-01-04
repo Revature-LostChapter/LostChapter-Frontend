@@ -8,6 +8,7 @@
     <form class="signup-form">
       <mat-card-content>
         <mat-form-field class="signup-full-width">
+<<<<<<< HEAD
           <input
             type="text"
             [(ngModel)]="firstName"
@@ -41,6 +42,17 @@
             placeholder="Username"
             id="username"
           />
+=======
+          <input type="text" [(ngModel)]="firstName" matInput name="firstName" ngDefaultControl placeholder="First Name" id="firstname" >
+        </mat-form-field>
+
+        <mat-form-field class="signup-full-width">
+          <input type="text" [(ngModel)]="lastName" matInput name = "lastname" ngDefaultControl placeholder="LastName" id="lastname" >
+        </mat-form-field>
+
+        <mat-form-field class="signup-full-width">
+          <input type="text" [(ngModel)]="username" matInput name="username" ngDefaultControl placeholder="Username" id="username" >
+>>>>>>> cart-feature
         </mat-form-field>
 
         <mat-form-field class="signup-full-width">
@@ -109,6 +121,7 @@
         </mat-form-field>
 
         <mat-form-field class="signup-full-width">
+<<<<<<< HEAD
           <input
             type="text"
             [(ngModel)]="role"
@@ -118,6 +131,9 @@
             placeholder="Role"
             id="role"
           />
+=======
+          <input type="text" [(ngModel)]="role" matInput name="role" ngDefaultControl placeholder="Role" id="role" >
+>>>>>>> cart-feature
         </mat-form-field>
       </mat-card-content>
 
@@ -133,6 +149,7 @@
       <br />
       <a routerLink="">Already have an account? Login</a>
 
+<<<<<<< HEAD
       <button
         mat-flat-button
         color="primary"
@@ -144,6 +161,13 @@
       <br />
       <br />
       <a routerLink="/login">Already have an account? Login</a>
+=======
+      <button mat-flat-button color="primary" class="btn-block" (click)="onSignupClick()">Sign up</button>
+     <br>
+     <br>
+      <a routerLink="/login">Already have an account? Login</a>
+
+>>>>>>> cart-feature
     </form>
   </mat-card>
 </div>

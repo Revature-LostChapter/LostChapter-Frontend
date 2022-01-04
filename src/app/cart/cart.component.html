@@ -1,6 +1,11 @@
 <div class="container">
+<<<<<<< HEAD
   <!-- *ngFor="let p of cart.quantities" -->
   <table id="cart" class="table table-hover table-condensed">
+=======
+  <table id="cart" class="table table-hover table-condensed">
+    <!--{{*ngFor="let p of cart.quantities"}}-->
+>>>>>>> cart-feature
     <thead>
       <tr>
         <th style="width: 50%">Product</th>
@@ -13,6 +18,10 @@
     <tbody>
       <tr>
         <td data-th="Product">
+<<<<<<< HEAD
+=======
+          <!--{{p.product.name}}-->
+>>>>>>> cart-feature
           <div class="row">
             <div class="col-sm-2 hidden-xs">
               <img
@@ -22,9 +31,13 @@
               />
             </div>
             <div class="col-sm-10">
+<<<<<<< HEAD
               <h4 class="nomargin"></h4>
               <!-- {{ p.product.name }} -->
 
+=======
+              <h4 class="nomargin">Product 1</h4>
+>>>>>>> cart-feature
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -32,6 +45,7 @@
             </div>
           </div>
         </td>
+<<<<<<< HEAD
         <td data-th="Price"></td>
         <!-- {{ p.product.price }} -->
 
@@ -40,6 +54,15 @@
           <!-- {{p.product.quantity}} -->
         </td>
         <td data-th="Total" class="text-center"></td>
+=======
+        <td data-th="Price">$5.11</td>
+        <!--{{p.product.name}}-->
+        <td data-th="Quantity">
+          <!--{{p.product.quantity}}-->
+          <input type="number" class="form-control text-center" value="1" />
+        </td>
+        <td data-th="Total" class="text-center">$5.11</td>
+>>>>>>> cart-feature
         <!--{{p * quantity * p.product.price}}-->
         <td class="actions" data-th="">
           <button class="btn btn-info btn-sm">
@@ -53,10 +76,14 @@
     </tbody>
     <tfoot>
       <tr class="visible-xs">
+<<<<<<< HEAD
         <td class="text-center">
           <strong>Total: </strong>
           <!-- {{ p.quantity * p.product.price }} -->
         </td>
+=======
+        <td class="text-center"><strong>Total $ 5.11</strong></td>
+>>>>>>> cart-feature
         <!--{{p * quantity * p.product.price}}-->
       </tr>
       <tr>
@@ -66,9 +93,13 @@
           >
         </td>
         <td colspan="2" class="hidden-xs"></td>
+<<<<<<< HEAD
         <td class="hidden-xs text-center">
           <strong>Total price of all Products: {{ totalPrice }}</strong>
         </td>
+=======
+        <td class="hidden-xs text-center"><strong>Total $ 5.11</strong></td>
+>>>>>>> cart-feature
         <!--{{p * quantity * p.product.price}}-->
         <td>
           <a href="#" class="btn btn-success btn-block"
