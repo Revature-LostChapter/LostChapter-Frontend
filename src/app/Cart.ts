@@ -12,9 +12,5 @@ export interface Cart {
       price: number;
     };
     quantity: number;
-<<<<<<< HEAD
   }[];
-=======
-  }[]
->>>>>>> cart-feature
 }
