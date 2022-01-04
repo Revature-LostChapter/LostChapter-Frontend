@@ -78,7 +78,8 @@ body {
   min-width: 100%;
   max-width: 300px;
   width: 100%;
-display: inline-block;}
+  display: inline-block;
+}
 
 .signup-wrapper .signup-full-width,
 .signup-wrapper .btn-block {
