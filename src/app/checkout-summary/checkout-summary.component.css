@@ -1,0 +1,42 @@
+.wrapper {
+  border: 5px solid #f46036;
+  width: 50%;
+  margin-left: 30%;
+  margin-top: 25px;
+}
+.title {
+  margin-left: 30%;
+  font-style: italic;
+  margin-top: 15px;
+  color: #80a4ed;
+}
+p {
+  margin-left: 40%;
+}
+.btn {
+  margin-left: 35%;
+  margin-bottom: 15px;
+  margin-top: 25px;
+}
+.info {
+  display: flex;
+}
+.payment {
+  margin-left: 10%;
+}
+
+.fs-5 {
+  margin-left: 10px;
+}
+
+.text3 {
+  margin-left: 15%;
+}
+input {
+  background: transparent;
+  border: none;
+}
+
+#orderNumber {
+  margin-bottom: 15px;
+}
