@@ -1,3 +1,7 @@
+<ng-container>
+
+</ng-container>
+
 <div class="container">
   <table id="cart" class="table table-hover table-condensed">
     <!--{{*ngFor="let p of cart.quantities"}}-->
@@ -11,9 +15,10 @@
       </tr>
     </thead>
     <tbody>
+      <ng-container *ngFor="let p of cart.quantities"> <!--using ng container for the container to loop the body of our cart quantities-->
       <tr>
         <td data-th="Product">
-          <!--{{p.product.name}}-->
+          <!---->
           <div class="row">
             <div class="col-sm-2 hidden-xs">
               <img
@@ -23,7 +28,7 @@
               />
             </div>
             <div class="col-sm-10">
-              <h4 class="nomargin">Product 1</h4>
+              <h4 class="nomargin">{{p.product.name}}</h4>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -31,14 +36,11 @@
             </div>
           </div>
         </td>
-        <td data-th="Price">$5.11</td>
-        <!--{{p.product.name}}-->
-        <td data-th="Quantity">
-          <!--{{p.product.quantity}}-->
+        <td data-th="Price">{{p.product.price}}</td>
+        <td data-th="Quantity"> {{p.quantity}}
           <input type="number" class="form-control text-center" value="1" />
         </td>
-        <td data-th="Total" class="text-center">$5.11</td>
-        <!--{{p * quantity * p.product.price}}-->
+        <td data-th="Total" class="text-center">{{p.quantity * p.product.price}}</td>
         <td class="actions" data-th="">
           <button class="btn btn-info btn-sm">
             <i class="fa fa-refresh"></i>
@@ -48,10 +50,11 @@
           </button>
         </td>
       </tr>
+    </ng-container>
     </tbody>
     <tfoot>
       <tr class="visible-xs">
-        <td class="text-center"><strong>Total $ 5.11</strong></td>
+        <td class="text-center"><strong></strong></td>
         <!--{{p * quantity * p.product.price}}-->
       </tr>
       <tr>
