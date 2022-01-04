@@ -48,6 +48,7 @@ body {
   -ms-transform: scale(1);
   z-index: 5;
   max-width: 530px;
+  max-height: 730px;
 }
 
 .box.back {
@@ -78,8 +79,7 @@ body {
   min-width: 100%;
   max-width: 300px;
   width: 100%;
-  display: inline-block;
-}
+  display: inline-block;}
 
 .signup-wrapper .signup-full-width,
 .signup-wrapper .btn-block {
