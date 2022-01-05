@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class LoginService {
 
   constructor(private http: HttpClient) { }
-
+  
   checkLoginStatus() {
     return this.http.get('http://localhost:8081/loginstatus', {
       observe: 'response',

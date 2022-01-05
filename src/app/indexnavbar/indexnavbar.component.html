@@ -3,7 +3,7 @@
     <div id="nav-belt">
       <div class="nav-left">
         <div id="nav-logo">
-          <a routerLink="/">The Lost Chapter</a>
+          <a routerLink="/">Lost Chapter</a>
         </div>
       </div>
       <div class="nav-fill">
@@ -21,16 +21,27 @@
       </div>
       <div class="nav-right">
         <div id="nav-tools">
-          <a routerLink="/signup">Sign up</a>
-          <a routerLink="/login">Log in</a>
+          <ng-container *ngIf="ableToSignUp">
+            <a routerLink="/signup">Sign up</a>
+          </ng-container>
+          <ng-container *ngIf="ableToLogIn">
+            <a routerLink="/login">Log in</a>
+          </ng-container>
           <!-- Changed routerLink above from routerLink="" to routerLink="/login"  -->
           <a routerLink="/cart">Cart</a>
         </div>
       </div>
-        <!-- <div class="" *ngIf="loggedInTrue" id="profile-buttons">
-          <p>YOUR USERNAME HERE</p>
-          <img routerLink="/user-profile" [src]="userProfile" href>
-        </div> -->
+        <div class="p-3" *ngIf="loggedIn" id="profile-buttons">
+          <p class="text-white">{{currentUser}}</p>
+          <!-- replace above with probably something like {{user.username}}}} -->
+        </div>
+        <div class="p-3" *ngIf="notLoggedIn" id="profile-buttons">
+          <p class="text-info">Sign in now</p>
+          <!-- replace above with probably something like {{user.name}} -->
+        </div>
+        <div class="p-3">
+           <span class="material-icons-outlined md-light">account_circle</span>
+        </div>
     </div>
 
   </div>
