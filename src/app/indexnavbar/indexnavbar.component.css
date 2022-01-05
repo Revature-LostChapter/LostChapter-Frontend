@@ -220,6 +220,8 @@ ul li ul li {
 	display: inline;
 }
 
-.icon{
+span{
 	transform: scale(2);
+	/* font-weight: 100; */
+	color: #ffffff;
 }
