@@ -9,7 +9,7 @@ export class IndexnavbarComponent implements OnInit {
   loggedInTrue:boolean= true;
   constructor() { }
 
-  userProfile= "account_circle"
+
 
 
   ngOnInit(): void {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- Used this to "sticky" the footer to the bottom, https://jsantacl.medium.com/pure-bootstrap-sticky-footer-with-flex-and-angular-e207abf505c7 -->
+<html lang="en" class="h-100">
 <head>
   <meta charset="utf-8">
   <title>LostChapterFrontend</title>
@@ -28,7 +29,10 @@
   href="https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins:wght@300&family=Roboto&display=swap"
   rel="stylesheet"/>
 </head>
-<body class="mat-typography">
-  <app-root></app-root>
+<!-- Full height body -->
+<body class="h-100 mat-typography">
+
+  <!-- Full height app container, and also use flexbox columns -->
+  <app-root class="d-flex flex-column h-100"></app-root>
 </body>
 </html>
