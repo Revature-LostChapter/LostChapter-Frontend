@@ -1,0 +1,102 @@
+<div class="signup-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Sign up</mat-card-title>
+    </mat-card-header>
+
+    <br />
+    <form class="signup-form">
+      <mat-card-content>
+        <mat-form-field class="signup-full-width">
+          <input type="text" [(ngModel)]="firstName" matInput name="firstName" ngDefaultControl placeholder="First Name" id="firstname" >
+        </mat-form-field>
+
+        <mat-form-field class="signup-full-width">
+          <input type="text" [(ngModel)]="lastName" matInput name = "lastname" ngDefaultControl placeholder="LastName" id="lastname" >
+        </mat-form-field>
+
+        <mat-form-field class="signup-full-width">
+          <input type="text" [(ngModel)]="username" matInput name="username" ngDefaultControl placeholder="Username" id="username" >
+        </mat-form-field>
+
+        <mat-form-field class="signup-full-width">
+          <input
+            type="text"
+            [(ngModel)]="email"
+            matInput
+            name="email"
+            ngDefaultControl
+            placeholder="Email"
+            id="email"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="signup-full-width">
+          <input
+            type="text"
+            [(ngModel)]="password"
+            matInput
+            name="password"
+            ngDefaultControl
+            placeholder="Password"
+            [type]="hide ? 'password' : 'text'"
+            id="password"
+            required
+          />
+          <mat-icon matSuffix (click)="hide = !hide">{{
+            hide ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="signup-full-width">
+          <input
+            type="number"
+            [(ngModel)]="age"
+            matInput
+            name="age"
+            ngDefaultControl
+            placeholder="Age"
+            id="age"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="signup-full-width">
+          <input
+            type="text"
+            [(ngModel)]="birthday"
+            matInput
+            name="birthday"
+            ngDefaultControl
+            placeholder="Birthday"
+            id="birthday"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="signup-full-width">
+          <input
+            type="text"
+            [(ngModel)]="address"
+            matInput
+            name="address"
+            ngDefaultControl
+            placeholder="Address"
+            id="address"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="signup-full-width">
+          <input type="text" [(ngModel)]="role" matInput name="role" ngDefaultControl placeholder="Role" id="role" >
+        </mat-form-field>
+      </mat-card-content>
+
+      <div  class="text-success" *ngIf="successMessage" id="success-message">{{successMessage}}</div>
+      <div  class="text-danger" *ngIf="errorMessage" id="error-message">{{errorMessage}}</div>
+
+      <button mat-flat-button color="primary" class="btn-block">Sign up</button>
+      <br />
+      <br />
+      <a routerLink="">Already have an account? Login</a>
+
+    </form>
+  </mat-card>
+</div>

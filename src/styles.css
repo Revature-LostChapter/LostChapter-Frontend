@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-form-field-placeholder {
+  display:block !important;
+}
+
+:root {
+	--main-header-bg: #fff;
+	--second-header-bg: #f46036;
+	--main-border: #ff9000;
+	--main-border-shadow: #80a4ed;
+	--main-text: #f3a847;
+	--second-text: white;
+	--main-search-opt: #cdcdcd;
+	--second-search-opt: #f3f3f3;
+	--border-radius: 0.2rem;
+	background: white;
+}
+

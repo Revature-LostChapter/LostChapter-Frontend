@@ -1,0 +1,38 @@
+
+<header id="container">
+  <div id="nav-bar">
+    <div id="nav-belt">
+      <div class="nav-left">
+        <div id="nav-logo">
+          <a routerLink="/">The Lost Chapter</a>
+        </div>
+      </div>
+      <div class="nav-fill">
+        <div id="nav-search">
+          <form id="nav-search-bar-form">
+            <div class="nav-fill">
+              <input type="text" placeholder="Search for books"
+               [(ngModel)]="searchItem" name="searchItem">
+            </div>
+            <div class="nav-right">
+           <button type="submit" style="color: white;" (click)="displaySearchReults()">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="nav-right">
+        <div id="nav-tools">
+          <a routerLink="/signup">Sign up</a>
+          <a routerLink="/login">Log in</a>
+          <!-- Changed routerLink above from routerLink="" to routerLink="/login"  -->
+          <a routerLink="/cart">Cart</a>
+        </div>
+      </div>
+        <!-- <div class="" *ngIf="loggedInTrue" id="profile-buttons">
+          <p>YOUR USERNAME HERE</p>
+          <img routerLink="/user-profile" [src]="userProfile" href>
+        </div> -->
+    </div>
+
+  </div>
+  </header>
