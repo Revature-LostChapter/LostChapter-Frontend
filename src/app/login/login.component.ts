@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'User';
@@ -22,9 +22,10 @@ export class LoginComponent implements OnInit {
   password!: string;
   errorMessage!: string;
 
+
   // show / hide password
   hide = true;
-
+  
   // perform service layer functionality here
   onLoggedIn() {
     this.loginService.login(this.username, this.password).subscribe((res) => {
@@ -37,7 +38,6 @@ export class LoginComponent implements OnInit {
 
         if (body.role === 'Admin'){
           this.router.navigate(['admin']); // navigates to admin route page
-
         }
       }
     }, (err) => {
