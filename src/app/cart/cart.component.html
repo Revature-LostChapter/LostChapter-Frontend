@@ -1,4 +1,5 @@
-<div class="container"><!--{{*ngFor="let p of cart.quantities"}}-->
+<div class="container">
+  <!--{{*ngFor="let p of cart.quantities"}}-->
   <table id="cart" class="table table-hover table-condensed">
     <thead>
       <tr>
@@ -61,7 +62,7 @@
             </td>
             <td colspan="2" class="hidden-xs"></td>
             <td class="hidden-xs text-center">
-              <strong>Total {{ p.quantity * p.product.price }}</strong>
+              <strong>Total </strong>
             </td>
             <!--{{p * quantity * p.product.price}}-->
             <td>
@@ -73,29 +74,50 @@
               ></a>
             </td>
           </tr>
+
+          <tr>
+            <td data-th="Product">
+              <div class="row">
+                <div class="col-sm-2 hidden-xs">
+                  <img
+                    src="http://placehold.it/100x100"
+                    alt="..."
+                    class="img-responsive"
+                  />
+                </div>
+                <div class="col-sm-10">
+                  <h4 class="nomargin">Product 1</h4>
+                  <!--{{p.product.name}}-->
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p>
+                  <!--description -->
+                </div>
+              </div>
+            </td>
+            <td data-th="Price">$5.11</td>
+            <!--{{p.product.name}}-->
+            <td data-th="Quantity">
+              <input type="number" class="form-control text-center" value="1" />
+              <!--{{p.product.quantity}}-->
+            </td>
+            <td data-th="Total" class="text-center">
+              {{ p.quantity * p.product.price }}
+            </td>
+            <!--{{p * quantity * p.product.price}}-->
+            <td class="actions" data-th="">
+              <button class="btn btn-info btn-sm">
+                <i class="fa fa-refresh"></i>
+              </button>
+              <button class="btn btn-danger btn-sm">
+                <i class="fa fa-trash-o"></i>
+              </button>
+            </td>
+          </tr>
         </tfoot>
       </ng-container>
-      <tr>
-        <td data-th="Product" >
-          <div class="row">
-            <div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive" /></div>
-            <div class="col-sm-10">
-              <h4 class="nomargin">Product 1</h4> <!--{{p.product.name}}-->
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua.</p> <!--description -->
-            </div>
-          </div>
-        </td>
-        <td data-th="Price">$5.11</td> <!--{{p.product.name}}-->
-        <td data-th="Quantity">
-          <input type="number" class="form-control text-center" value="1"> <!--{{p.product.quantity}}-->
-        </td>
-        <td data-th="Total" class="text-center">$5.11</td>  <!--{{p * quantity * p.product.price}}-->
-        <td class="actions" data-th="">
-          <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-          <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-        </td>
-      </tr>
     </tbody>
   </table>
 </div>
