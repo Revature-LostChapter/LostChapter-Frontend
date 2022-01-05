@@ -22,7 +22,7 @@ export class CartService {
     parameter = parameter.append('productId', pId);
     parameter = parameter.append('quantity', quantity);
     return this.http.post(
-      `http://lostchapter-1191.cvtq9j4axrge.us-east-1.rds.amazonaws.com:5432/carts/${cartId}`,
+      `http://localhost:8081/carts/${cartId}`,
       {},
       {
         params: parameter,
@@ -34,27 +34,21 @@ export class CartService {
 
   getCarFromCustomerPage(cardId: string) {
     return this.http
-      .get<Cart>(
-        `http:////lostchapter-1191.cvtq9j4axrge.us-east-1.rds.amazonaws.com:5432/carts/${cardId}`,
-        {
-          withCredentials: true,
-        }
-      )
+      .get<Cart>(`http//localhost:8081/carts/${cardId}`, {
+        withCredentials: true,
+      })
       .subscribe((data) => {
         this.sub.next(data);
       });
   }
 
   deleteProductFromCart(pId: string, cartId: string) {
-    return this.http.delete(
-      `http:////lostchapter-1191.cvtq9j4axrge.us-east-1.rds.amazonaws.com:5432/carts/${cartId}`,
-      {
-        withCredentials: true,
-        observe: 'response',
-        params: {
-          productId: pId,
-        },
-      }
-    );
+    return this.http.delete(`http://localhost:8081/carts/${cartId}`, {
+      withCredentials: true,
+      observe: 'response',
+      params: {
+        productId: pId,
+      },
+    });
   }
 }

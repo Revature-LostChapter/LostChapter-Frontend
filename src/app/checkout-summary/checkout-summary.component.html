@@ -1,2 +1,26 @@
-<p>checkout-summary works!</p>
-<button routerLink="/checkout">Continue Shopping</button>
+<div class="wrapper">
+  <div class="container">
+    <mat-card-content class="main-content">
+      <h1 class="title fs-4">Thank you for your order!</h1>
+      <p class="fs-5">
+        <img src="https://img.icons8.com/color/48/000000/high-five--v2.png" />
+        Your order is confirmed! Review your order information below.
+        <img src="https://img.icons8.com/color/48/000000/high-five--v2.png" />
+      </p>
+      <p class="fs-5 text3">You will receive a shipping information email</p>
+      <div class="orderInfo">
+        <label class="fs-5">Order number:</label>
+        <input type="text" id="orderNumber" />
+        <div class="info">
+          <label class="fs-5">Purchase date:</label>
+          <input type="text" id="purchaseDate" />
+          <label class="fs-5">Payment</label>
+          <input type="text" id="payment" />
+        </div>
+      </div>
+      <button class="btn btn-warning" routerLink="/cart">
+        Continue shopping
+      </button>
+    </mat-card-content>
+  </div>
+</div>
