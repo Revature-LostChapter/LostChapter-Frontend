@@ -9,7 +9,7 @@ import { CheckoutSummaryComponent } from 'src/app/checkout-summary/checkout-summ
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/checkout', pathMatch: 'full'}, 
+  {path: '', redirectTo: '/signup', pathMatch: 'full'},
   // Please change this to which ever component you are testing and implementing
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
