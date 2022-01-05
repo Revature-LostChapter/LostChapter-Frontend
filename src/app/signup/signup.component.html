@@ -89,12 +89,8 @@
         </mat-form-field>
       </mat-card-content>
 
-      <div class="text-success" *ngIf="successMessage" id="success-message">
-        {{ successMessage }}
-      </div>
-      <div class="text-danger" *ngIf="errorMessage" id="error-message">
-        {{ errorMessage }}
-      </div>
+      <div  class="text-success" *ngIf="successMessage" id="success-message">{{successMessage}}</div>
+      <div  class="text-danger" *ngIf="errorMessage" id="error-message">{{errorMessage}}</div>
 
       <button mat-flat-button color="primary" class="btn-block">Sign up</button>
       <br />
