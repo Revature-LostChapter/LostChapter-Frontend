@@ -215,3 +215,13 @@ ul li ul li {
   clear: both;
   width: 100%;
 }
+
+#profile-buttons{
+	display: inline;
+}
+
+span{
+	transform: scale(2);
+	/* font-weight: 100; */
+	color: #ffffff;
+}

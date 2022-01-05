@@ -1,0 +1,32 @@
+footer{
+    /* margin-top: auto; */
+    
+}
+
+.img-fluid{
+    max-width: 25%;
+}
+
+.col-md-2:hover{
+    background-color: #f46036;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+/* Achieved hover through this, https://www.tutorialrepublic.com/codelab.php?topic=faq&file=css-image-swap-on-hover */
+#logo-image {
+    position: relative;
+    display: inline-block;
+}
+#logo-image #ls-logo-hover {
+    display: none;
+    position: absolute;
+    left: 0rem;
+    z-index: 99;
+}
+#logo-image:hover #ls-logo-hover {
+    display: inline;
+    border-radius: 6px;
+}
+
+

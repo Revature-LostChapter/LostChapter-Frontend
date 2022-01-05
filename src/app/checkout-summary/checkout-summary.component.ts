@@ -11,3 +11,4 @@ export class CheckoutSummaryComponent implements OnInit {
 
   ngOnInit(): void {}
 }
+}
