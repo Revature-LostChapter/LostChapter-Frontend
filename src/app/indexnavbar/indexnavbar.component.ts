@@ -2,6 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'User';
 import { LoginService } from '../login.service';
 import { LoginComponent } from '../login/login.component';
+import { HttpClient } from '@angular/common/http';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { lastValueFrom } from 'rxjs';
+import { SearchProducts } from 'SearchProduct';
+import { SearchProductsService } from '../search-products.service';
 
 @Component({
   selector: 'app-indexnavbar',
@@ -34,11 +39,32 @@ export class IndexnavbarComponent implements OnInit {
     },
     (err) => {
 
+
     });
   }
+  constructor(private http: HttpClient, private searchProductService: SearchProductsService) { }
+
+  searchProduct!: SearchProducts;
 
   ngOnInit(): void {
     this.checkIfLoggedIn();
     // get current signed in user, so it will be used to toggle loggedInTrue and show the user's username
+  }
+
+  searchItem!: string;
+  @Output( "searchProduct") searchProductEmitter = new EventEmitter<SearchProducts[]>()
+
+  // for page pagination
+  // p: number = 1;
+  // collection: any[] = someArrayOfThings;
+
+  displaySearchReults() {
+    console.log(this.searchItem);
+    this.searchProductService.getSearchResult(this.searchItem).subscribe((res) => {
+      let body = <SearchProducts[]> res.body;
+      console.log(body)
+      this.searchProductEmitter.emit(body);
+
+    })
   }
 }

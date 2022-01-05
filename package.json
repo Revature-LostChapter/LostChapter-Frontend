@@ -26,6 +26,7 @@
     "bulma": "^0.9.3",
     "jquery": "^3.6.0",
     "material-icons": "^1.10.4",
+    "ngx-pagination": "^5.1.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

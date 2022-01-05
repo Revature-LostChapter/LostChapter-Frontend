@@ -26,8 +26,9 @@ import { CheckoutSummaryComponent } from './checkout-summary/checkout-summary.co
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatMenuModule} from '@angular/material/menu'
-
+import {MatMenuModule} from '@angular/material/menu';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {MatMenuModule} from '@angular/material/menu'
     CartComponent,
     CheckoutComponent,
     CheckoutSummaryComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,7 @@ import {MatMenuModule} from '@angular/material/menu'
     MatButtonModule,
     MatIconModule,
     MatListModule,
-    MatRadioModule, 
+    MatRadioModule,
     MatCardModule,
     ReactiveFormsModule,
     FormsModule,
@@ -61,7 +63,8 @@ import {MatMenuModule} from '@angular/material/menu'
     HttpClientModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatMenuModule
+    MatMenuModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent],
