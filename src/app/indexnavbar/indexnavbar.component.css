@@ -215,3 +215,11 @@ ul li ul li {
   clear: both;
   width: 100%;
 }
+
+#profile-buttons{
+	display: inline;
+}
+
+.icon{
+	transform: scale(2);
+}

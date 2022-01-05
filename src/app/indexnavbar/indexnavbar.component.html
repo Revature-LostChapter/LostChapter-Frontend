@@ -4,7 +4,7 @@
     <div id="nav-belt">
       <div class="nav-left">
         <div id="nav-logo">
-          <a routerLink="/">The Lost Chapter</a>
+          <a routerLink="/">Lost Chapter</a>
         </div>
       </div>
       <div class="nav-fill">
@@ -27,10 +27,11 @@
           <a routerLink="/cart">Cart</a>
         </div>
       </div>
-        <!-- <div class="" *ngIf="loggedInTrue" id="profile-buttons">
-          <p>YOUR USERNAME HERE</p>
-          <img routerLink="/user-profile" [src]="userProfile" href>
-        </div> -->
+        <div class="" *ngIf="loggedInTrue" id="profile-buttons">
+          <p class="text-white">YOUR USERNAME HERE</p>
+          <!-- replace above with probably something like {{user.name}} -->
+          <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon>
+        </div>
     </div>
 
   </div>
