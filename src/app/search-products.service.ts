@@ -9,7 +9,7 @@ export class SearchProductsService {
   constructor(private http: HttpClient) { }
 
   getSearchResult(searchItem: string){
-    return this.http.get(`http://localhost:9090/books/search/${searchItem}`, {
+    return this.http.get(`http://localhost:8081/books/search/${searchItem}`, {
       observe: 'response'
     })
   }
@@ -19,7 +19,7 @@ export class SearchProductsService {
     let parameter = new HttpParams();
     parameter = parameter.append('productId', productId);
     parameter = parameter.append('quantity', quantity);
-    return this.http.post(`http://localhost:9090/users/${userId}/cart`, {},
+    return this.http.post(`http://localhost:8081/users/${userId}/cart`, {},
       {
         "params": parameter,
         withCredentials: true,
