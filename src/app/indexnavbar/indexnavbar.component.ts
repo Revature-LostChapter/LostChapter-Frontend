@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { SearchProducts } from 'SearchProduct';
 import { SearchProductsService } from '../search-products.service';
@@ -15,22 +15,24 @@ export class IndexnavbarComponent implements OnInit {
 
   searchProduct!: SearchProducts;
 
+
   ngOnInit(): void {
   }
 
   searchItem!: string;
-  displayResults: SearchProducts[] = [];
+  @Output( "searchProduct") searchProductEmitter = new EventEmitter<SearchProducts[]>()
 
   // for page pagination
   // p: number = 1;
   // collection: any[] = someArrayOfThings;
 
   displaySearchReults() {
+    console.log(this.searchItem);
     this.searchProductService.getSearchResult(this.searchItem).subscribe((res) => {
-      console.log(res);
-      let responseObj = <{items:SearchProducts[]}>res;
-      this.displayResults = responseObj.items
-      console.log(this.displayResults);
+      let body = <SearchProducts[]> res.body;
+      console.log(body)
+      this.searchProductEmitter.emit(body);
+
     })
   }
 }

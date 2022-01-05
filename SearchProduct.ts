@@ -1,11 +1,11 @@
 export interface SearchProducts  {
-  title: string;
-  authors: [string];
+  bookName: string;
+  author: string;
+  bookImage: string;
+  genre: {genre: string;}
+  edition: string;
+  bookPrice: number;
   publisher: string;
-  publisherDate: string;
-  description: string;
-  industryIdentifiers: {identifier: string}[];
-  categories: [string];
-  imageLinks: {thumbnail: string};
-  salesInfo: {listPrice: {amount: number}};
+  year: number;
+  synopsis: string;
 }

@@ -1,3 +1,4 @@
+<app-indexnavbar (searchProduct)="setShowResults($event)"> </app-indexnavbar>
 <body class="bg-light">
 
   <div class="header-title">
@@ -117,21 +118,21 @@
         <main class="col-lg-9" >
            <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 mb-4 pb-4 g-4">
 
-              <div class="col" *ngFor="let item of displayResults"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+              <div class="col" *ngFor="let item of showResults"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
                  <div class="card h-50">
-                    <img src="" style="object-fit: fill;" alt="Placeholder"> {{item.imageLinks.thumbnail}}
+                    <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
                     <br>
-                    <div class="book-title" style="margin: auto;">Book Title {{item.title}}
+                    <div class="book-title" style="margin: auto;">Book Title {{item.bookName}}
                     </div>
-                    <div class="book-title">Author:</div> {{item.authors}}
-                    <div class="book-title">Published Year:</div> {{item.publisherDate}}
-                    <div class="book-title">Genre:</div> {{item.categories}}
-                    <div class="book-title">Description:</div> {{item.description}}
+                    <div class="book-title">Author:</div> {{item.author}}
+                    <div class="book-title">Published Year:</div> {{item.year}}
+                    <div class="book-title">Genre:</div> {{item.genre.genre}}
+                    <div class="book-title">Description:</div> {{item.synopsis}}
                     <br>
 
                     <div >
                        <div class="d-flex flex-row justify-content-between align-items-center">
-                          <span class="flex-grow-1">Price:</span> {{item.salesInfo.listPrice}}
+                          <span class="flex-grow-1">Price:</span> {{item.bookPrice}}
                           <a routerLink="#"> <button mat-raised-button color="primary">Add to cart
                             <i class="material-icons">shopping_cart</i></button> </a>
                        </div>
