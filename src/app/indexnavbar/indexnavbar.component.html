@@ -1,4 +1,4 @@
-
+<app-indexnavbar></app-indexnavbar>
 <header id="container">
   <div id="nav-bar">
     <div id="nav-belt">
@@ -11,10 +11,11 @@
         <div id="nav-search">
           <form id="nav-search-bar-form">
             <div class="nav-fill">
-              <input type="text" placeholder="Search for books">
+              <input type="text" placeholder="Search for books"
+               [(ngModel)]="searchItem" name="searchItem">
             </div>
             <div class="nav-right">
-              <button type="submit" style="color: white;">Search</button>
+           <button type="submit" style="color: white;" (click)="displaySearchReults()">Search</button>
             </div>
           </form>
         </div>
