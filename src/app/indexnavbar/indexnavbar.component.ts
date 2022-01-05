@@ -1,4 +1,3 @@
-import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'User';
 import { LoginService } from '../login.service';
 import { LoginComponent } from '../login/login.component';
@@ -18,14 +17,12 @@ export class IndexnavbarComponent implements OnInit {
   notLoggedIn:boolean= true;
   ableToSignUp:boolean= true;
   ableToLogIn:boolean= true;
-  constructor(private loginService:LoginService) { }
-  
   getUserStatus(){
-    
+
   }
-  
+
   currentUser!: String;
-  
+
   checkIfLoggedIn() {
     this.loginService.checkLoginStatus().subscribe((res) => {
       if (res.status === 200 || res.status === 201){ // depending on the status
@@ -34,14 +31,14 @@ export class IndexnavbarComponent implements OnInit {
         this.currentUser = body.username;
         this.ableToLogIn = !this.ableToLogIn;
         this.loggedIn = !this.loggedIn;
-        this.notLoggedIn = !this.notLoggedIn; 
+        this.notLoggedIn = !this.notLoggedIn;
       }
     },
     (err) => {
 
     });
   }
-  constructor(private http: HttpClient, private searchProductService: SearchProductsService) { }
+  constructor(private loginService:LoginService, private http: HttpClient, private searchProductService: SearchProductsService) { }
 
   searchProduct!: SearchProducts;
 

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatRadioModule } from '@angular/material/radio';
-
 @Component({
   selector: 'app-checkout-summary',
   templateUrl: './checkout-summary.component.html',
@@ -11,4 +9,4 @@ export class CheckoutSummaryComponent implements OnInit {
 
   ngOnInit(): void {}
 }
-}
+
