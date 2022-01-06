@@ -1,0 +1,335 @@
+<app-indexnavbar></app-indexnavbar>
+<div class="container">
+  <mat-tab-group dynamicHeight [selectedIndex]="getSelectedIndex()" (selectedTabChange)="onTabChange($event)" (selectedTabChange)="getGenreById(selectedIndex)">
+
+   <mat-tab label="Adventure" >
+     <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+          <div class="card h-30 w-30">
+             <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+             <br>
+            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+           </div>
+             <br>
+             <!-- <div >
+                <div style="display: flex; align-items: center; justify-content: center;">
+                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
+                     <i class="material-icons">shopping_cart</i></button> </a>
+                </div>
+             </div> -->
+          </div>
+       </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Novel" >
+      <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+          <div class="card h-30 w-30">
+             <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+             <br>
+            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+           </div>
+             <br>
+             <!-- <div >
+                <div style="display: flex; align-items: center; justify-content: center;">
+                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
+                     <i class="material-icons">shopping_cart</i></button> </a>
+                </div>
+             </div> -->
+          </div>
+       </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Mystery">
+      <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+          <div class="card h-30 w-30">
+             <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+             <br>
+            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+           </div>
+             <br>
+             <!-- <div >
+                <div style="display: flex; align-items: center; justify-content: center;">
+                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
+                     <i class="material-icons">shopping_cart</i></button> </a>
+                </div>
+             </div> -->
+          </div>
+       </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Fiction">
+      <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+          <div class="card h-30 w-30">
+             <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+             <br>
+            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+           </div>
+             <br>
+             <!-- <div >
+                <div style="display: flex; align-items: center; justify-content: center;">
+                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
+                     <i class="material-icons">shopping_cart</i></button> </a>
+                </div>
+             </div> -->
+          </div>
+       </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="NonFiction">
+      <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+          <div class="card h-30 w-30">
+             <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+             <br>
+            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+           </div>
+             <br>
+             <!-- <div >
+                <div style="display: flex; align-items: center; justify-content: center;">
+                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
+                     <i class="material-icons">shopping_cart</i></button> </a>
+                </div>
+             </div> -->
+          </div>
+       </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Science">
+      <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+          <div class="card h-30 w-30">
+             <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+             <br>
+            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+           </div>
+             <br>
+             <!-- <div >
+                <div style="display: flex; align-items: center; justify-content: center;">
+                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
+                     <i class="material-icons">shopping_cart</i></button> </a>
+                </div>
+             </div> -->
+          </div>
+       </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Technology">
+      <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+          <div class="card h-30 w-30">
+             <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+             <br>
+            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+           </div>
+             <br>
+             <!-- <div >
+                <div style="display: flex; align-items: center; justify-content: center;">
+                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
+                     <i class="material-icons">shopping_cart</i></button> </a>
+                </div>
+             </div> -->
+          </div>
+       </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Self Improvement">
+      <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+          <div class="card h-30 w-30">
+             <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+             <br>
+            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+           </div>
+             <br>
+             <!-- <div >
+                <div style="display: flex; align-items: center; justify-content: center;">
+                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
+                     <i class="material-icons">shopping_cart</i></button> </a>
+                </div>
+             </div> -->
+          </div>
+       </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="International">
+      <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+          <div class="card h-30 w-30">
+             <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+             <br>
+            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+           </div>
+             <br>
+             <!-- <div >
+                <div style="display: flex; align-items: center; justify-content: center;">
+                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
+                     <i class="material-icons">shopping_cart</i></button> </a>
+                </div>
+             </div> -->
+          </div>
+       </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Education">
+      <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+          <div class="card h-30 w-30">
+             <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+             <br>
+            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+           </div>
+             <br>
+             <!-- <div >
+                <div style="display: flex; align-items: center; justify-content: center;">
+                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
+                     <i class="material-icons">shopping_cart</i></button> </a>
+                </div>
+             </div> -->
+          </div>
+       </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Action">
+      <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+          <div class="card h-30 w-30">
+             <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+             <br>
+            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+           </div>
+             <br>
+             <!-- <div >
+                <div style="display: flex; align-items: center; justify-content: center;">
+                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
+                     <i class="material-icons">shopping_cart</i></button> </a>
+                </div>
+             </div> -->
+          </div>
+       </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Horror">
+      <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+          <div class="card h-30 w-30">
+             <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+             <br>
+            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+           </div>
+             <br>
+             <!-- <div >
+                <div style="display: flex; align-items: center; justify-content: center;">
+                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
+                     <i class="material-icons">shopping_cart</i></button> </a>
+                </div>
+             </div> -->
+          </div>
+       </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Romance">
+      <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+          <div class="card h-30 w-30">
+             <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+             <br>
+            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+           </div>
+             <br>
+             <!-- <div >
+                <div style="display: flex; align-items: center; justify-content: center;">
+                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
+                     <i class="material-icons">shopping_cart</i></button> </a>
+                </div>
+             </div> -->
+          </div>
+       </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Comedy">
+      <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+          <div class="card h-30 w-30">
+             <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+             <br>
+            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+           </div>
+             <br>
+             <!-- <div >
+                <div style="display: flex; align-items: center; justify-content: center;">
+                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
+                     <i class="material-icons">shopping_cart</i></button> </a>
+                </div>
+             </div> -->
+          </div>
+       </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Fantasy">
+      <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+          <div class="card h-30 w-30">
+             <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+             <br>
+            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+           </div>
+             <br>
+             <!-- <div >
+                <div style="display: flex; align-items: center; justify-content: center;">
+                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
+                     <i class="material-icons">shopping_cart</i></button> </a>
+                </div>
+             </div> -->
+          </div>
+       </div>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+</div>

@@ -30,6 +30,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomeComponent } from './home/home.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CheckoutComponent,
     CheckoutSummaryComponent,
     UserProfileComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatTooltipModule,
     MatMenuModule,
     NgxPaginationModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
