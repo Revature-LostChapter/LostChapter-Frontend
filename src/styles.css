@@ -1,5 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  background: var(--background-default);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "PT Sans", sans-serif;
+}
+
 
 .mat-form-field-placeholder {
   display:block !important;
@@ -10,10 +23,35 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 	--second-header-bg: #f46036;
 	--main-border: #ff9000;
 	--main-border-shadow: #80a4ed;
-	--main-text: #f3a847;
 	--second-text: white;
 	--main-search-opt: #cdcdcd;
 	--second-search-opt: #f3f3f3;
 	--border-radius: 0.2rem;
-	background: white;
 }
+
+:root {
+  /* Colors */
+
+  --foreground-default: #08090a;
+  --foreground-secondary: #41474d;
+  --foreground-tertiary: #80a4ed;
+  --foreground-quaternary: #f4faff;
+  --foreground-light: #41474d;
+
+  --background-default: #f4faff;
+  --background-secondary: #a3b9cc;
+  --background-tertiary: #5c7d99;
+  --background-light: #ffffff;
+
+  --primary-default: #5dfdcb;
+  --primary-dark: #24b286;
+  --primary-light: #b2ffe7;
+
+  --error-default: #ef3e36;
+  --error-dark: #800600;
+  --error-light: #ffcecc;
+
+  /* Shadows */
+  --background-tertiary-shadow: 0 1px 3px 0 rgba(92, 125, 153, 0.5);
+}
+

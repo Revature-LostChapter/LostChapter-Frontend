@@ -1,168 +1,170 @@
 <app-indexnavbar (searchProduct)="setShowResults($event)"> </app-indexnavbar>
-<body class="bg-light">
+  <body class="container">
 
-  <div class="header-title">
-    <p> <span style="font-weight: bold; font-size: larger; ">You Searched </span>
-       <span style="font-weight: bold; font-size: larger; color: #69626d;">The Hitchhiker's guide to the galaxy</span></p>
-  </div>
+    <div class="header-title">
+      <p> <span style="font-weight: bold; font-size: larger; ">You Searched </span>
+         <span style="font-weight: bold; font-size: larger; color: #69626d;">The Hitchhiker's guide to the galaxy</span></p>
+    </div>
 
-  <div class="container py-4">
-     <h1 class="h2 fw-bold mb-1">Search Results</h1>
-     <nav aria-label="breadcrumb" role="navigation">
-        <ol class="breadcrumb px-0">
-           <li class="breadcrumb-item"><a href="#">Home</a></li>
-           <li class="breadcrumb-item"><a href="#">Category</a></li>
-           <li class="breadcrumb-item active">Books</li>
-        </ol>
-     </nav>
-  </div>
-  <section class="container">
-     <div class="row g-4 mb-4">
-        <aside class="col-lg-3">
-           <div class="accordion">
+    <div class="container py-4">
+       <h1 class="h2 fw-bold mb-1">Search Results</h1>
+       <nav aria-label="breadcrumb" role="navigation">
+          <ol class="breadcrumb px-0">
+             <li class="breadcrumb-item"><a href="#">Home</a></li>
+             <li class="breadcrumb-item"><a href="#">Category</a></li>
+             <li class="breadcrumb-item active">Books</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="container">
+       <div class="row g-4 mb-4">
+          <aside class="col-lg-3">
+             <div class="accordion">
 
-              <div class="accordion-item">
-                 <h2 class="accordion-header"
-                     id="accordion_a000">
-                    <button class="accordion-button"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#accordion_b000"
-                            aria-expanded="true"
-                            aria-controls="accordion_b000">Categories</button>
-                 </h2>
-                 <div id="accordion_b000"
-                      class="accordion-collapse collapse show"
-                      aria-labelledby="accordion_a000"
-                      data-bs-parent="#accordion_a000">
-                    <div class="accordion-body pt-1">
-                    <h1>Author: </h1>
+                <div class="accordion-item">
+                   <h2 class="accordion-header"
+                       id="accordion_a000">
+                      <button class="accordion-button"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#accordion_b000"
+                              aria-expanded="true"
+                              aria-controls="accordion_b000">Categories</button>
+                   </h2>
+                   <div id="accordion_b000"
+                        class="accordion-collapse collapse show"
+                        aria-labelledby="accordion_a000"
+                        data-bs-parent="#accordion_a000">
+                      <div class="accordion-body pt-1">
+                      <h1 style="color: black;">Author: </h1>
+                         <div class="form mb-3">
+                            <div class="input-group">
+                               <input type="text"
+                                      class="form-control"
+                                      aria-label="Search"
+                                      placeholder="Brandon Sanderson" />
+                               <button mat-raised-button color="primary">Search</button>
+                            </div>
+                         </div>
+
+                         <h1 style="color: black;">Genre:</h1>
+                         <mat-form-field appearance="fill">
+                           <mat-label>Genre:</mat-label>
+                           <mat-select [(value)]="selected">
+                            <mat-option value="option1">Adventure</mat-option>
+                            <mat-option value="option2">Novel</mat-option>
+                            <mat-option value="option3">Mistery</mat-option>
+                            <mat-option value="option4">Fiction</mat-option>
+                            <mat-option value="option5">NonFiction</mat-option>
+                            <mat-option value="option6">Science</mat-option>
+                            <mat-option value="option7">Technology</mat-option>
+                            <mat-option value="option8">Self Improvement</mat-option>
+                            <mat-option value="option9">International</mat-option>
+                            <mat-option value="option10">Education</mat-option>
+                            <mat-option value="option11">Action</mat-option>
+                            <mat-option value="option12">Horror</mat-option>
+                            <mat-option value="option13">Romance</mat-option>
+                            <mat-option value="option14">Comedy</mat-option>
+
+                           </mat-select>
+                         </mat-form-field>
+
+                         <br>
+                         <h1 style="color: black;">Published Year</h1>
+
+                         <div class="row row-cols-md-2 g-2 mb-3">
+                          <div class="col">
+                             <label style="color: black;">Min Year</label>
+                             <input class="form-control px-1"
+                                    placeholder="1400"
+                                    type="number" />
+                          </div>
+                          <div class="col text-end">
+                             <label style="color: black;">Max Year</label>
+                             <input
+                                    class="form-control px-1"
+                                    placeholder="2022"
+                                    type="number" />
+                          </div>
+                       </div>
+
+                       <button class="btn btn-primary w-100">Apply</button>
+
+                       <br>
+                       <br>
+
+                       <h1 style="color: black;">Publisher: </h1>
                        <div class="form mb-3">
                           <div class="input-group">
                              <input type="text"
                                     class="form-control"
                                     aria-label="Search"
-                                    placeholder="Brandon Sanderson" />
+                                    placeholder="Richard Shoemaker" />
                              <button mat-raised-button color="primary">Search</button>
                           </div>
                        </div>
 
-                       <h1>Genre:</h1>
-                       <mat-form-field appearance="fill">
-                         <mat-label>Genre:</mat-label>
-                         <mat-select [(value)]="selected">
-                          <mat-option value="option1">Adventure</mat-option>
-                          <mat-option value="option2">Novel</mat-option>
-                          <mat-option value="option3">Mistery</mat-option>
-                          <mat-option value="option4">Fiction</mat-option>
-                          <mat-option value="option5">NonFiction</mat-option>
-                          <mat-option value="option6">Science</mat-option>
-                          <mat-option value="option7">Technology</mat-option>
-                          <mat-option value="option8">Self Improvement</mat-option>
-                          <mat-option value="option9">International</mat-option>
-                          <mat-option value="option10">Education</mat-option>
-                          <mat-option value="option11">Action</mat-option>
-                          <mat-option value="option12">Horror</mat-option>
-                          <mat-option value="option13">Romance</mat-option>
-                          <mat-option value="option14">Comedy</mat-option>
+                      </div>
+                   </div>
+                </div>
 
-                         </mat-select>
-                       </mat-form-field>
+                <br>
+                <div class="accordion-item mt-0">
+                </div>
 
-                       <br>
-                       <h1>Published Year</h1>
+             </div>
+          </aside>
 
-                       <div class="row row-cols-md-2 g-2 mb-3">
-                        <div class="col">
-                           <label>Min Year</label>
-                           <input class="form-control px-1"
-                                  placeholder="1400"
-                                  type="number" />
-                        </div>
-                        <div class="col text-end">
-                           <label>Max Year</label>
-                           <input
-                                  class="form-control px-1"
-                                  placeholder="2022"
-                                  type="number" />
-                        </div>
-                     </div>
+          <main class="col-lg-9" >
+             <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-4 mb-4 pb-4 g-5">
 
-                     <button class="btn btn-primary w-100">Apply</button>
-
-                     <br>
-                     <br>
-
-                     <h1>Publisher: </h1>
-                     <div class="form mb-3">
-                        <div class="input-group">
-                           <input type="text"
-                                  class="form-control"
-                                  aria-label="Search"
-                                  placeholder="Richard Shoemaker" />
-                           <button mat-raised-button color="primary">Search</button>
-                        </div>
-                     </div>
+                <div class="col" *ngFor="let item of showResults"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+                   <div class="card h-40 w-40">
+                      <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+                      <br>
+                     <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+                      <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
 
                     </div>
-                 </div>
-              </div>
+                      <!-- <div class="book-title">Author: {{item.author}}</div>
+                      <div class="book-title">Published Year: {{item.year}}</div>
+                      <div class="book-title">Genre: {{item.genre.genre}} </div>
+                      <div class="book-title">Description: {{item.synopsis}}</div> -->
+                      <br>
 
-              <br>
-              <div class="accordion-item mt-0">
-              </div>
+                      <div >
+                         <div style="display: flex; align-items: center; justify-content: center;">
+                            <a routerLink="#"> <button mat-raised-button color="primary">Add to cart
+                              <i class="material-icons">shopping_cart</i></button> </a>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <nav> <!--    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+             -->
+                <ul class="pagination justify-content-center">
+                   <li class="page-item">
+                      <a class="page-link" routerLink="#" aria-label="Previous">
+                         <span class="chevron-left" aria-hidden="true">Previous</span>
+                      </a>
+                   </li>
+                   <li class="page-item active"><a class="page-link" routerLink="#">1</a></li>
+                   <li class="page-item"><a class="page-link" routerLink="#">2</a></li>
+                   <li class="page-item"><a class="page-link" routerLink="#">3</a></li>
+                   <li class="page-item"><a class="page-link" routerLink="#">4</a></li>
+                   <li class="page-item"><a class="page-link" routerLink="#">5</a></li>
+                   <li class="page-item">
+                      <a class="page-link" routerLink="#" aria-label="Next">
+                         <span class="chevron-right" aria-hidden="true">Next</span>
+                      </a>
+                   </li>
+                </ul>
+             </nav>
 
-           </div>
-        </aside>
+          </main>
+       </div>
+    </section>
 
-        <main class="col-lg-9" >
-           <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 mb-4 pb-4 g-4">
+  </body>
 
-              <div class="col" *ngFor="let item of showResults"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-                 <div class="card h-50">
-                    <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
-                    <br>
-                    <div class="book-title" style="margin: auto;">Book Title: {{item.bookName}}
-                    </div>
-                    <div class="book-title">Author:{{item.author}}</div>
-                    <div class="book-title">Published Year:{{item.year}}</div>
-                    <div class="book-title">Genre:{{item.genre.genre}} </div>
-                    <div class="book-title">Description: {{item.synopsis}}</div>
-                    <br>
-
-                    <div >
-                       <div class="d-flex flex-row justify-content-between align-items-center">
-                          <span class="flex-grow-1">Price: {{item.bookPrice}}</span>
-                          <a routerLink="#"> <button mat-raised-button color="primary">Add to cart
-                            <i class="material-icons">shopping_cart</i></button> </a>
-                       </div>
-                    </div>
-                 </div>
-              </div>
-           </div>
-           <nav> <!--    <pagination-controls (pageChange)="p = $event"></pagination-controls>
-           -->
-              <ul class="pagination justify-content-center">
-                 <li class="page-item">
-                    <a class="page-link" routerLink="#" aria-label="Previous">
-                       <span class="chevron-left" aria-hidden="true">Previous</span>
-                    </a>
-                 </li>
-                 <li class="page-item active"><a class="page-link" routerLink="#">1</a></li>
-                 <li class="page-item"><a class="page-link" routerLink="#">2</a></li>
-                 <li class="page-item"><a class="page-link" routerLink="#">3</a></li>
-                 <li class="page-item"><a class="page-link" routerLink="#">4</a></li>
-                 <li class="page-item"><a class="page-link" routerLink="#">5</a></li>
-                 <li class="page-item">
-                    <a class="page-link" routerLink="#" aria-label="Next">
-                       <span class="chevron-right" aria-hidden="true">Next</span>
-                    </a>
-                 </li>
-              </ul>
-           </nav>
-
-        </main>
-     </div>
-  </section>
-
-</body>
