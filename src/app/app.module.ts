@@ -29,6 +29,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatMenuModule} from '@angular/material/menu';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatToolbarModule,
     MatTooltipModule,
     MatMenuModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

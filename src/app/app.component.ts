@@ -9,3 +9,4 @@ import { CartComponent } from './cart/cart.component';
 export class AppComponent {
   title = 'lost-chapter-frontend';
 }
+
