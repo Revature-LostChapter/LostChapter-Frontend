@@ -35,6 +35,12 @@ export class SearchProductsService {
       })
   }
 
+  getBookById(bookId: number){
+    return this.http.get(`http://localhost:9090/books/${bookId}`, {
+      observe: 'response'
+    })
+  }
+
 }
 
 

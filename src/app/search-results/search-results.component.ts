@@ -13,7 +13,8 @@ import { SearchProductsService } from '../search-products.service';
 })
 export class SearchResultsComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private router: Router, private addProductToCartService: SearchProductsService) { }
+  constructor(private loginService: LoginService, private router: Router,
+    private addProductToCartService: SearchProductsService) { }
   cartId!: number;
   quantity!: string;
 

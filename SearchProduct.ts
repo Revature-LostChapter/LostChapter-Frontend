@@ -1,4 +1,5 @@
 export interface SearchProducts  {
+  bookId: number;
   bookName: string;
   author: string;
   bookImage: string;

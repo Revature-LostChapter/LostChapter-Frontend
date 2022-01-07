@@ -32,6 +32,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './home/home.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { DisplayProductModalComponent } from './display-product-modal/display-product-modal.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     CheckoutSummaryComponent,
     UserProfileComponent,
     SearchResultsComponent,
-    HomeComponent
+    HomeComponent,
+    DisplayProductModalComponent
   ],
   imports: [
     BrowserModule,
