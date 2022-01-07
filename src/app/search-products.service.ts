@@ -11,13 +11,13 @@ export class SearchProductsService {
   public currentTabIndex = 1;
 
   getSearchResult(searchItem: string){
-    return this.http.get(`http://localhost:9090/books/search/${searchItem}`, {
+    return this.http.get(`http://localhost:8081/books/search/${searchItem}`, {
       observe: 'response'
     })
   }
 
   getSearchByGenre(genreId: number){
-    return this.http.get(`http://localhost:9090/books/genre/${genreId}`, {
+    return this.http.get(`http://localhost:8081/books/genre/${genreId}`, {
       observe: 'response'
     })
   }
@@ -28,6 +28,7 @@ export class SearchProductsService {
     parameter = parameter.append('bookId', productId);
     parameter = parameter.append('quantityToBuy', quantity);
     return this.http.post(`http://localhost:9090/users/${userId}/cart`, {},
+
       {
         "params": parameter,
         withCredentials: true,
@@ -36,7 +37,7 @@ export class SearchProductsService {
   }
 
   getBookById(bookId: number){
-    return this.http.get(`http://localhost:9090/books/${bookId}`, {
+    return this.http.get(`http://localhost:8081/books/${bookId}`, {
       observe: 'response'
     })
   }
