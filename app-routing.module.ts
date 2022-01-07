@@ -10,7 +10,7 @@ import { SearchResultsComponent } from 'src/app/search-results/search-results.co
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/search-results', pathMatch: 'full'},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   // Please change this to which ever component you are testing and implementing
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
