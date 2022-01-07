@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SearchProducts } from 'SearchProduct';
 import { User } from 'User';
 import { Cart } from '../Cart';
@@ -16,6 +16,7 @@ import { SearchProductsService } from '../search-products.service';
 export class SearchResultsComponent implements OnInit {
 
   selected = 'option2';
+  errorMessage!: string;
 
   showResults: SearchProducts[] = [];
   selectedProducts!: SearchProducts;
@@ -26,44 +27,56 @@ export class SearchResultsComponent implements OnInit {
   collection = [];
 
   constructor(private loginService: LoginService, private router: Router,
-    private addProductToCartService: SearchProductsService, public dialog: MatDialog) {}
+    private addProductToCartService: SearchProductsService, public dialog: MatDialog, private route: ActivatedRoute) {}
 
   cartId!: number;
   quantity!: string;
+  private sub: any;
 
   ngOnInit(): void {
-
-  }
-
-  checkIfLoggedIn() {
-    this.loginService.checkLoginStatus().subscribe((res) => {
-      if (res.status === 200 || res.status === 201){ // depending on the status
-        let body = <User> res.body;
-
-        if(body.role === 'Customer'){
-          this.cartId = body.id;
-        }
-
-        if(body.role === 'Admin'){
-          this.router.navigate(['/admin']);
-        }
-      }
-    },
-    (err) => {
+    this.checkIfLoggedIn();
+    this.sub = this.route.params.subscribe(params => {
+    this.showKeyword = params['searchKeyword'];
+    this.showSearchResults()
 
     });
   }
 
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+
+  checkIfLoggedIn() {
+    this.loginService.checkLoginStatus().subscribe({
+      next: (res)=> {
+        if(res.status === 200 || res.status === 201){
+          let body = <User> res.body;
+
+          if(body.role === 'Customer'){
+              this.cartId = body.id;
+          }
+          if(body.role === 'Admin'){
+            this.router.navigate(['/admin']);
+          }
+        }
+      },
+      error:(err) => {
+        if(err.status === 400 || err.status === 404){
+          this.router.navigate(['']);
+        }
+      }
+    })
+  }
+
   onAddToCart(productId: number){
-    this.addProductToCartService.addToCart(String(productId), this.quantity, String(this.cartId)).subscribe({
+    this.addProductToCartService.addToCart(String(productId), String("1"), String(this.cartId)).subscribe({
       next: (res) => {
         if(res.status === 200 || res.status === 201) {
           let body = <Cart> res.body;
-          console.log(body);
         }
       },
       error: (err) =>{
-        console.log(err);
+        this.errorMessage = err.console.error;
 
       }
     })
@@ -96,4 +109,18 @@ export class SearchResultsComponent implements OnInit {
   setShowResults(showResults: SearchProducts[]) {
     this.showResults = showResults;
   }
+
+  showKeyword!: string;
+  setShowKeyowrd(showKeyword: string){
+    this.showKeyword = showKeyword;
+    this.showSearchResults();
+  }
+
+  showSearchResults(){
+    this.addProductToCartService.getSearchResult(this.showKeyword).subscribe((res) => {
+      let body = <SearchProducts[]> res.body;
+      this.showResults = body;
+  })
+  }
+
 }

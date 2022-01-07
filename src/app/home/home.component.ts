@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { Router } from '@angular/router';
@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit {
   displayProducts: SearchProducts[] = [];
   selectedIndex: number = 1;
   selectedProducts!: SearchProducts;
+
+
 
   // bookId!: number;
   dialogResult!: string;
@@ -70,6 +72,20 @@ export class HomeComponent implements OnInit {
   setShowResults(showResults: SearchProducts[]) {
     this.showResults = showResults;
   }
+
+  showKeyword!: string;
+  setShowKeyowrd(showKeyword: string){
+    this.showKeyword = showKeyword;
+    this.showSearchResults();
+  }
+
+  showSearchResults(){
+    this.getGenreService.getSearchResult(this.showKeyword).subscribe((res) => {
+      let body = <SearchProducts[]> res.body;
+      this.showResults = body;
+  })
+  }
+
 }
 
 
