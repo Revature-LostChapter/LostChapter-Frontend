@@ -10,12 +10,11 @@
         <div id="nav-search">
           <form id="nav-search-bar-form">
             <div class="nav-fill">
-              <input type="text" placeholder="Search for books"
-               [(ngModel)]="searchItem" name="searchItem">
+              <input type="text" placeholder="Search for books..." [(ngModel)]="searchItem" name="searchItem">
             </div>
             <div class="nav-right">
               <!-- <a routerLink="/search-results" routerLinkActive="/search-results"></a> -->
-            <button type="submit" style="color: grey; background: aliceblue; height: 45px;" (click)="displaySearchReults()">Search</button>
+              <a routerLink="/search-results" routerLinkActive="/search-results"><button type="submit" style="color: grey; background: aliceblue; height: 45px;" (click)="displaySearchResults()">Search</button></a>
             </div>
           </form>
         </div>
