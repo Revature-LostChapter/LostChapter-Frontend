@@ -44,7 +44,7 @@
       <div class="item-info-parent">
         <div class="main-info">
           <h4>Ugly Love</h4> <!--{{title}}-->
-          <h3>By: <span id="author" style="color: burlywood;"> <strong>Coleen Hoover</strong> </span> (Author)</h3>
+          <h3>By: <span id="author" > <strong style="color: burlywood;">Coleen Hoover</strong> </span> (Author)</h3>
 
           <h3>ISBN: <span id="isbn" style="color: burlywood;"> <strong>1234567890</strong> </span></h3>
           <h3>Edition: <span id="edition" style="color: burlywood;"><strong>4th</strong> </span></h3>
@@ -65,7 +65,7 @@
     <mat-dialog-content>
       <div style="display: flex; align-items: right; justify-content: right;">
         <br>
-        <button mat-raised-button color="primary">Cancel</button>
+        <button style="background-color: blue; color: burlywood;" mat-raised-button (click)="onCloseDisplayProduct()" >Cancel</button>
      </div>
     </mat-dialog-content>
 

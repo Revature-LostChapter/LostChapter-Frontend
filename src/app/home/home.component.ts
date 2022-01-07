@@ -63,6 +63,11 @@ export class HomeComponent implements OnInit {
     });
 
   }
+
+  showResults: SearchProducts[] = [];
+  setShowResults(showResults: SearchProducts[]) {
+    this.showResults = showResults;
+  }
 }
 
 

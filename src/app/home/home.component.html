@@ -1,8 +1,10 @@
-<app-indexnavbar></app-indexnavbar>
+<app-indexnavbar (searchProduct)="setShowResults($event)"> </app-indexnavbar>
 <div class="container">
   <mat-tab-group dynamicHeight [selectedIndex]="getSelectedIndex()" (selectedTabChange)="onTabChange($event)" (selectedTabChange)="getGenreById(selectedIndex)">
 
    <mat-tab label="Adventure" >
+     <br>
+     <br>
      <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
@@ -13,12 +15,7 @@
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
            </div>
              <br>
-             <!-- <div >
-                <div style="display: flex; align-items: center; justify-content: center;">
-                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
-                     <i class="material-icons">shopping_cart</i></button> </a>
-                </div>
-             </div> -->
+
           </div>
        </div>
       </div>
@@ -26,6 +23,8 @@
 
     <mat-tab label="Novel" >
       <br>
+     <br>
+     <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
           <div class="card h-30 w-30">
@@ -35,12 +34,7 @@
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
            </div>
              <br>
-             <!-- <div >
-                <div style="display: flex; align-items: center; justify-content: center;">
-                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
-                     <i class="material-icons">shopping_cart</i></button> </a>
-                </div>
-             </div> -->
+
           </div>
        </div>
       </div>
@@ -48,6 +42,8 @@
 
     <mat-tab label="Mystery">
       <br>
+     <br>
+     <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
           <div class="card h-30 w-30">
@@ -57,12 +53,7 @@
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
            </div>
              <br>
-             <!-- <div >
-                <div style="display: flex; align-items: center; justify-content: center;">
-                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
-                     <i class="material-icons">shopping_cart</i></button> </a>
-                </div>
-             </div> -->
+
           </div>
        </div>
       </div>
@@ -70,6 +61,8 @@
 
     <mat-tab label="Fiction">
       <br>
+     <br>
+     <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
           <div class="card h-30 w-30">
@@ -79,12 +72,7 @@
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
            </div>
              <br>
-             <!-- <div >
-                <div style="display: flex; align-items: center; justify-content: center;">
-                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
-                     <i class="material-icons">shopping_cart</i></button> </a>
-                </div>
-             </div> -->
+
           </div>
        </div>
       </div>
@@ -92,6 +80,8 @@
 
     <mat-tab label="NonFiction">
       <br>
+     <br>
+     <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
           <div class="card h-30 w-30">
@@ -101,12 +91,7 @@
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
            </div>
              <br>
-             <!-- <div >
-                <div style="display: flex; align-items: center; justify-content: center;">
-                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
-                     <i class="material-icons">shopping_cart</i></button> </a>
-                </div>
-             </div> -->
+
           </div>
        </div>
       </div>
@@ -114,6 +99,8 @@
 
     <mat-tab label="Science">
       <br>
+     <br>
+     <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
           <div class="card h-30 w-30">
@@ -123,12 +110,7 @@
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
            </div>
              <br>
-             <!-- <div >
-                <div style="display: flex; align-items: center; justify-content: center;">
-                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
-                     <i class="material-icons">shopping_cart</i></button> </a>
-                </div>
-             </div> -->
+
           </div>
        </div>
       </div>
@@ -136,6 +118,8 @@
 
     <mat-tab label="Technology">
       <br>
+     <br>
+     <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
           <div class="card h-30 w-30">
@@ -145,12 +129,7 @@
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
            </div>
              <br>
-             <!-- <div >
-                <div style="display: flex; align-items: center; justify-content: center;">
-                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
-                     <i class="material-icons">shopping_cart</i></button> </a>
-                </div>
-             </div> -->
+
           </div>
        </div>
       </div>
@@ -158,6 +137,8 @@
 
     <mat-tab label="Self Improvement">
       <br>
+     <br>
+     <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
           <div class="card h-30 w-30">
@@ -167,12 +148,7 @@
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
            </div>
              <br>
-             <!-- <div >
-                <div style="display: flex; align-items: center; justify-content: center;">
-                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
-                     <i class="material-icons">shopping_cart</i></button> </a>
-                </div>
-             </div> -->
+
           </div>
        </div>
       </div>
@@ -180,6 +156,8 @@
 
     <mat-tab label="International">
       <br>
+     <br>
+     <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
           <div class="card h-30 w-30">
@@ -189,12 +167,7 @@
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
            </div>
              <br>
-             <!-- <div >
-                <div style="display: flex; align-items: center; justify-content: center;">
-                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
-                     <i class="material-icons">shopping_cart</i></button> </a>
-                </div>
-             </div> -->
+
           </div>
        </div>
       </div>
@@ -202,6 +175,8 @@
 
     <mat-tab label="Education">
       <br>
+      <br>
+      <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
           <div class="card h-30 w-30">
@@ -211,12 +186,7 @@
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
            </div>
              <br>
-             <!-- <div >
-                <div style="display: flex; align-items: center; justify-content: center;">
-                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
-                     <i class="material-icons">shopping_cart</i></button> </a>
-                </div>
-             </div> -->
+
           </div>
        </div>
       </div>
@@ -224,6 +194,8 @@
 
     <mat-tab label="Action">
       <br>
+     <br>
+     <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
           <div class="card h-30 w-30">
@@ -233,12 +205,7 @@
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
            </div>
              <br>
-             <!-- <div >
-                <div style="display: flex; align-items: center; justify-content: center;">
-                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
-                     <i class="material-icons">shopping_cart</i></button> </a>
-                </div>
-             </div> -->
+
           </div>
        </div>
       </div>
@@ -246,6 +213,8 @@
 
     <mat-tab label="Horror">
       <br>
+     <br>
+     <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
           <div class="card h-30 w-30">
@@ -255,18 +224,15 @@
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
            </div>
              <br>
-             <!-- <div >
-                <div style="display: flex; align-items: center; justify-content: center;">
-                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
-                     <i class="material-icons">shopping_cart</i></button> </a>
-                </div>
-             </div> -->
+
           </div>
        </div>
       </div>
     </mat-tab>
     <mat-tab label="Romance">
       <br>
+     <br>
+     <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
           <div class="card h-30 w-30">
@@ -276,12 +242,7 @@
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
            </div>
              <br>
-             <!-- <div >
-                <div style="display: flex; align-items: center; justify-content: center;">
-                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
-                     <i class="material-icons">shopping_cart</i></button> </a>
-                </div>
-             </div> -->
+
           </div>
        </div>
       </div>
@@ -289,6 +250,8 @@
 
     <mat-tab label="Comedy">
       <br>
+     <br>
+     <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
           <div class="card h-30 w-30">
@@ -298,18 +261,15 @@
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
            </div>
              <br>
-             <!-- <div >
-                <div style="display: flex; align-items: center; justify-content: center;">
-                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
-                     <i class="material-icons">shopping_cart</i></button> </a>
-                </div>
-             </div> -->
+
           </div>
        </div>
       </div>
     </mat-tab>
 
     <mat-tab label="Fantasy">
+      <br>
+      <br>
       <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
@@ -320,12 +280,7 @@
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
            </div>
              <br>
-             <!-- <div >
-                <div style="display: flex; align-items: center; justify-content: center;">
-                   <a routerLink="#"> <button mat-raised-button color="primary">Product Page
-                     <i class="material-icons">shopping_cart</i></button> </a>
-                </div>
-             </div> -->
+
           </div>
        </div>
       </div>
