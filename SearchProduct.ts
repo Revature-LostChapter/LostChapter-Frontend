@@ -1,4 +1,5 @@
 export interface SearchProducts  {
+  bookId: number;
   bookName: string;
   author: string;
   bookImage: string;
@@ -8,4 +9,7 @@ export interface SearchProducts  {
   publisher: string;
   year: number;
   synopsis: string;
+  isbn: string;
+  saleIsActive: boolean;
+  saleDiscountRate: number;
 }

@@ -6,6 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { SearchProducts } from 'SearchProduct';
 import { SearchProductsService } from '../search-products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-indexnavbar',
@@ -38,9 +39,11 @@ export class IndexnavbarComponent implements OnInit {
 
     });
   }
-  constructor(private loginService:LoginService, private http: HttpClient, private searchProductService: SearchProductsService) { }
+  constructor(private loginService:LoginService, private http: HttpClient, private searchProductService: SearchProductsService, private router: Router) { }
 
   searchProduct!: SearchProducts;
+
+  isSearchBlank!: true;
 
   ngOnInit(): void {
     this.checkIfLoggedIn();
@@ -54,12 +57,11 @@ export class IndexnavbarComponent implements OnInit {
   // p: number = 1;
   // collection: any[] = someArrayOfThings;
 
-  displaySearchReults() {
-    console.log(this.searchItem);
+  displaySearchResults() {
     this.searchProductService.getSearchResult(this.searchItem).subscribe((res) => {
-      let body = <SearchProducts[]> res.body;
-      console.log(body)
-      this.searchProductEmitter.emit(body);
+        let body = <SearchProducts[]> res.body;
+        this.searchProductEmitter.emit(body);
+        this.router.navigate(['/search-results'])
 
     })
   }
