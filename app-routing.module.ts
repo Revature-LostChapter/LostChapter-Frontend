@@ -18,7 +18,8 @@ const routes: Routes = [
   {path: 'checkout-summary', component: CheckoutSummaryComponent},
   {path: 'userprofile', component: UserProfileComponent},
   {path: 'cart', component: CartComponent},
-  {path: 'search-results', component: SearchResultsComponent},
+  {path: 'search-results/:searchKeyword', component: SearchResultsComponent},
+
   {path: 'home', component: HomeComponent}
 ];
 

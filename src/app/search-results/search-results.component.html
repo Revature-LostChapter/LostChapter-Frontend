@@ -1,9 +1,11 @@
-<app-indexnavbar (searchProduct)="setShowResults($event)"> </app-indexnavbar>
+<!-- <app-indexnavbar (searchProduct)="setShowResults($event)"> </app-indexnavbar> -->
+<app-indexnavbar (searchKeyword)="setShowKeyowrd($event)"> </app-indexnavbar>
+
   <body class="container">
 
     <div class="header-title">
-      <p> <span style="font-weight: bold; font-size: larger; ">You Searched </span>
-         <span style="font-weight: bold; font-size: larger; color: #69626d;">The Hitchhiker's guide to the galaxy</span></p>
+      <p> <span style="font-weight: bold; font-size: larger; ">You Searched: {{showKeyword}} </span>
+         <span style="font-weight: bold; font-size: larger; color: #69626d;"></span></p>
     </div>
 
     <div class="container py-4">
@@ -131,7 +133,7 @@
 
                       <div >
                          <div style="display: flex; align-items: center; justify-content: center;">
-                            <a routerLink="#"> <button mat-raised-button color="primary" (click)="onAddToCart(item.bookId)">Add to cart
+                            <a routerLink="/cart"> <button mat-raised-button color="primary" (click)="onAddToCart(item.bookId)">Add to cart
                               <i class="material-icons">shopping_cart</i></button> </a>
                          </div>
                       </div>
