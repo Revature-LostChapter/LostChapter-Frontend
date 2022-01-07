@@ -27,6 +27,9 @@
           <ng-container *ngIf="ableToLogIn">
             <a routerLink="/login">Log in</a>
           </ng-container>
+          <ng-container *ngIf="loggedIn">
+            <button id="log-out-btn" routerLink="" (click)="logout()">Log Out</button>
+          </ng-container>
           <!-- Changed routerLink above from routerLink="" to routerLink="/login"  -->
           <a routerLink="/cart">Cart</a>
         </div>
@@ -36,7 +39,7 @@
           <!-- replace above with probably something like {{user.username}}}} -->
         </div>
         <div class="p-3" *ngIf="notLoggedIn" id="profile-buttons">
-          <p class="text-info">Sign in now</p>
+          <p class="text-info" routerLink="/userprofile">Sign in now</p>
           <!-- replace above with probably something like {{user.name}} -->
         </div>
         <div class="p-3">

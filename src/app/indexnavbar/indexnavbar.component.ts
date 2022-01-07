@@ -18,16 +18,14 @@ export class IndexnavbarComponent implements OnInit {
   notLoggedIn:boolean= true;
   ableToSignUp:boolean= true;
   ableToLogIn:boolean= true;
-  getUserStatus(){
-
-  }
-
+  role!:String;
   currentUser!: String;
 
   checkIfLoggedIn() {
     this.loginService.checkLoginStatus().subscribe((res) => {
       if (res.status === 200 || res.status === 201){ // depending on the status
-        let body = <User> res.body;
+        let body = <User> res.body; 
+        this.role = body.role;
         this.ableToSignUp = !this.ableToSignUp;
         this.currentUser = body.username;
         this.ableToLogIn = !this.ableToLogIn;
@@ -38,6 +36,33 @@ export class IndexnavbarComponent implements OnInit {
     (err) => {
 
     });
+  }
+
+  logout(){
+    if (this.role  === 'Customer'){
+      this.loginService.logout().subscribe((res) => {
+        if (res.status === 200 || res.status === 201){
+          // toggling booleans
+          this.loggedIn = !this.loggedIn;
+          this.ableToSignUp = !this.ableToSignUp;
+          this.ableToLogIn = !this.ableToLogIn;
+          this.notLoggedIn = !this.notLoggedIn;
+        }
+      });
+      
+    }
+    if (this.role  === 'Admin'){
+      this.loginService.logout().subscribe((res) => {
+        if (res.status === 200 || res.status === 201){
+          // toggling booleans
+          this.loggedIn = !this.loggedIn;
+          this.ableToSignUp = !this.ableToSignUp;
+          this.ableToLogIn = !this.ableToLogIn;
+          this.notLoggedIn = !this.notLoggedIn;
+        }
+      });
+      
+    }
   }
   constructor(private loginService:LoginService, private http: HttpClient, private searchProductService: SearchProductsService, private router: Router) { }
 

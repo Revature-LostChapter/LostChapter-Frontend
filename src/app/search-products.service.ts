@@ -23,12 +23,10 @@ export class SearchProductsService {
   }
 
   addToCart(productId: string, quantity: string, userId: string){
-
     let parameter = new HttpParams();
     parameter = parameter.append('bookId', productId);
     parameter = parameter.append('quantityToBuy', quantity);
     return this.http.post(`http://localhost:8081/users/${userId}/cart`, {},
-
       {
         "params": parameter,
         withCredentials: true,

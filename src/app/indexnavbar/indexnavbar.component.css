@@ -225,3 +225,23 @@ span{
 	/* font-weight: 100; */
 	color: #ffffff;
 }
+
+#log-out-btn{
+	font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f46036;
+    text-align: center;
+    border-radius: 5px 0px 10px 0px;
+	border: none;
+    color: #ffffff;
+}
+#log-out-btn:hover{
+	font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f46036;
+    text-align: center;
+    border-radius: 5px;
+	border: solid;
+	border-width: thin;
+	border-color: #b6b6b6;
+	box-shadow: 0em 0em .3em rgb(129, 129, 129);
+    color: #000;
+}

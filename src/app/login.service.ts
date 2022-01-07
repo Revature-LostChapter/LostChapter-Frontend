@@ -26,7 +26,7 @@ export class LoginService {
   }
 
   logout() {
-    return this.http.post('http://localhost:8081/logout', {
+    return this.http.post('http://localhost:8081/logout', {},{
       observe: 'response',
       withCredentials: true,
       responseType: 'text'
