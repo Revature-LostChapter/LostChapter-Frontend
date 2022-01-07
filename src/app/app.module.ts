@@ -30,6 +30,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomeComponent } from './home/home.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { DisplayProductModalComponent } from './display-product-modal/display-product-modal.component';
+import { SalesProductComponent } from './sales-product/sales-product.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CheckoutComponent,
     CheckoutSummaryComponent,
     UserProfileComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    HomeComponent,
+    DisplayProductModalComponent,
+    SalesProductComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +73,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatTooltipModule,
     MatMenuModule,
     NgxPaginationModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

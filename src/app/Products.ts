@@ -13,4 +13,5 @@ export interface Products {
   rent_price: number;
   condition: string;
   quantity: number;
+  saleIsActive: boolean;
 }

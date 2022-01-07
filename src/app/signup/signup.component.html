@@ -93,7 +93,7 @@
       <div  class="text-success" *ngIf="successMessage" id="success-message">{{successMessage}}</div>
       <div  class="text-danger" *ngIf="errorMessage" id="error-message">{{errorMessage}}</div>
 
-      <button mat-flat-button color="primary" class="btn-block">Sign up</button>
+      <button mat-flat-button color="primary" class="btn-block" id = "singup-component-signup-button" (click) = "onSignupClick()">Sign up</button>
       <br />
       <br />
       <a routerLink="">Already have an account? Login</a>

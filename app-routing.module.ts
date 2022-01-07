@@ -7,7 +7,7 @@ import { CartComponent } from 'src/app/cart/cart.component';
 import { CheckoutComponent } from 'src/app/checkout/checkout.component';
 import { CheckoutSummaryComponent } from 'src/app/checkout-summary/checkout-summary.component';
 import { SearchResultsComponent } from 'src/app/search-results/search-results.component';
-
+import { HomeComponent } from 'src/app/home/home.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -18,8 +18,8 @@ const routes: Routes = [
   {path: 'checkout-summary', component: CheckoutSummaryComponent},
   {path: 'userprofile', component: UserProfileComponent},
   {path: 'cart', component: CartComponent},
-  {path: 'search-results', component: SearchResultsComponent}
-
+  {path: 'search-results', component: SearchResultsComponent},
+  {path: 'home', component: HomeComponent}
 ];
 
 @NgModule({

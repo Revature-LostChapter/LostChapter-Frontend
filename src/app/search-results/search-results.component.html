@@ -120,16 +120,13 @@
 
                 <div class="col" *ngFor="let item of showResults"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
                    <div class="card h-40 w-40">
-                      <img [src]="item.bookImage" style="object-fit: fill;" alt="Placeholder">
+                      <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)"  style="object-fit: fill;" alt="Placeholder">
                       <br>
-                     <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+                     <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{  item.bookName}} <br>
                       <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
 
                     </div>
-                      <!-- <div class="book-title">Author: {{item.author}}</div>
-                      <div class="book-title">Published Year: {{item.year}}</div>
-                      <div class="book-title">Genre: {{item.genre.genre}} </div>
-                      <div class="book-title">Description: {{item.synopsis}}</div> -->
+
                       <br>
 
                       <div >
@@ -141,25 +138,10 @@
                    </div>
                 </div>
              </div>
-             <nav> <!--    <pagination-controls (pageChange)="p = $event"></pagination-controls>
-             -->
-                <ul class="pagination justify-content-center">
-                   <li class="page-item">
-                      <a class="page-link" routerLink="#" aria-label="Previous">
-                         <span class="chevron-left" aria-hidden="true">Previous</span>
-                      </a>
-                   </li>
-                   <li class="page-item active"><a class="page-link" routerLink="#">1</a></li>
-                   <li class="page-item"><a class="page-link" routerLink="#">2</a></li>
-                   <li class="page-item"><a class="page-link" routerLink="#">3</a></li>
-                   <li class="page-item"><a class="page-link" routerLink="#">4</a></li>
-                   <li class="page-item"><a class="page-link" routerLink="#">5</a></li>
-                   <li class="page-item">
-                      <a class="page-link" routerLink="#" aria-label="Next">
-                         <span class="chevron-right" aria-hidden="true">Next</span>
-                      </a>
-                   </li>
-                </ul>
+             <nav>
+               <!-- <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="page = $event"></pagination-controls> -->
+
+
              </nav>
 
           </main>
