@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         let body = <User> res.body;
         console.log(res);
         if (body.role === 'Customer'){
-          this.router.navigate(['/checkout']); // navigates to customer route page -> redirecting to this route for now until we have full functionalities of the routes
+          this.router.navigate(['/home']); // navigates to customer route page -> redirecting to this route for now until we have full functionalities of the routes
         }
 
         if (body.role === 'Admin'){
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
         let body = <User> res.body;
 
         if(body.role === 'Customer'){
-          this.router.navigate(['/login']);
+          this.router.navigate(['']);
         }
 
         if(body.role === 'Admin'){
