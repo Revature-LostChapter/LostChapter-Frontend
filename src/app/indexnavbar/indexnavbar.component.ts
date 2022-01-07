@@ -50,19 +50,21 @@ export class IndexnavbarComponent implements OnInit {
     // get current signed in user, so it will be used to toggle loggedInTrue and show the user's username
   }
 
-  searchItem!: string;
-  @Output( "searchProduct") searchProductEmitter = new EventEmitter<SearchProducts[]>()
+  searchItem = '';
+
+  searchKeyword!: string;
+  @Output('searchKeyword') searchKeywordEmitter = new EventEmitter<string>()
 
   // for page pagination
   // p: number = 1;
   // collection: any[] = someArrayOfThings;
 
   displaySearchResults() {
-    this.searchProductService.getSearchResult(this.searchItem).subscribe((res) => {
-        let body = <SearchProducts[]> res.body;
-        this.searchProductEmitter.emit(body);
-        this.router.navigate(['/search-results'])
+    if (this.searchItem === ''){
+      this.router.navigate([''])
+    }
+    // searchKeyword Emmitter
+    this.searchKeywordEmitter.emit(this.searchItem);
 
-    })
   }
 }
