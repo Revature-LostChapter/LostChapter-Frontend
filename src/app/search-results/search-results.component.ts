@@ -16,6 +16,7 @@ import { SearchProductsService } from '../search-products.service';
 export class SearchResultsComponent implements OnInit {
 
   selected = 'option2';
+  errorMessage!: string;
 
   showResults: SearchProducts[] = [];
   selectedProducts!: SearchProducts;
@@ -72,11 +73,10 @@ export class SearchResultsComponent implements OnInit {
       next: (res) => {
         if(res.status === 200 || res.status === 201) {
           let body = <Cart> res.body;
-          console.log(body);
         }
       },
       error: (err) =>{
-        console.log(err);
+        this.errorMessage = err.console.error;
 
       }
     })

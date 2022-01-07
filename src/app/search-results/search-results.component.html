@@ -136,6 +136,10 @@
                             <a routerLink="/cart"> <button mat-raised-button color="primary" (click)="onAddToCart(item.bookId)">Add to cart
                               <i class="material-icons">shopping_cart</i></button> </a>
                          </div>
+
+                         <div *ngIf="errorMessage" id="error-message" class="text-danger">
+                          {{ errorMessage }}
+                        </div>
                       </div>
                    </div>
                 </div>
