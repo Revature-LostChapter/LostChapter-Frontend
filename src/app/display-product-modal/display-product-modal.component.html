@@ -18,43 +18,45 @@
       <div class="item-image-parent">
         <div class="item-list-vertical">
           <div class="thumb-box">
-            <img src="https://images-na.ssl-images-amazon.com/images/I/41g9RfNVZBL._SX320_BO1,204,203,200_.jpg" alt="" srcset="">
+            <img [src]="selectedProducts.bookImage" alt="" srcset="">
           </div>
 
           <div class="thumb-box">
-            <img src="https://images-na.ssl-images-amazon.com/images/I/41g9RfNVZBL._SX320_BO1,204,203,200_.jpg" alt="" srcset="">
+            <img [src]="selectedProducts.bookImage" alt="" srcset="">
           </div>
 
           <div class="thumb-box">
-            <img src="https://images-na.ssl-images-amazon.com/images/I/41g9RfNVZBL._SX320_BO1,204,203,200_.jpg" alt="" srcset="">
+            <img [src]="selectedProducts.bookImage" alt="" srcset="">
           </div>
 
           <div class="thumb-box">
-            <img src="https://images-na.ssl-images-amazon.com/images/I/41g9RfNVZBL._SX320_BO1,204,203,200_.jpg" alt="" srcset="">
+            <img [src]="selectedProducts.bookImage" alt="" srcset="">
           </div>
 
         </div>
 
         <div class="item-image-main">
-          <img src="https://images-na.ssl-images-amazon.com/images/I/41g9RfNVZBL._SX320_BO1,204,203,200_.jpg" alt="" srcset="">
+          <img [src]="selectedProducts.bookImage" alt="" srcset="">
 
         </div>
       </div>
 
       <div class="item-info-parent">
         <div class="main-info">
-          <h4>Ugly Love</h4> <!--{{title}}-->
-          <h3>By: <span id="author" > <strong style="color: burlywood;">Coleen Hoover</strong> </span> (Author)</h3>
+          <h4>{{selectedProducts.bookName}}</h4>
+          <h3>By: <span id="author" > <strong style="color: burlywood;">{{selectedProducts.author}}</strong> </span> (Author)</h3>
 
-          <h3>ISBN: <span id="isbn" style="color: burlywood;"> <strong>1234567890</strong> </span></h3>
-          <h3>Edition: <span id="edition" style="color: burlywood;"><strong>4th</strong> </span></h3>
-          <h3>Price: <span id="price">$8.07</span></h3>
-
+          <h3>ISBN: <span id="isbn" style="color: burlywood;"> <strong>{{selectedProducts.isbn}}</strong> </span></h3>
+          <h3>Edition: <span id="edition" style="color: burlywood;"><strong>{{selectedProducts.edition}}</strong> </span></h3>
+          <h3>Price: <span id="price">${{selectedProducts.bookPrice}}</span></h3>
+          <div *ngIf="selectedProducts.saleIsActive === true">
+            <h3>Sales Price: <span id="price">${{(selectedProducts.bookPrice - (selectedProducts.bookPrice * selectedProducts.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+          </div>
         <hr>
 
         <h4>Description</h4> <br>
         <div style="overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; padding-right: 12px; margin: 0 auto; max-width: fit-content;">
-        <strong> <h3 style="color: burlywood;">The record of a brilliant and subtle mind in action, The Waste Books are above all a powerful testament to the necessity, and pleasure, of unfettered thought.</h3></strong>
+        <strong> <h3 style="color: burlywood;">{{selectedProducts.synopsis}}</h3></strong>
 
         </div>
       </div>

@@ -1,5 +1,10 @@
 <app-indexnavbar (searchProduct)="setShowResults($event)"> </app-indexnavbar>
+
+<app-sales-product></app-sales-product>
+<hr>
+
 <div class="container">
+  <strong><h1 style="color: #0645AD; font-size: 21px;font-weight:bolder">List of Genres</h1></strong>
   <mat-tab-group dynamicHeight [selectedIndex]="getSelectedIndex()" (selectedTabChange)="onTabChange($event)" (selectedTabChange)="getGenreById(selectedIndex)">
 
    <mat-tab label="Adventure" >
@@ -13,6 +18,9 @@
              <br>
             <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+             <div *ngIf="item.saleIsActive === true">
+              <h3 id="salesPrice">Sales Price: <span id="salesPrice">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+            </div>
            </div>
              <br>
 
@@ -32,7 +40,10 @@
              <br>
             <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-           </div>
+             <div *ngIf="item.saleIsActive === true">
+              <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+            </div>
+            </div>
              <br>
 
           </div>
@@ -51,7 +62,10 @@
              <br>
             <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-           </div>
+             <div *ngIf="item.saleIsActive === true">
+              <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+            </div>
+            </div>
              <br>
 
           </div>
@@ -70,7 +84,10 @@
              <br>
             <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-           </div>
+             <div *ngIf="item.saleIsActive === true">
+              <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+            </div>
+            </div>
              <br>
 
           </div>
@@ -89,7 +106,10 @@
              <br>
             <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-           </div>
+             <div *ngIf="item.saleIsActive === true">
+              <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+            </div>
+            </div>
              <br>
 
           </div>
@@ -108,7 +128,10 @@
              <br>
             <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-           </div>
+             <div *ngIf="item.saleIsActive === true">
+              <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+            </div>
+            </div>
              <br>
 
           </div>
@@ -127,7 +150,10 @@
              <br>
             <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-           </div>
+             <div *ngIf="item.saleIsActive === true">
+              <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+            </div>
+            </div>
              <br>
 
           </div>
@@ -146,7 +172,10 @@
              <br>
             <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-           </div>
+             <div *ngIf="item.saleIsActive === true">
+              <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+            </div>
+            </div>
              <br>
 
           </div>
@@ -165,7 +194,10 @@
              <br>
             <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-           </div>
+             <div *ngIf="item.saleIsActive === true">
+              <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+            </div>
+            </div>
              <br>
 
           </div>
@@ -184,7 +216,10 @@
              <br>
             <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-           </div>
+             <div *ngIf="item.saleIsActive === true">
+              <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+            </div>
+            </div>
              <br>
 
           </div>
@@ -203,7 +238,10 @@
              <br>
             <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-           </div>
+             <div *ngIf="item.saleIsActive === true">
+              <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+            </div>
+            </div>
              <br>
 
           </div>
@@ -222,7 +260,10 @@
              <br>
             <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-           </div>
+             <div *ngIf="item.saleIsActive === true">
+              <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+            </div>
+            </div>
              <br>
 
           </div>
@@ -240,7 +281,10 @@
              <br>
             <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-           </div>
+             <div *ngIf="item.saleIsActive === true">
+              <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+            </div>
+            </div>
              <br>
 
           </div>
@@ -259,7 +303,10 @@
              <br>
             <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-           </div>
+             <div *ngIf="item.saleIsActive === true">
+              <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+            </div>
+            </div>
              <br>
 
           </div>
@@ -278,13 +325,19 @@
              <br>
             <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
              <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-           </div>
+             <div *ngIf="item.saleIsActive === true">
+              <h3 id="salesPrice">Sales Price: <span id="salesPrice">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+            </div>
+            </div>
              <br>
 
           </div>
        </div>
       </div>
     </mat-tab>
+    <br>
 
   </mat-tab-group>
+
 </div>
+

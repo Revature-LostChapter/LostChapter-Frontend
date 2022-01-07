@@ -9,4 +9,7 @@ export interface SearchProducts  {
   publisher: string;
   year: number;
   synopsis: string;
+  isbn: string;
+  saleIsActive: boolean;
+  saleDiscountRate: number;
 }

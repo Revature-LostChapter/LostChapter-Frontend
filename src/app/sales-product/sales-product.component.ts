@@ -1,52 +1,40 @@
-import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatTabChangeEvent } from '@angular/material/tabs';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { SearchProducts } from 'SearchProduct';
 import { DisplayProductModalComponent } from '../display-product-modal/display-product-modal.component';
-import { LoginService } from '../login.service';
 import { SearchProductsService } from '../search-products.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-sales-product',
+  templateUrl: './sales-product.component.html',
+  styleUrls: ['./sales-product.component.css']
 })
-export class HomeComponent implements OnInit {
+export class SalesProductComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private getGenreService: SearchProductsService,
-    private router: Router, public dialog: MatDialog) { }
+  constructor(private getGenreService: SearchProductsService, public dialog: MatDialog) { }
 
-  ngOnInit(): void {
-    this.getGenreById(1)
-  }
 
   displayProducts: SearchProducts[] = [];
   selectedIndex: number = 1;
   selectedProducts!: SearchProducts;
-
-  // bookId!: number;
-  dialogResult!: string;
-
-  getSelectedIndex(): number {
-    return this.getGenreService.currentTabIndex
-  }
-
-  onTabChange(event: MatTabChangeEvent){
-    this.selectedIndex = event.index + 1;
-  }
+  genreId!: number;
 
   getGenreById(genreId: number) {
     this.getGenreService.getSearchByGenre(genreId).subscribe((res) => {
       let body = <SearchProducts[]> res.body;
       this.displayProducts = body
+      console.log(this.displayProducts);
     })
+  }
+
+  dialogResult!: string;
+  ngOnInit(): void {
   }
 
   onDisplayProduct(bookId: number){
     let modalRef = this.dialog.open(DisplayProductModalComponent, {
-      width: '1400px',
-      height: '700px',
+      width: '800px',
+      height: '600px',
       data: 'Book Information'
     });
 
@@ -66,10 +54,4 @@ export class HomeComponent implements OnInit {
 
   }
 
-  showResults: SearchProducts[] = [];
-  setShowResults(showResults: SearchProducts[]) {
-    this.showResults = showResults;
-  }
 }
-
-

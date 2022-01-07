@@ -12,15 +12,9 @@ export class DisplayProductModalComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private getGenreService: SearchProductsService, public dialogRef: MatDialogRef<DisplayProductModalComponent>, @Inject(MAT_DIALOG_DATA)public data: string) { }
 
-  displaySearchProducts: SearchProducts[] = [];
-  bookId!: number;
+  selectedProducts!: SearchProducts;
 
   ngOnInit(): void {
-    this.getGenreService.getBookById(this.bookId).subscribe((res) => {
-      let responseObj = <{body:SearchProducts[]}><unknown>res;
-      this.displaySearchProducts = responseObj.body;
-    });
-
   }
 
   onCloseDisplayProduct() {

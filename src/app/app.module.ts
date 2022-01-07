@@ -33,6 +33,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './home/home.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { DisplayProductModalComponent } from './display-product-modal/display-product-modal.component';
+import { SalesProductComponent } from './sales-product/sales-product.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { DisplayProductModalComponent } from './display-product-modal/display-pr
     UserProfileComponent,
     SearchResultsComponent,
     HomeComponent,
-    DisplayProductModalComponent
+    DisplayProductModalComponent,
+    SalesProductComponent
   ],
   imports: [
     BrowserModule,

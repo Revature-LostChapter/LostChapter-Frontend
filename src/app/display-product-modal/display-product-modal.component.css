@@ -3,8 +3,8 @@
   background-color: var(--background-tertiary);
   color: var(--foreground-quaternary);
   box-shadow: var(--background-tertiary-shadow);
-  width:fit-content;
-  height: fit-content;
+  width:1200px;
+  height: 600px;
 }
 
 header {
