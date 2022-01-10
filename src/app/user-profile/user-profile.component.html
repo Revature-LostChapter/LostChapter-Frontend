@@ -1,36 +1,103 @@
 <app-indexnavbar></app-indexnavbar>
-<body style="color: bisque;">
-
-  <div class="container" style="width: auto;">
-   <strong> <h1 style="text-align: center; color: black;">Profile</h1></strong>
-  <table>
-  <tr>
-  <td>
-  <section>
-  <label for="fileToUpload">
-  <i class="fa fa-camera"></i>
-  <input type="file" id="fileToUpload" style="visibility:hidden;" accept=".png,.jpg,jpeg,.PNG,.JPEG" name="fileToUpload">
-  </label>
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS353z701u_xboQT-5iQe6TPhrzKyKMSsFqSw&usqp=CAU">
-  </section>
-  <h1>Arsene Wenger</h1> <!--full name-->
-  <h3>Ex. Manager of Arsenal Football Club</h3> <!--role should go here-->
-  </td>
-  <td>
-
-  <ul>
-  <li><b>Full name</b>  &nbsp;&nbsp; <input type="text" name="fullname" id="fullname" value="Arsene Wenger" required /> <i class="fa fa-edit"></i></li>
-  <li><b>Email</b> &nbsp;&nbsp; <input type="email" name="email" id="email" value="awenger@arsenal.com" required /><i class="fa fa-edit"></i></li>
-  <li><b>Role</b> &nbsp;&nbsp; <input type="text" name="role" id="role" value="User" required /> </li>
-  <li><b>Age</b> &nbsp;&nbsp; <input type="number" name="age" id="age" value="26" required /> <i class="fa fa-edit"></i></li>
-  <li><b>Username</b> &nbsp;&nbsp; <input name="username" type="text" id="username" value="awenger" required /><i class="fa fa-edit"></i></li>
-  <li><b>Address</b> &nbsp;&nbsp; <input name="address" type="text" id="address" value="3728 W Washington Rd" required /><i class="fa fa-edit"></i></li>
-
-  </ul>
-  <a routerLink="" routerLinkActive=""><button mat-raised-button color="primary" style="float: right;">Save Profile</button></a>
-  </td>
-  </tr>
-  </table>
-
+<body style="color: bisque">
+  <div class="container" style="width: auto">
+    <strong> <h1 style="text-align: center; color: black">Profile</h1></strong>
+    <table>
+      <tr>
+        <td>
+          <section>
+            <label for="fileToUpload">
+              <i class="fa fa-camera"></i>
+              <input
+                type="file"
+                id="fileToUpload"
+                style="visibility: hidden"
+                accept=".png,.jpg,jpeg,.PNG,.JPEG"
+                name="fileToUpload"
+              />
+            </label>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS353z701u_xboQT-5iQe6TPhrzKyKMSsFqSw&usqp=CAU"
+            />
+          </section>
+          <h1>{{ currentUser.lastName }}</h1>
+          <!--full Arsene Wengername-->
+          <h3>{{ currentUser.role }}</h3>
+          <!--role should go here-->
+        </td>
+        <td>
+          <ul>
+            <li>
+              <b>Full name</b> &nbsp;&nbsp;
+              <input
+                type="text"
+                name="fullname"
+                id="fullname"
+                [value]="currentUser.firstName"
+                [value]="currentUser.lastName"
+                required
+              />
+              <i class="fa fa-edit"></i>
+            </li>
+            <li>
+              <b>Email</b> &nbsp;&nbsp;
+              <input
+                type="email"
+                name="email"
+                id="email"
+                [value]="currentUser.email"
+                required
+              /><i class="fa fa-edit"></i>
+            </li>
+            <li>
+              <b>Role</b> &nbsp;&nbsp;
+              <input
+                type="text"
+                name="role"
+                id="role"
+                [value]="currentUser.role"
+                required
+              />
+            </li>
+            <li>
+              <b>Age</b> &nbsp;&nbsp;
+              <input
+                type="number"
+                name="age"
+                id="age"
+                [value]="currentUser.age"
+                required
+              />
+              <i class="fa fa-edit"></i>
+            </li>
+            <li>
+              <b>Username</b> &nbsp;&nbsp;
+              <input
+                name="username"
+                type="text"
+                id="username"
+                [value]="currentUser.username"
+                required
+              /><i class="fa fa-edit"></i>
+            </li>
+            <li>
+              <b>Address</b> &nbsp;&nbsp;
+              <input
+                name="address"
+                type="text"
+                id="address"
+                [value]="currentUser.address"
+                required
+              /><i class="fa fa-edit"></i>
+            </li>
+          </ul>
+          <a routerLink="" routerLinkActive=""
+            ><button mat-raised-button color="primary" style="float: right">
+              Save Profile
+            </button></a
+          >
+        </td>
+      </tr>
+    </table>
   </div>
 </body>
