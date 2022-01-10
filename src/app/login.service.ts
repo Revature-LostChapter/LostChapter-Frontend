@@ -9,14 +9,14 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   checkLoginStatus() {
-    return this.http.get('http://localhost:9090/loginstatus', {
+    return this.http.get('http://localhost:8081/loginstatus', {
       observe: 'response',
       withCredentials: true
     })
   }
 
   login(username: string, password: string){
-    return this.http.post('http://localhost:9090/login', {
+    return this.http.post('http://localhost:8081/login', {
       "access": username,
       "password": password
     }, {
@@ -26,7 +26,7 @@ export class LoginService {
   }
 
   logout() {
-    return this.http.post('http://localhost:9090/logout', {},{
+    return this.http.post('http://localhost:8081/logout', {},{
       observe: 'response',
       withCredentials: true,
       responseType: 'text'
