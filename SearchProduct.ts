@@ -12,4 +12,5 @@ export interface SearchProducts  {
   isbn: string;
   saleIsActive: boolean;
   saleDiscountRate: number;
+  quantity: number;
 }

@@ -1,166 +1,64 @@
 <app-indexnavbar></app-indexnavbar>
 <div class="container">
-  <!--{{*ngFor="let p of cart.quantities"}}-->
-  <table id="cart" class="table table-hover table-condensed">
-    <thead>
-      <tr>
-        <th style="width: 50%">Product</th>
-        <th style="width: 10%">Price</th>
-        <th style="width: 8%">Quantity</th>
-        <th style="width: 22%" class="text-center">Total</th>
-        <th style="width: 10%"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let p of cart.quantities">
-        <!--using ng container for the container to loop the body of our cart quantities-->
+  <h1 style="font-weight: bolder;">Checkout Details for {{cart?.user?.firstName}} {{cart?.user?.lastName}}</h1>
+  <div>
+    <table id="cart" class="table table-hover table-container">
+      <thead>
         <tr>
-          <td data-th="Product">
-            <!---->
-            <div class="row">
-              <div class="col-sm-2 hidden-xs">
-                <img
-                  src="http://placehold.it/100x100"
-                  alt="..."
-                  class="img-responsive"
-                />
+          <th style="width: 50%">Product</th>
+          <th style="width: 10%">Price</th>
+          <th style="width: 8%">Quantity</th>
+          <th style="width: 22%" class="text-center">Total</th>
+          <th style="width: 10%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let p of cart?.booksToBuy">
+          <tr>
+            <td data-th="Product">
+              <div class="row">
+                <div class="col-sm-2 hidden-xs">
+                  <img [src]="p.bookImage" class="img-responsive"/>
+                </div>
+                <div class="col-sm-10">
+               <strong><h4 class="nomargin" style="font-weight: bolder; color: gray;">{{ p.books.bookName }}</h4></strong>
+                  <p style="word-break: break-all; white-space: normal; font-weight: 520; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" >{{p.books.synopsis}}</p>
+                </div>
               </div>
-              <div class="col-sm-10">
-                <h4 class="nomargin">{{ p.product.name }}</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-            </div>
+            </td>
+            <td data-th="Price">{{ p.bookPrice }}</td>
+            <td data-th="Quantity">{{ p.quantityToBuy }}
+              <input type="number" class="form-control text-center" value="1" />
+            </td>
+            <td data-th="Total" class="text-center">{{ p.quantityToBuy * p.bookPrice }}</td>
+            <td class="actions" data-th="">
+              <button class="btn btn-info btn-sm" (click)="refreshPage()" ><i class="fa fa-refresh"></i></button>
+              <button class="btn btn-danger btn-sm" (click)="onDeleteButtonClick(p.books.bookId)"><i class="fa fa-trash-o"></i></button>
+            </td>
+
+          </tr>
+        </ng-container>
+
+      </tbody>
+      <tfoot>
+        <tr class="visible-xs">
+          <td class="text-center"><strong></strong></td>
+        </tr>
+        <tr>
+          <td>
+            <a routerLink="search-results" class="btn btn-warning">
+              <i class="fa fa-angle-left"></i> Continue Shopping</a>
           </td>
-          <td data-th="Price">{{ p.product.price }}</td>
-          <td data-th="Quantity">
-            {{ p.quantity }}
-            <input type="number" class="form-control text-center" value="1" />
+          <td colspan="2" class="hidden-xs"></td>
+          <td class="hidden-xs text-center">
+            <strong>Total {{totalPrice}}</strong>
           </td>
-          <td data-th="Total" class="text-center"></td>
-          <td class="actions" data-th="">
-            <button class="btn btn-info btn-sm">
-              <i class="fa fa-refresh"></i>
-            </button>
-            <button class="btn btn-danger btn-sm">
-              <i class="fa fa-trash-o"></i>
-            </button>
+          <td>
+            <a routerLink="" class="btn btn-success btn-block" routerLink="/checkout"> Checkout <i class="fa fa-angle-right"></i></a>
           </td>
         </tr>
-        <!--ng container closed tag and /</body> was here but removed down -->
+      </tfoot>
 
-        <tfoot>
-          <tr class="visible-xs">
-            <td class="text-center"><strong></strong></td>
-          </tr>
-          <tr>
-            <td>
-              <a href="#" class="btn btn-warning"
-                ><i class="fa fa-angle-left"></i> Continue Shopping</a
-              >
-            </td>
-            <td colspan="2" class="hidden-xs"></td>
-            <td class="hidden-xs text-center">
-              <strong>Total </strong>
-            </td>
-            <!--{{p * quantity * p.product.price}}-->
-            <td>
-              <a
-                href="#"
-                class="btn btn-success btn-block"
-                routerLink="/checkout"
-                >Checkout<i class="fa fa-angle-right"></i
-              ></a>
-            </td>
-          </tr>
-
-          <tr>
-            <td data-th="Product">
-              <div class="row">
-                <div class="col-sm-2 hidden-xs">
-                  <img
-                    src="http://placehold.it/100x100"
-                    alt="..."
-                    class="img-responsive"
-                  />
-                </div>
-                <div class="col-sm-10">
-                  <h4 class="nomargin">Product 1</h4>
-                  <!--{{p.product.name}}-->
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                  <!--description -->
-                </div>
-              </div>
-            </td>
-            <td data-th="Price">$5.11</td>
-            <!--{{p.product.name}}-->
-            <td data-th="Quantity">
-              <input type="number" class="form-control text-center" value="1" />
-              <!--{{p.product.quantity}}-->
-            </td>
-            <td data-th="Total" class="text-center">
-              {{ p.quantity * p.product.price }}
-            </td>
-            <!--{{p * quantity * p.product.price}}-->
-            <td class="actions" data-th="">
-              <button class="btn btn-info btn-sm">
-                <i class="fa fa-refresh"></i>
-              </button>
-              <button class="btn btn-danger btn-sm">
-                <i class="fa fa-trash-o"></i>
-              </button>
-            </td>
-          </tr>
-
-          <tr>
-            <td data-th="Product">
-              <div class="row">
-                <div class="col-sm-2 hidden-xs">
-                  <img
-                    src="http://placehold.it/100x100"
-                    alt="..."
-                    class="img-responsive"
-                  />
-                </div>
-                <div class="col-sm-10">
-                  <h4 class="nomargin">Product 1</h4>
-                  <!--{{p.product.name}}-->
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                  <!--description -->
-                </div>
-              </div>
-            </td>
-            <td data-th="Price">$5.11</td>
-            <!--{{p.product.name}}-->
-            <td data-th="Quantity">
-              <input type="number" class="form-control text-center" value="1" />
-              <!--{{p.product.quantity}}-->
-            </td>
-            <td data-th="Total" class="text-center">
-              {{ p.quantity * p.product.price }}
-            </td>
-            <!--{{p * quantity * p.product.price}}-->
-            <td class="actions" data-th="">
-              <button class="btn btn-info btn-sm">
-                <i class="fa fa-refresh"></i>
-              </button>
-              <button class="btn btn-danger btn-sm">
-                <i class="fa fa-trash-o"></i>
-              </button>
-            </td>
-          </tr>
-        </tfoot>
-      </ng-container>
-    </tbody>
-  </table>
+    </table>
+  </div>
 </div>

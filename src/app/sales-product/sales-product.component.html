@@ -1,15 +1,16 @@
 <div class="container">
   <section>
-    <h3>Sales</h3>
+    <strong><h1 style="color: #0645AD; font-size: 21px;font-weight:bolder">Book(s) on Sales</h1></strong>
+    <br>
     <div>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
-        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+        <div class="col" *ngFor="let item of displayProducts">
           <div class="card h-30 w-30">
-            <div *ngIf="item.saleIsActive === true">
+            <div>
               <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
               <br>
              <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-               <h3>Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+               <h3>Sales Price: <span id="salesPrice">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
             </div>
             </div>
              <br>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cart } from '../Cart';
+import { Cart } from '../../../Cart';
 import { Router } from '@angular/router';
 import { CartService } from 'src/service/cart.service';
 import { LoginService } from '../login.service';
@@ -11,7 +11,7 @@ import { User } from 'User';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  cartId!: number;
+  userId!: number;
   cart!: Cart;
   priceTotal!: Cart[];
 
@@ -24,33 +24,18 @@ export class CartComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loginService.checkLoginStatus().subscribe({
-      next: (res) => {
-        if (res.status === 200) {
-          let body = <User>res.body;
+    this.checkLoginStatus();
+    this.calculateProduct();
+  }
 
-          if (body.role === 'customer') {
-            console.log(body);
-            this.cartId = body.id;
-            this.cartService.getCarFromCustomerPage(String(this.cartId));
-            console.log(this.cartId);
-          }
-        }
-      },
-      error: (err) => {
-        if (err.status === 400) {
-          this.router.navigate(['']);
-        }
-      },
-    });
+  calculateProduct(){
+    this.cartService.sub.subscribe((res) => {
+      console.log(res);
+      this.cart = res;
 
-    this.cartService.sub.subscribe((data) => {
-      console.log(data);
-      this.cart = data;
-
-      for (let i = 0; i < data.quantities.length; i++) {
-        let pPrice = data.quantities[i].product.price;
-        let pQuantity = data.quantities[i].quantity;
+      for (let i = 0; i < res.booksToBuy.length; i++) {
+        let pPrice = res.booksToBuy[i].bookPrice;
+        let pQuantity = res.booksToBuy[i].quantityToBuy;
         let individualPrice = Number(pPrice) * Number(pQuantity);
 
         let totalPrice = Number(this.totalPrice) + Number(individualPrice);
@@ -60,9 +45,31 @@ export class CartComponent implements OnInit {
       }
     });
   }
+
+  checkLoginStatus(){
+    this.loginService.checkLoginStatus().subscribe({
+      next: (res) => {
+        console.log(res);
+        if (res.status === 200) {
+          let body = <User>res.body;
+          if (body.role === 'Customer') {
+            this.userId = body.id;
+            console.log(this.userId);
+            this.cartService.getCartFromCustomerPage(String(this.userId));
+          }
+        }
+      },
+      error: (err) => {
+        if (err.status === 400) {
+          this.router.navigate(['']);
+        }
+      },
+    });
+  }
+
   onDeleteButtonClick(productId: number) {
     this.cartService
-      .deleteProductFromCart(String(productId), String(this.cartId))
+      .deleteProductFromCart(String(productId), String(this.userId))
       .subscribe({
         next: (res) => {
           if (res.status === 200) {
@@ -74,5 +81,9 @@ export class CartComponent implements OnInit {
           console.log(err);
         },
       });
+  }
+
+  refreshPage(){
+    this.ngOnInit();
   }
 }

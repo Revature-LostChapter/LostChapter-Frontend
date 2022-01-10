@@ -1,11 +1,10 @@
-<!-- <app-indexnavbar (searchProduct)="setShowResults($event)"> </app-indexnavbar> -->
 <app-indexnavbar (searchKeyword)="setShowKeyowrd($event)"> </app-indexnavbar>
 
   <body class="container">
 
     <div class="header-title">
-      <p> <span style="font-weight: bold; font-size: larger; ">You Searched: {{showKeyword}} </span>
-         <span style="font-weight: bold; font-size: larger; color: #69626d;"></span></p>
+      <p> <span style="font-weight: bold; font-size: larger; ">You Searched: </span>
+         <span style="font-weight: bold; font-size: larger; color: #69626d;">{{showKeyword}}</span></p>
     </div>
 
     <div class="container py-4">
