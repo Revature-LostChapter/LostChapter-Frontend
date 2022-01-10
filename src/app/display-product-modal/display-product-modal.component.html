@@ -6,8 +6,11 @@
         <h4><strong>{{data}}</strong></h4>
       </div>
       <div style="flex-grow:1;" class="example-button-row">
-       <button  mat-raised-button color="primary"> Add to Cart
+       <button  mat-raised-button color="primary" (click)="onAddToCart(selectedProducts.bookId)"> Add to Cart
           <i class="material-icons">shopping_cart</i></button>
+      </div>
+      <div *ngIf="errorMessage" id="error-message" class="text-danger">
+        {{ errorMessage }}
       </div>
     </div>
 
@@ -18,47 +21,65 @@
       <div class="item-image-parent">
         <div class="item-list-vertical">
           <div class="thumb-box">
-            <img [src]="selectedProducts.bookImage" alt="" srcset="">
+            <img [src]="selectedProducts?.bookImage">
           </div>
 
           <div class="thumb-box">
-            <img [src]="selectedProducts.bookImage" alt="" srcset="">
+            <img [src]="selectedProducts?.bookImage">
           </div>
 
           <div class="thumb-box">
-            <img [src]="selectedProducts.bookImage" alt="" srcset="">
+            <img [src]="selectedProducts?.bookImage">
           </div>
 
           <div class="thumb-box">
-            <img [src]="selectedProducts.bookImage" alt="" srcset="">
+            <img [src]="selectedProducts?.bookImage">
           </div>
 
         </div>
 
         <div class="item-image-main">
-          <img [src]="selectedProducts.bookImage" alt="" srcset="">
+          <img [src]="selectedProducts?.bookImage">
 
         </div>
       </div>
 
       <div class="item-info-parent">
         <div class="main-info">
-          <h4>{{selectedProducts.bookName}}</h4>
-          <h3>By: <span id="author" > <strong style="color: burlywood;">{{selectedProducts.author}}</strong> </span> (Author)</h3>
+          <h4>{{selectedProducts?.bookName}}</h4>
+          <h3>By: <span id="author" > <strong style="color: burlywood;">{{selectedProducts?.author}}</strong> </span> (Author)</h3>
 
-          <h3>ISBN: <span id="isbn" style="color: burlywood;"> <strong>{{selectedProducts.isbn}}</strong> </span></h3>
-          <h3>Edition: <span id="edition" style="color: burlywood;"><strong>{{selectedProducts.edition}}</strong> </span></h3>
-          <h3>Price: <span id="price">${{selectedProducts.bookPrice}}</span></h3>
-          <div *ngIf="selectedProducts.saleIsActive === true">
+          <h3>ISBN: <span id="isbn" style="color: burlywood;"> <strong>{{selectedProducts?.isbn}}</strong> </span></h3>
+          <h3>Edition: <span id="edition" style="color: burlywood;"><strong>{{selectedProducts?.edition}}</strong> </span></h3>
+          <h3>Price: <span id="price">${{selectedProducts?.bookPrice}}</span></h3>
+          <div *ngIf="selectedProducts?.saleIsActive === true">
             <h3>Sales Price: <span id="price">${{(selectedProducts.bookPrice - (selectedProducts.bookPrice * selectedProducts.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
           </div>
+
+          <label for="quantity">Qty:</label>
+          <select name="qty" id="qty" [(ngModel)]="quantity">
+            <option selected>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
         <hr>
 
         <h4>Description</h4> <br>
         <div style="overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; padding-right: 12px; margin: 0 auto; max-width: fit-content;">
-        <strong> <h3 style="color: burlywood;">{{selectedProducts.synopsis}}</h3></strong>
-
+        <strong> <h3 style="color: burlywood;">{{selectedProducts?.synopsis}}</h3></strong>
         </div>
+
+        <div *ngIf="errorMessage" id="error-message" class="text-danger"  style="overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; padding-right: 12px; margin: 0 auto; max-width: fit-content;">
+          {{ errorMessage }}
+        </div>
+
       </div>
       </div>
     </section>

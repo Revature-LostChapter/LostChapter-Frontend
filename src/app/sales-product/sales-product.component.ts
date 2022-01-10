@@ -13,22 +13,22 @@ export class SalesProductComponent implements OnInit {
 
   constructor(private getGenreService: SearchProductsService, public dialog: MatDialog) { }
 
-
   displayProducts: SearchProducts[] = [];
   selectedIndex: number = 1;
   selectedProducts!: SearchProducts;
-  genreId!: number;
 
-  getGenreById(genreId: number) {
-    this.getGenreService.getSearchByGenre(genreId).subscribe((res) => {
+  getBookBySales(){
+    this.getGenreService.getBookBySales().subscribe((res) => {
       let body = <SearchProducts[]> res.body;
-      this.displayProducts = body
+      this.displayProducts = body;
       console.log(this.displayProducts);
     })
   }
 
   dialogResult!: string;
+
   ngOnInit(): void {
+    this.getBookBySales();
   }
 
   onDisplayProduct(bookId: number){

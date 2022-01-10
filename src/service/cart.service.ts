@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Subject } from 'rxjs';
-import { Cart } from 'src/app/Cart';
+import { Cart } from 'Cart';
 
 import { Products } from 'src/app/Products';
-import { ThisReceiver } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +21,7 @@ export class CartService {
     parameter = parameter.append('productId', pId);
     parameter = parameter.append('quantity', quantity);
     return this.http.post(
-      `http://localhost:8081/carts/${cartId}`,
+      `http://localhost:9090/carts/${cartId}`,
       {},
       {
         params: parameter,
@@ -32,18 +31,17 @@ export class CartService {
     );
   }
 
-  getCarFromCustomerPage(cardId: string) {
+  getCartFromCustomerPage(userId: string) {
     return this.http
-      .get<Cart>(`http//localhost:8081/carts/${cardId}`, {
-        withCredentials: true,
+      .get<Cart>(`http://localhost:9090/users/${userId}/cart`, {
+        withCredentials: true
+      }).subscribe((res)=> {
+        this.sub.next(res);
       })
-      .subscribe((data) => {
-        this.sub.next(data);
-      });
   }
 
   deleteProductFromCart(pId: string, cartId: string) {
-    return this.http.delete(`http://localhost:8081/carts/${cartId}`, {
+    return this.http.delete(`http://localhost:9090/carts/${cartId}`, {
       withCredentials: true,
       observe: 'response',
       params: {

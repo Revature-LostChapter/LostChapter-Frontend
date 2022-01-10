@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SearchProducts } from 'SearchProduct';
 import { User } from 'User';
-import { Cart } from '../Cart';
+import { Cart } from '../../../Cart';
 import { DisplayProductModalComponent } from '../display-product-modal/display-product-modal.component';
 import { LoginService } from '../login.service';
 import { SearchProductsService } from '../search-products.service';
@@ -97,7 +97,6 @@ export class SearchResultsComponent implements OnInit {
           let instance = modalRef.componentInstance;
           instance.selectedProducts = this.selectedProducts;
 
-          console.log('modalRef', modalRef)
       });
 
     modalRef.afterClosed().subscribe(result => {
