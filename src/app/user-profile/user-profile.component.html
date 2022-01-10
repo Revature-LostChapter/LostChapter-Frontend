@@ -28,12 +28,21 @@
         <td>
           <ul>
             <li>
-              <b>Full name</b> &nbsp;&nbsp;
+              <b>First Name</b> &nbsp;&nbsp;
               <input
                 type="text"
                 name="fullname"
                 id="fullname"
                 [value]="currentUser.firstName"
+                required
+              />
+            </li>
+            <li>
+              <b>Last Name</b> &nbsp;&nbsp;
+              <input
+                type="text"
+                name="fullname"
+                id="fullname"
                 [value]="currentUser.lastName"
                 required
               />
@@ -93,7 +102,7 @@
           </ul>
           <a routerLink="" routerLinkActive=""
             ><button mat-raised-button color="primary" style="float: right">
-              Save Profile
+              Edit Profile
             </button></a
           >
         </td>
