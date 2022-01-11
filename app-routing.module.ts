@@ -19,7 +19,6 @@ const routes: Routes = [
   {path: 'userprofile', component: UserProfileComponent},
   {path: 'cart', component: CartComponent},
   {path: 'search-results/:searchKeyword', component: SearchResultsComponent},
-
   {path: 'home', component: HomeComponent}
 ];
 

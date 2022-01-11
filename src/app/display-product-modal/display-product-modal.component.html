@@ -5,8 +5,8 @@
       <div style="width: 95%;">
         <h4><strong>{{data}}</strong></h4>
       </div>
-      <div style="flex-grow:1;" class="example-button-row">
-       <button  mat-raised-button color="primary" (click)="onAddToCart(selectedProducts.bookId)"> Add to Cart
+      <div style="flex-grow:1;" class="example-button-row" >
+       <button  mat-raised-button color="primary" (click)="onAddToCart(selectedProducts.bookId)" a routerLink="/cart"> {{addToCart}}
           <i class="material-icons">shopping_cart</i></button>
       </div>
       <div *ngIf="errorMessage" id="error-message" class="text-danger">
@@ -46,7 +46,7 @@
 
       <div class="item-info-parent">
         <div class="main-info">
-          <h4>{{selectedProducts?.bookName}}</h4>
+       <h4>{{selectedProducts?.bookName}}</h4>
           <h3>By: <span id="author" > <strong style="color: burlywood;">{{selectedProducts?.author}}</strong> </span> (Author)</h3>
 
           <h3>ISBN: <span id="isbn" style="color: burlywood;"> <strong>{{selectedProducts?.isbn}}</strong> </span></h3>
@@ -79,6 +79,9 @@
         <div *ngIf="errorMessage" id="error-message" class="text-danger"  style="overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; padding-right: 12px; margin: 0 auto; max-width: fit-content;">
           {{ errorMessage }}
         </div>
+      <hr>
+        <br>
+      <strong><div style="color: green; size: 28px; font-family: 'Times New Roman', Times, serif;" *ngIf="added" id="success-message">{{addedToCart}}</div></strong>
 
       </div>
       </div>

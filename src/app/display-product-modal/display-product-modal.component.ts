@@ -20,7 +20,12 @@ export class DisplayProductModalComponent implements OnInit {
   selectedProducts!: SearchProducts;
   errorMessage!: string;
   cartId!: number;
-  quantity!: number;
+  quantity = 1;
+  userId!: number;
+  added?: boolean;
+  addedToCart = "Item have been added to Cart";
+
+  addToCart = "Add to Cart";
 
   ngOnInit(): void {
     this.checkLoginStatus();
@@ -52,24 +57,40 @@ export class DisplayProductModalComponent implements OnInit {
   onAddToCart(productId: number){
     this.addProductToCartService.addToCart(String(productId), String(this.quantity), String(this.cartId)).subscribe({
       next: (res) => {
-        if(this.quantity <= 0){
-          console.log(this.quantity)
-          this.errorMessage = "Please select quantity"
-        }
-        console.log(res);
+
         if(res.status === 200 || res.status === 201) {
           let body = <Cart> res.body;
-          console.log(body)
+          this.added = true;
         }
         if(res.status == 404 || res.status === 401 || res.status === 400){
           this.router.navigate(['']);
         }
+
+
       },
       error: (err) => {
         this.errorMessage = err;
 
       }
     })
+
+  }
+
+  onDeleteButtonClick(productId: number) {
+    this.cartService
+      .deleteProductFromCart(String(productId), String(this.userId))
+      .subscribe({
+        next: (res) => {
+          if (res.status === 200) {
+            let body = <Cart>res.body;
+            console.log(body);
+          }
+        },
+        error: (err) => {
+          console.log(err);
+        },
+
+      });
 
   }
 

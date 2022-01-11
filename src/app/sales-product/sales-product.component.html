@@ -10,7 +10,7 @@
               <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
               <br>
              <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-               <h3>Sales Price: <span id="salesPrice">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+               <h3 id="salesPrice">Sales Price: <span id="salesPrice">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
             </div>
             </div>
              <br>
