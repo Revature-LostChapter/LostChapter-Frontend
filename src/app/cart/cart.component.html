@@ -18,19 +18,18 @@
             <td data-th="Product">
               <div class="row">
                 <div class="col-sm-2 hidden-xs">
-                  <img [src]="p.bookImage" class="img-responsive"/>
+                  <img [src]="p.books.bookImage" class="img-responsive"/>
                 </div>
                 <div class="col-sm-10">
-               <strong><h4 class="nomargin" style="font-weight: bolder; color: gray;">{{ p.books.bookName }}</h4></strong>
-                  <p style="word-break: break-all; white-space: normal; font-weight: 520; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" >{{p.books.synopsis}}</p>
+               <strong><h4 class="nomargin" style="font-weight: bolder; color: gray;text-align: center;" >{{ p.books.bookName }}</h4></strong>
+                  <p style="word-break: break-all; white-space: normal; font-weight: 520; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 32px;"  >{{p.books.synopsis}}</p>
                 </div>
               </div>
             </td>
-            <td data-th="Price">{{ p.bookPrice }}</td>
+            <td data-th="Price">${{ p.books.bookPrice }}</td>
             <td data-th="Quantity">{{ p.quantityToBuy }}
-              <input type="number" class="form-control text-center" value="1" />
             </td>
-            <td data-th="Total" class="text-center">{{ p.quantityToBuy * p.bookPrice }}</td>
+            <td data-th="Total" class="text-center">${{ p.quantityToBuy * p.books.bookPrice }}</td>
             <td class="actions" data-th="">
               <button class="btn btn-info btn-sm" (click)="refreshPage()" ><i class="fa fa-refresh"></i></button>
               <button class="btn btn-danger btn-sm" (click)="onDeleteButtonClick(p.books.bookId)"><i class="fa fa-trash-o"></i></button>
@@ -46,12 +45,12 @@
         </tr>
         <tr>
           <td>
-            <a routerLink="search-results" class="btn btn-warning">
+            <a routerLink="/search-results" class="btn btn-warning">
               <i class="fa fa-angle-left"></i> Continue Shopping</a>
           </td>
           <td colspan="2" class="hidden-xs"></td>
           <td class="hidden-xs text-center">
-            <strong>Total {{totalPrice}}</strong>
+            <strong>Total ${{calculateTotalPrice(cart?.booksToBuy)}}</strong>
           </td>
           <td>
             <a routerLink="" class="btn btn-success btn-block" routerLink="/checkout"> Checkout <i class="fa fa-angle-right"></i></a>

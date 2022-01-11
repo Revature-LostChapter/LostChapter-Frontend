@@ -1,10 +1,4 @@
-export interface Cart {
-  cartId: number;
-  user: {
-    firstName: string;
-    lastName: string;
-  };
-
+export interface BooksToBuy {
   booksToBuy: {
     books: {
       bookId: number;
