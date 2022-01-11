@@ -62,7 +62,7 @@ export class DisplayProductModalComponent implements OnInit {
           let body = <Cart> res.body;
           this.added = true;
         }
-        if(res.status == 404 || res.status === 401 || res.status === 400){
+        if(res.status == 404 || res.status === 401 || res.status === 403 || res.status === 400){
           this.router.navigate(['']);
         }
 
@@ -73,24 +73,6 @@ export class DisplayProductModalComponent implements OnInit {
 
       }
     })
-
-  }
-
-  onDeleteButtonClick(productId: number) {
-    this.cartService
-      .deleteProductFromCart(String(productId), String(this.userId))
-      .subscribe({
-        next: (res) => {
-          if (res.status === 200) {
-            let body = <Cart>res.body;
-            console.log(body);
-          }
-        },
-        error: (err) => {
-          console.log(err);
-        },
-
-      });
 
   }
 

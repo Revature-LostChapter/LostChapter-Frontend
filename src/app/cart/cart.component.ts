@@ -44,12 +44,10 @@ export class CartComponent implements OnInit {
   checkLoginStatus(){
     this.loginService.checkLoginStatus().subscribe({
       next: (res) => {
-        console.log(res);
         if (res.status === 200) {
           let body = <User>res.body;
           if (body.role === 'Customer') {
             this.userId = body.id;
-            console.log(this.userId);
             this.cartService.getCartFromCustomerPage(String(this.userId));
           }
         }
