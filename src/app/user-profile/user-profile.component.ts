@@ -19,7 +19,7 @@ export class UserProfileComponent implements OnInit {
     email: '',
     birthday: '',
     address: '',
-    role: '', 
+    role: '',
   }; */
   currentUser!: User;
 
