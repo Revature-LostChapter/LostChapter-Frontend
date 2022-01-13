@@ -34,6 +34,7 @@ import { HomeComponent } from './home/home.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { DisplayProductModalComponent } from './display-product-modal/display-product-modal.component';
 import { SalesProductComponent } from './sales-product/sales-product.component';
+import { FeaturedProductsComponent } from './featured-products/featured-products.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { SalesProductComponent } from './sales-product/sales-product.component';
     SearchResultsComponent,
     HomeComponent,
     DisplayProductModalComponent,
-    SalesProductComponent
+    SalesProductComponent,
+    FeaturedProductsComponent
   ],
   imports: [
     BrowserModule,
