@@ -29,14 +29,18 @@ export class UserProfileComponent implements OnInit {
 
   async getLoggedUser() {
     this.loginService.checkLoginStatus().subscribe((res) => {
-      console.log(res);
       if (res.status === 200) {
         let body = <User>res.body;
         this.currentUser = body;
         console.log(this.currentUser);
       }
+      else {
+
+        console.log(res);
+
+      }
+
     });
-    console.log();
   }
   public settingUser(newUser: User): void {}
 
@@ -49,16 +53,20 @@ export class UserProfileComponent implements OnInit {
   onUpdateClick() {
     this.loginService
       .updateUser(
-        this.username,
-        this.password,
-        this.firstName,
-        this.lastName,
-        this.age,
-        this.email,
-        this.birthday,
-        this.address,
-        this.role
+        this.currentUser.username,
+        this.currentUser.password,
+        this.currentUser.firstName,
+        this.currentUser.lastName,
+        this.currentUser.age,
+        this.currentUser.email,
+        this.currentUser.birthday,
+        this.currentUser.address,
+        this.currentUser.role
       )
-      .subscribe((res) => {});
+      .subscribe((res) => {
+
+        console.log(res.body);
+
+      });
   }
 }

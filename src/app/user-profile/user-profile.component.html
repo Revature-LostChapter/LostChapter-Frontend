@@ -43,7 +43,7 @@
                 type="text"
                 name="fullname"
                 id="fullname"
-                [value]="currentUser.lastName"
+                [(ngModel)]="currentUser.lastName"
               />
             </li>
             <li>
@@ -52,7 +52,7 @@
                 type="email"
                 name="email"
                 id="email"
-                [value]="currentUser.email"
+                [(ngModel)]="currentUser.email"
                 required
               />
             </li>
@@ -62,7 +62,7 @@
                 type="text"
                 name="role"
                 id="role"
-                [value]="currentUser.role"
+                [(ngModel)]="currentUser.role"
                 required
               />
             </li>
@@ -72,7 +72,7 @@
                 type="number"
                 name="age"
                 id="age"
-                [value]="currentUser.age"
+                [(ngModel)]="currentUser.age"
                 required
               />
             </li>
@@ -82,7 +82,7 @@
                 name="username"
                 type="text"
                 id="username"
-                [value]="currentUser.username"
+                [(ngModel)]="currentUser.username"
                 required
               />
             </li>
@@ -92,7 +92,7 @@
                 name="address"
                 type="text"
                 id="address"
-                [value]="currentUser.address"
+                [(ngModel)]="currentUser.address"
                 required
               />
             </li>
