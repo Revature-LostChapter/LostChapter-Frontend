@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Cart } from '../../../Cart';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { CartService } from 'src/service/cart.service';
 import { LoginService } from '../login.service';
 import { User } from 'User';
+import { lastValueFrom } from 'rxjs';
+import { BooksToBuy } from 'BooksToBuy';
 
 @Component({
   selector: 'app-cart',
@@ -14,6 +16,11 @@ export class CartComponent implements OnInit {
   userId!: number;
   cart!: Cart;
   priceTotal!: Cart[];
+  booksToBuy!: BooksToBuy[];
+  searchItem = '';
+
+  mySubscription: any;
+
 
   totalPrice: number = 0;
 
@@ -25,36 +32,22 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkLoginStatus();
-    this.calculateProduct();
+    this.getCartProduct();
   }
 
-  calculateProduct(){
+  getCartProduct(){
     this.cartService.sub.subscribe((res) => {
-      console.log(res);
       this.cart = res;
-
-      for (let i = 0; i < res.booksToBuy.length; i++) {
-        let pPrice = res.booksToBuy[i].bookPrice;
-        let pQuantity = res.booksToBuy[i].quantityToBuy;
-        let individualPrice = Number(pPrice) * Number(pQuantity);
-
-        let totalPrice = Number(this.totalPrice) + Number(individualPrice);
-        totalPrice = Math.round(totalPrice * 100) / 100;
-
-        this.totalPrice = totalPrice;
-      }
     });
   }
 
   checkLoginStatus(){
     this.loginService.checkLoginStatus().subscribe({
       next: (res) => {
-        console.log(res);
         if (res.status === 200) {
           let body = <User>res.body;
           if (body.role === 'Customer') {
             this.userId = body.id;
-            console.log(this.userId);
             this.cartService.getCartFromCustomerPage(String(this.userId));
           }
         }
@@ -67,23 +60,35 @@ export class CartComponent implements OnInit {
     });
   }
 
-  onDeleteButtonClick(productId: number) {
-    this.cartService
-      .deleteProductFromCart(String(productId), String(this.userId))
-      .subscribe({
+   onDeleteButtonClick(productId: number) {
+    this.cartService.deleteProductFromCart(String(productId), String(this.userId)).subscribe({
         next: (res) => {
           if (res.status === 200) {
             let body = <Cart>res.body;
-            console.log(body);
+            this.cart = body
+
           }
         },
         error: (err) => {
-          console.log(err);
         },
       });
   }
 
-  refreshPage(){
+  calculateTotalPrice(booksToBuy: any){
+      return booksToBuy?.reduce((previousValue: number, currentValue: { books: { bookPrice: number; }; quantityToBuy: number; }) =>
+      previousValue + currentValue.books.bookPrice * currentValue.quantityToBuy, 0);
+
+  }
+
+  newRefreshPage(){
     this.ngOnInit();
+  }
+
+  refreshPage(){
+    const currentRoute = this.router.url;
+
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate([currentRoute]);
+    })
   }
 }

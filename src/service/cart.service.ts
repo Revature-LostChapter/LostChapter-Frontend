@@ -15,13 +15,11 @@ export class CartService {
   p!: Products;
 
   addToCart(pId: string, quantity: string, cartId: string) {
-    console.log('cartService', pId);
-    console.log(quantity);
     let parameter = new HttpParams();
     parameter = parameter.append('productId', pId);
     parameter = parameter.append('quantity', quantity);
     return this.http.post(
-      `http://localhost:9090/carts/${cartId}`,
+      `http://localhost:8081/carts/${cartId}`,
       {},
       {
         params: parameter,
@@ -32,20 +30,20 @@ export class CartService {
   }
 
   getCartFromCustomerPage(userId: string) {
-    return this.http
-      .get<Cart>(`http://localhost:9090/users/${userId}/cart`, {
+    return this.http.get<Cart>(`http://localhost:8081/users/${userId}/cart`, {
         withCredentials: true
       }).subscribe((res)=> {
         this.sub.next(res);
       })
   }
 
-  deleteProductFromCart(pId: string, cartId: string) {
-    return this.http.delete(`http://localhost:9090/carts/${cartId}`, {
+  deleteProductFromCart(bookId: string, userId: string) {
+    return this.http.delete(`http://localhost:8081/users/${userId}/cart`, {
+
       withCredentials: true,
       observe: 'response',
       params: {
-        productId: pId,
+        'bookId': bookId,
       },
     });
   }
