@@ -33,13 +33,9 @@ export class UserProfileComponent implements OnInit {
         let body = <User>res.body;
         this.currentUser = body;
         console.log(this.currentUser);
-      }
-      else {
-
+      } else {
         console.log(res);
-
       }
-
     });
   }
   public settingUser(newUser: User): void {}
@@ -64,9 +60,12 @@ export class UserProfileComponent implements OnInit {
         this.currentUser.role
       )
       .subscribe((res) => {
-
+        if (res.status === 200) {
+          this.successMessage = 'Your update is successful';
+          setTimeout(() => window.location.reload(), 200);
+          this.router.navigate(['user-profile']);
+        }
         console.log(res.body);
-
       });
   }
 }
