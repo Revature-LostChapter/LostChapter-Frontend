@@ -33,8 +33,8 @@
                 type="text"
                 name="fullname"
                 id="fullname"
-                [value]="currentUser.firstName"
                 required
+                [(ngModel)]="currentUser.firstName"
               />
             </li>
             <li>
@@ -97,10 +97,14 @@
               />
             </li>
           </ul>
-          <a routerLink="" routerLinkActive=""
-            ><button mat-raised-button color="primary" style="float: right">
-              Profile
-            </button></a
+          ><button
+            mat-raised-button
+            color="primary"
+            style="float: right"
+            (click)="onUpdateClick()"
+          >
+            Update Profile
+          </button>
           >
         </td>
       </tr>

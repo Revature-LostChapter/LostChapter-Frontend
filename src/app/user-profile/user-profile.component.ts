@@ -9,18 +9,22 @@ import { LoginService } from '../login.service';
   styleUrls: ['./user-profile.component.css'],
 })
 export class UserProfileComponent implements OnInit {
-  /*currentUser: User = {
-    /*  id: 0,
-    username: '',
-    password: '',
-    firstName: '',
-    lastName: '',
-    age: 0,
-    email: '',
-    birthday: '',
-    address: '',
-    role: '',
-  }; */
+  username!: string;
+  password!: string;
+  firstName!: string;
+  lastName!: string;
+  age!: number;
+  email!: string;
+  birthday!: string;
+  address!: string;
+  role!: string;
+
+  // succssmessage
+  successMessage!: string;
+
+  // err message
+  errorMessage!: string;
+
   currentUser!: User;
 
   async getLoggedUser() {
@@ -40,5 +44,21 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLoggedUser();
+  }
+
+  onUpdateClick() {
+    this.loginService
+      .updateUser(
+        this.username,
+        this.password,
+        this.firstName,
+        this.lastName,
+        this.age,
+        this.email,
+        this.birthday,
+        this.address,
+        this.role
+      )
+      .subscribe((res) => {});
   }
 }
