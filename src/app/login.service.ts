@@ -2,19 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   checkLoginStatus() {
     return this.http.get('http://localhost:8081/loginstatus', {
       observe: 'response',
-      withCredentials: true
-    })
+      withCredentials: true,
+    });
   }
-
+  
   login(username: string, password: string){
     return this.http.post('http://localhost:8081/login', {
       "username": username,
@@ -26,12 +25,17 @@ export class LoginService {
   }
 
   logout() {
-    return this.http.post('http://localhost:8081/logout', {},{
-      observe: 'response',
-      withCredentials: true,
-      responseType: 'text'
-    })
+    return this.http.post(
+      'http://localhost:8081/logout',
+      {},
+      {
+        observe: 'response',
+        withCredentials: true,
+        responseType: 'text',
+      }
+    );
   }
-
-
+  updateUser() {
+    return this.http.put('http://localhost:8081/update', {});
+  }
 }
