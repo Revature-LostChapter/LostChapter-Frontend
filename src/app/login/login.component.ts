@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   // show / hide password
   hide = true;
-  
+
   // perform service layer functionality here
   onLoggedIn() {
     this.loginService.login(this.username, this.password).subscribe((res) => {
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         }
 
         if (body.role === 'Admin'){
-          this.router.navigate(['admin']); // navigates to admin route page
+          this.router.navigate(['/admin']); // navigates to admin route page
         }
       }
     }, (err) => {
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
         }
 
         if(body.role === 'Admin'){
-          this.router.navigate(['/admin']);
+          this.router.navigate(['']);
         }
       }
     },
