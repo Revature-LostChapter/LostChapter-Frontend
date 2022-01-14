@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkIfLoggedIn();
-
   }
 
   username!: string;
@@ -55,7 +54,7 @@ export class LoginComponent implements OnInit {
         }
 
         if(body.role === 'Admin'){
-          this.router.navigate(['']);
+          this.router.navigate(['/admin']);
         }
       }
     },

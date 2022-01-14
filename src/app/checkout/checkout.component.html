@@ -1,34 +1,33 @@
 <app-indexnavbar></app-indexnavbar>
 <div class="container">
-  <div style="border: 5px solid #f46036;;
-  "class="checkout-wrapper">
-       <mat-card-title>
-           <h1>Checkout</h1>
-       </mat-card-title>
+  <div style="border: 5px solid #f46036; "class="checkout-wrapper">
+    <mat-card-title>
+        <h1>Checkout</h1>
+    </mat-card-title>
 
 
        <mat-card id="payment-panel">
            <span class="material-icons">credit_card</span>
            <h2>Payment Information</h2>
            <div class="payment" id="card-number" style="margin: auto;">
-               <label id="card-number-label" class="payment" for="card-number-input">Card number:</label>
-               <input id="card-number-input" class="payment" style="margin: auto;" type="text" placeholder="4200-0000-0000-0000">
+               <label id="card-number-label" class="payment" for="card-number-input" >Card number:</label>
+               <input id="card-number-input" class="payment" style="margin: auto;" type="text" placeholder="4200-0000-0000-0000" ngDefaultControl name="cardNumber" [(ngModel)]="cardNumber">
            </div>
            <div class="payment"  id="experiation-date" style="margin: auto;">
                <!-- Use flexbox to style expiration dates separately -->
                <label id="experiation-date-month-label" class="payment" for="experiation-date-month">Month:</label>
-               <input id="experiation-date-month"  class="payment" type="number" placeholder="02">
+               <input id="experiation-date-month"  class="payment" type="text" placeholder="02" name="expirationMonth" ngDefaultControl [(ngModel)]="expirationMonth">
 
                <label id="experiation-date-year-label" class="payment"  for="experiation-date-year">Year: </label>
-               <input id="experiation-date-year" class="payment" type="number" placeholder="2025">
+               <input id="experiation-date-year" class="payment" type="text" placeholder="2025" name="expirationYear" ngDefaultControl [(ngModel)]="expirationYear">
            </div>
            <div class="payment"  id="ccv" style="margin: auto;">
                <label id="ccv-input-label" class="payment" for="ccv-input">CCV:</label>
-               <input id="ccv-input" class="payment" type="text" placeholder="000">
+               <input id="ccv-input" class="payment" type="text" placeholder="000" name="securityCode" ngDefaultControl [(ngModel)]="securityCode">
            </div>
            <div  class="payment" id="cardholder-name" style="margin: auto;">
                <label id="cardholder-name-input-label" class="payment" for="cardholder-name-input">Cardholder Name:</label>
-               <input id="cardholder-name-input" class="payment" type="text" placeholder="Billy bob">
+               <input id="cardholder-name-input" class="payment" type="text" placeholder="Billy bob"  name="cardholderName" ngDefaultControl [(ngModel)]="cardholderName">
            </div>
        </mat-card>
 
@@ -43,14 +42,26 @@
            <h2>Shipping Information</h2>
            <div id="address" style="margin: auto;">
                <label id="address-input-street-label" class="payment" for="address-input-street">Street name:</label>
-               <input id="address-input-street" class="payment" type="text" placeholder="1234 Elm St">
+               <input id="address-input-street" class="payment" type="text" placeholder="1234 Elm St" name="streetName"  ngDefaultControl [(ngModel)]="streetName">
            </div>
+           <div id="state" style="margin: auto;">
+            <label id="state-input-street-label" class="payment" for="address-input-street">State:</label>
+            <input id="state-input-street" class="payment" type="text" placeholder="OK" name="state" ngDefaultControl [(ngModel)]="state">
+           </div>
+           <div id="city" style="margin: auto;">
+            <label id="city-input-street-label" class="payment" for="address-input-street">City:</label>
+            <input id="city-input-street" class="payment" type="text" placeholder="Edmond" name="city" ngDefaultControl [(ngModel)]="city">
+           </div>
+        <div id="zipcode" style="margin: auto;">
+          <label id="zipcode-input-street-label" class="payment" for="address-input-street">Zip Code:</label>
+          <input id="zipcode-input-street" class="payment" type="text" placeholder="78937" name="zipCode" ngDefaultControl [(ngModel)]="zipCode">
+        </div>
            <div id="name" style="margin: auto;">
                <label id="first-name-input-label" class="payment" for="first-name-input">First name:</label>
-               <input  id="first-name-input" class="payment" type="text" placeholder="Billy">
+               <input  id="first-name-input" class="payment" type="text" placeholder="Billy" name="firstName" ngDefaultControl [(ngModel)]="firstName">
 
                <label id="last-name-input-label" class="payment" style="margin: auto;" for="last-name-input-label">Last name: </label>
-               <input  id="last-name-input" class="payment" type="text" placeholder="Bob">
+               <input  id="last-name-input" class="payment" type="text" placeholder="Bob" name="lastName" ngDefaultControl [(ngModel)]="lastName">
            </div>
        </mat-card>
 
@@ -62,14 +73,18 @@
            <!-- Using angular material design, https://material.angular.io/ -->
            <span class="material-icons"> markunread_mailbox</span>
            <h2>Delivery Date</h2>
-           <div>
-               <mat-radio-group aria-label="Select an option">
+           <div *ngFor="let option of deliveryDates; let i = index" >
                <!-- useful link for selecting shipping date from angular material, https://material.angular.io/components/datepicker/examples -->
-                   <mat-radio-button value="1">Option 1</mat-radio-button>
-                   <mat-radio-button value="2">Option 2</mat-radio-button>
-               </mat-radio-group>
+               <input class="form-check-input" type="radio" name="Delivery Dates" [value]="option.value"
+               [(ngModel)]="option.value" (click)="value = option.value"/>
+               <label for="{{option.name}}"> {{option.name}}</label>
+              <!-- <input type="radio" name="button1" value="7 Days Delivery Date" [(ngModel)]="deliveryDate"  />7 Days Delivery Date -->
+
            </div>
        </mat-card>
+
+       <!-- <input type="radio" name="button1" value="1 Month Delivery Date" checked />1 Month Delivery Date
+       <input type="radio" name="button1" value="7 Days Delivery Date" />7 Days Delivery Date -->
 
        <br>
        <mat-divider></mat-divider>
@@ -77,8 +92,10 @@
 
        <div id="purchase-order">
            <button class="cart-btn" routerLink="/cart">Back to Cart</button>
-           <button class="submit-button-btn" routerLink="/checkout-summary">Purchase Order</button>
+           <button class="submit-button-btn" (click)="onCheckoutCart()">Purchase Order</button>
            <!-- class="btn btn-secondary pull-left" and "btn btn-danger pull-right" -->
        </div>
+       <div  class="text-danger" *ngIf="errorMessage" id="error-message">{{errorMessage}}</div>
+
   </div>
 </div>

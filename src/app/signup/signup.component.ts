@@ -50,6 +50,8 @@ export class SignupComponent implements OnInit {
       }
     },
     (err) => {
+      this.errorMessage = '';
+      this.errorMessage = err.error;
 
     });
   }
@@ -59,10 +61,11 @@ export class SignupComponent implements OnInit {
       if (res.status === 201 || res.status === 200){
         if (res.body){
             this.successMessage = res.body;
-            setTimeout(() => window.location.reload(), 5000); // reload page after 5 secs
+            this.ngOnInit();
         }
       }
     }, (err) => {
+      this.errorMessage = '';
       this.errorMessage = err.error;
     } )
   }
