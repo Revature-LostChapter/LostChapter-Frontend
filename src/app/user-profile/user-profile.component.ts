@@ -9,30 +9,34 @@ import { LoginService } from '../login.service';
   styleUrls: ['./user-profile.component.css'],
 })
 export class UserProfileComponent implements OnInit {
-  /*currentUser: User = {
-    /*  id: 0,
-    username: '',
-    password: '',
-    firstName: '',
-    lastName: '',
-    age: 0,
-    email: '',
-    birthday: '',
-    address: '',
-    role: '',
-  }; */
+  username!: string;
+  password!: string;
+  firstName!: string;
+  lastName!: string;
+  age!: number;
+  email!: string;
+  birthday!: string;
+  address!: string;
+  role!: string;
+
+  // succssmessage
+  successMessage!: string;
+
+  // err message
+  errorMessage!: string;
+
   currentUser!: User;
 
   async getLoggedUser() {
     this.loginService.checkLoginStatus().subscribe((res) => {
-      console.log(res);
       if (res.status === 200) {
         let body = <User>res.body;
         this.currentUser = body;
         console.log(this.currentUser);
+      } else {
+        console.log(res);
       }
     });
-    console.log();
   }
   public settingUser(newUser: User): void {}
 
@@ -40,5 +44,28 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getLoggedUser();
+  }
+
+  onUpdateClick() {
+    this.loginService
+      .updateUser(
+        this.currentUser.username,
+        this.currentUser.password,
+        this.currentUser.firstName,
+        this.currentUser.lastName,
+        this.currentUser.age,
+        this.currentUser.email,
+        this.currentUser.birthday,
+        this.currentUser.address,
+        this.currentUser.role
+      )
+      .subscribe((res) => {
+        if (res.status === 200) {
+          this.successMessage = 'Your update is successful';
+          setTimeout(() => window.location.reload(), 200);
+          this.router.navigate(['user-profile']);
+        }
+        console.log(res.body);
+      });
   }
 }
