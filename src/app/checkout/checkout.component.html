@@ -47,7 +47,11 @@
            <div id="state" style="margin: auto;">
             <label id="state-input-street-label" class="payment" for="address-input-street">State:</label>
             <input id="state-input-street" class="payment" type="text" placeholder="OK" [(ngModel)]="shippingAddress.state">
-        </div>
+           </div>
+           <div id="city" style="margin: auto;">
+            <label id="city-input-street-label" class="payment" for="address-input-street">City:</label>
+            <input id="city-input-street" class="payment" type="text" placeholder="Edmond" [(ngModel)]="shippingAddress.city">
+           </div>
         <div id="zipcode" style="margin: auto;">
           <label id="zipcode-input-street-label" class="payment" for="address-input-street">Zip Code:</label>
           <input id="zipcode-input-street" class="payment" type="text" placeholder="78937" [(ngModel)]="shippingAddress.zipCode">

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatRadioModule} from '@angular/material/radio';
 import { Router } from '@angular/router';
 import { ShippingAddress } from 'ShippingAddress';
-import { User } from 'User';
 import { CheckoutService } from '../checkout.service';
 import { LoginService } from '../login.service';
 
@@ -24,9 +22,6 @@ export class CheckoutComponent implements OnInit {
   cardholderName!: string;
   firstName!: string;
   lastName!: string;
-  streetName!: string;
-  state!: string;
-  zipCode!: string;
   deliveryDate!: string;
 
   shippingAddress!: ShippingAddress;

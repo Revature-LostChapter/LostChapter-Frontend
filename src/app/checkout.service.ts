@@ -17,7 +17,14 @@ export class CheckoutService {
       "expirationYear": expirationYear,
       "securityCode": securityCode,
       "cardholderName": cardholderName,
-      "shippingAddress": shippingAddress
+      "firstName": shippingAddress.firstName,
+      "lastName": shippingAddress.lastName,
+      "streetName": shippingAddress.streetName,
+      "city": shippingAddress.city,
+      "state": shippingAddress.state,
+      "zipCode": shippingAddress.zipCode,
+      "deliveryDate": shippingAddress.deliveryDate
+
     }, {
       withCredentials: true,
       observe: 'response'
