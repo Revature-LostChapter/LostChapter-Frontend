@@ -35,7 +35,35 @@ export class LoginService {
       }
     );
   }
-  updateUser() {
-    return this.http.put('http://localhost:8081/update', {});
+  updateUser(
+    username: string,
+    password: string,
+    firstName: string,
+    lastName: string,
+    age: number,
+    email: string,
+    birthday: string,
+    address: string,
+    role: string
+  ) {
+    return this.http.put(
+      `http://localhost:8081/update`,
+      {
+        username: username,
+        password: password,
+        firstName: firstName,
+        lastName: lastName,
+        age: age,
+        email: email,
+        birthday: birthday,
+        address: address,
+        role: role,
+      },
+      {
+        withCredentials: true,
+        observe: 'response',
+        responseType: 'text',
+      }
+    );
   }
 }
