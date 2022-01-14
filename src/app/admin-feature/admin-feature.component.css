@@ -1,0 +1,25 @@
+mat-sidenav-container {
+  height: 100%;
+  /*old value for height calc(100vh - 65px); */
+}
+
+/* This element below will change the overall sections of the metric and adding book parts in this page */
+.content {
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+  font-size: 2rem;
+}
+
+/* This element below will change the profile section in this page  */
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background: #69626d;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
