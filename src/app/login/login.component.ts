@@ -33,10 +33,8 @@ export class LoginComponent implements OnInit {
           if (body.role === 'Customer') {
             this.router.navigate(['/home']); // navigates to customer route page -> redirecting to this route for now until we have full functionalities of the routes
           }
-
-          if (body.role === 'Admin') {
-            this.router.navigate(['admin']); // navigates to admin route page
-          }
+        if (body.role === 'Admin'){
+          this.router.navigate(['/admin']); // navigates to admin route page
         }
       },
       (err) => {

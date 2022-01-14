@@ -10,13 +10,10 @@
       </p>
       <p class="fs-5 text3">You will receive a shipping information email</p>
       <div class="orderInfo">
-        <label class="fs-5">Order number:</label>
-        <input type="text" id="orderNumber" />
+        <label class="fs-5">Order number:  <h2> <strong>{{showSummary?.orderNumber}}</strong> </h2></label>
         <div class="info">
-          <label class="fs-5">Purchase date:</label>
-          <input type="text" id="purchaseDate" />
-          <label class="fs-5">Payment</label>
-          <input type="text" id="payment" />
+          <label class="fs-5">Purchase date:  <h2><strong>{{showSummary?.transactionDate}}</strong></h2></label>
+          <label class="fs-5">Payment:  <h2><strong>${{showSummary?.totalPrice}}</strong></h2></label>
         </div>
       </div>
       <button class="btn btn-warning" routerLink="/cart">
