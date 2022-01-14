@@ -50,6 +50,8 @@ export class SignupComponent implements OnInit {
       }
     },
     (err) => {
+      this.errorMessage = '';
+      this.errorMessage = err.error;
 
     });
   }
@@ -63,6 +65,7 @@ export class SignupComponent implements OnInit {
         }
       }
     }, (err) => {
+      this.errorMessage = '';
       this.errorMessage = err.error;
     } )
   }

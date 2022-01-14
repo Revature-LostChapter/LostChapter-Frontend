@@ -1,12 +1,12 @@
 <div class="container">
   <section>
-    <strong><h1 style="color: #0645AD; font-size: 21px;font-weight:bolder">Book(s) on Sales</h1></strong>
+      <strong><h1 style="color: #0645AD; font-size: 21px;font-weight:bolder">Book(s) on Sales</h1></strong>
     <br>
     <div>
       <ng-container>
         <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
           <div class="col" *ngFor="let item of displayProducts">
-            <div class="card h-30 w-30">
+            <div class="carousel-inner row w-30 mx-auto">
               <div>
                 <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;">
                 <br>

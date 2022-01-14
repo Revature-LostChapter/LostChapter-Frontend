@@ -46,6 +46,14 @@ export class SearchProductsService {
     })
   }
 
+  getFeaturedBooks(){
+    return this.http.get(`http://localhost:8081/books/featured`, {
+      observe: 'response'
+    })
+  }
+
+
+
 }
 
 

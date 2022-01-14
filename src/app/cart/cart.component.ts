@@ -80,6 +80,7 @@ export class CartComponent implements OnInit {
 
   }
 
+  // for future ref
   newRefreshPage(){
     this.ngOnInit();
   }

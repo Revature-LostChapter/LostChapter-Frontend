@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { SearchProducts } from 'SearchProduct';
 import { CartService } from 'src/service/cart.service';
 import { User } from 'User';
+import { DisplayProductModalComponent } from '../display-product-modal/display-product-modal.component';
 import { LoginService } from '../login.service';
 import { SearchProductsService } from '../search-products.service';
 
@@ -12,11 +15,17 @@ import { SearchProductsService } from '../search-products.service';
 })
 export class FeaturedProductsComponent implements OnInit {
 
-  constructor(private cartService: CartService, private router: Router,  private featuredService: SearchProductsService, private loginService: LoginService) { }
+  constructor(private getGenreService: SearchProductsService, private cartService: CartService, private router: Router,  private featuredService: SearchProductsService, private loginService: LoginService, public dialog: MatDialog) { }
 
   cartId!: number;
+  showResults: SearchProducts[] = [];
+  selectedProducts!: SearchProducts;
+  dialogResult!: string;
+
 
   ngOnInit(): void {
+    this.checkLoginStatus();
+    this.getFeaturedBooks();
   }
 
   checkLoginStatus(){
@@ -38,6 +47,33 @@ export class FeaturedProductsComponent implements OnInit {
     });
   }
 
+  getFeaturedBooks(){
+    this.featuredService.getFeaturedBooks().subscribe((res) => {
+      let body = <SearchProducts[]> res.body;
+      this.showResults = body;
+    })
+  }
 
 
+  onDisplayProduct(bookId: number){
+    let modalRef = this.dialog.open(DisplayProductModalComponent, {
+      width: '800px',
+      height: '600px',
+      data: 'Book Information'
+    });
+
+      this.getGenreService.getBookById(bookId).subscribe((res) => {
+          let responseObj = <SearchProducts>res.body;
+          this.selectedProducts = responseObj
+
+          let instance = modalRef.componentInstance;
+          instance.selectedProducts = this.selectedProducts;
+
+      });
+
+    modalRef.afterClosed().subscribe(result => {
+      this.dialogResult = result;
+    });
+
+  }
 }

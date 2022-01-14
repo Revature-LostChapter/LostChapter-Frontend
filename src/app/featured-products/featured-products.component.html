@@ -1,1 +1,29 @@
-<p>featured-products works!</p>
+<div class="container">
+  <section>
+      <strong><h1 style="color: #0645AD; font-size: 21px;font-weight:bolder">Featured Books</h1></strong>
+    <br>
+    <div>
+      <ng-container>
+        <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+          <div class="col" *ngFor="let item of showResults">
+            <div class="carousel-inner row w-30 mx-auto">
+              <div>
+                <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;">
+                <br>
+                <br>
+               <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
+                 <h3 class="card-text" id="salesPrice">Price: <span id="salesPrice">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+              </div>
+              </div>
+               <br>
+
+            </div>
+         </div>
+        </div>
+      </ng-container>
+
+
+    </div>
+  </section>
+</div>
+
