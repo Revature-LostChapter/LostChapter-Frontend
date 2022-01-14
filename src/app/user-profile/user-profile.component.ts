@@ -32,9 +32,7 @@ export class UserProfileComponent implements OnInit {
       if (res.status === 200) {
         let body = <User>res.body;
         this.currentUser = body;
-        console.log(this.currentUser);
       } else {
-        console.log(res);
       }
     });
   }
@@ -61,11 +59,14 @@ export class UserProfileComponent implements OnInit {
       )
       .subscribe((res) => {
         if (res.status === 200) {
-          this.successMessage = 'Your update is successful';
-          setTimeout(() => window.location.reload(), 200);
-          this.router.navigate(['user-profile']);
+          this.getLoggedUser();
+          let body = <User><unknown>res.body;
+          this.currentUser = body;
+
+          this.successMessage = "";
+          this.successMessage = 'Your profile will update after logging out';
+
         }
-        console.log(res.body);
       });
   }
 }
