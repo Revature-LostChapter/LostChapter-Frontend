@@ -25,23 +25,23 @@ export class LoginComponent implements OnInit {
 
   // perform service layer functionality here
   onLoggedIn() {
-    this.loginService.login(this.username, this.password).subscribe(
-      (res) => {
-        if (res.status === 201 || res.status === 200) {
-          let body = <User>res.body;
-          console.log(res);
-          if (body.role === 'Customer') {
-            this.router.navigate(['/home']); // navigates to customer route page -> redirecting to this route for now until we have full functionalities of the routes
-          }
+    this.loginService.login(this.username, this.password).subscribe((res) => {
+      if (res.status === 201 || res.status === 200) {
+        let body = <User> res.body;
+        console.log(res);
+        if (body.role === 'Customer'){
+          this.router.navigate(['/home']); // navigates to customer route page -> redirecting to this route for now until we have full functionalities of the routes
+        }
+
         if (body.role === 'Admin'){
           this.router.navigate(['/admin']); // navigates to admin route page
         }
-      },
-      (err) => {
-        this.errorMessage = err.error;
       }
-    );
+    }, (err) => {
+      this.errorMessage = err.error;
+    });
   }
+
 
   checkIfLoggedIn() {
     this.loginService.checkLoginStatus().subscribe(

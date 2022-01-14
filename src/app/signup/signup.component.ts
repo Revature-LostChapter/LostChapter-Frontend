@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'User';
 import { LoginService } from '../login.service';
 import { SignupService } from '../signup.service';
+import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -10,7 +11,7 @@ import { SignupService } from '../signup.service';
 })
 
 export class SignupComponent implements OnInit {
-  constructor(private router: Router, private loginService: LoginService, private signupService: SignupService) { }
+  constructor(private domDocument: Document, private router: Router, private loginService: LoginService, private signupService: SignupService, private route: ActivatedRoute) { }
 
   username!: string;
   password!: string;
@@ -60,6 +61,7 @@ export class SignupComponent implements OnInit {
     this.signupService.signup(this.username, this.password, this.firstName, this.lastName, this.age, this.email, this.birthday, this.address, this.role).subscribe((res) => {
       if (res.status === 201 || res.status === 200){
         if (res.body){
+          this.successMessage = '';
             this.successMessage = res.body;
             this.ngOnInit();
         }
