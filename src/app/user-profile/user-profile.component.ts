@@ -39,7 +39,6 @@ export class UserProfileComponent implements OnInit {
   public settingUser(newUser: User): void {}
 
   constructor(private router: Router, private loginService: LoginService) {}
-
   ngOnInit(): void {
     this.getLoggedUser();
   }
@@ -59,7 +58,6 @@ export class UserProfileComponent implements OnInit {
       )
       .subscribe((res) => {
         if (res.status === 200) {
-          this.getLoggedUser();
           let body = <User><unknown>res.body;
           this.currentUser = body;
 
