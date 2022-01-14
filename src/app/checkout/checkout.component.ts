@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Checkout } from 'Checkout';
 import { ShippingAddress } from 'ShippingAddress';
 import { CheckoutService } from '../checkout.service';
 import { LoginService } from '../login.service';
@@ -23,17 +24,26 @@ export class CheckoutComponent implements OnInit {
   firstName!: string;
   lastName!: string;
   deliveryDate!: string;
+  streetName!: string;
+  city!: string;
+  state!: string;
+  zipCode!: string
+
+  transactionId!: number;
+
+
+  value = "7 Days Delivery Date";
+
+  deliveryDates = [{name: "1 Month Delivery Date", value: "1 Month Delivery Date"}, {name: "7 Days Delivery Date", value: "7 Days Delivery Date"}];
 
   shippingAddress!: ShippingAddress;
 
   ngOnInit(): void {
     this.checkIfLoggedIn();
-
   }
 
   checkIfLoggedIn() {
     this.loginService.checkLoginStatus().subscribe((res) => {
-      console.log(res);
       if (res.status === 401 || res.status === 400){
         this.router.navigate(['']);
       }
@@ -45,10 +55,12 @@ export class CheckoutComponent implements OnInit {
   }
 
   onCheckoutCart(){
-    this.checkoutService.cartCheckout(this.cardNumber,this.expirationMonth, this.expirationYear, this.securityCode, this.cardholderName, this.shippingAddress).subscribe((res)=> {
+    this.checkoutService.cartCheckout(this.cardNumber,this.expirationMonth, this.expirationYear, this.securityCode, this.cardholderName, this.firstName, this.lastName, this.streetName, this.city, this.state, this.zipCode, this.value).subscribe((res)=> {
       if (res.status === 200 || res.status === 201){
-        console.log(res.body);
-        this.router.navigate(['/checkout-summary'])
+        let body = <Checkout> res.body
+        this.transactionId = body.transactionId;
+
+        this.router.navigate([`/checkout-summary/${this.transactionId}`])
       }
     },
     (err) => {

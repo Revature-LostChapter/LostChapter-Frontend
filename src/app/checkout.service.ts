@@ -9,7 +9,8 @@ export class CheckoutService {
 
   constructor(private http: HttpClient) { }
 
-  cartCheckout(cardNumber: string, expirationMonth: string, expirationYear: string, securityCode: string, cardholderName: string, shippingAddress: ShippingAddress){
+  cartCheckout(cardNumber: string, expirationMonth: string, expirationYear: string, securityCode: string, cardholderName: string,
+    firstName: string, lastName: string, streetName: string, city: string, state: string, zipCode: string, deliveryDate: string){
     return this.http.post(`http://localhost:8081/user/checkout`, {
 
       "cardNumber": cardNumber,
@@ -17,15 +18,23 @@ export class CheckoutService {
       "expirationYear": expirationYear,
       "securityCode": securityCode,
       "cardholderName": cardholderName,
-      "firstName": shippingAddress.firstName,
-      "lastName": shippingAddress.lastName,
-      "streetName": shippingAddress.streetName,
-      "city": shippingAddress.city,
-      "state": shippingAddress.state,
-      "zipCode": shippingAddress.zipCode,
-      "deliveryDate": shippingAddress.deliveryDate
-
+     "shippingAddress": {
+      "firstName": firstName,
+      "lastName": lastName,
+      "streetName": streetName,
+      "city": city,
+      "state": state,
+      "zipCode": zipCode,
+      "deliveryDate": deliveryDate
+     }
     }, {
+      withCredentials: true,
+      observe: 'response'
+    })
+  }
+
+  getCheckoutSummary(transactionId: number){
+    return this.http.get(`http://localhost:8081/order-confirmation/${transactionId}`, {
       withCredentials: true,
       observe: 'response'
     })
