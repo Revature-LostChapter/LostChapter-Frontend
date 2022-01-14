@@ -62,7 +62,6 @@ export class LoginService {
       {
         withCredentials: true,
         observe: 'response',
-        responseType: 'text',
       }
     );
   }
