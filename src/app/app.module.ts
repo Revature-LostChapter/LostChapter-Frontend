@@ -35,6 +35,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { DisplayProductModalComponent } from './display-product-modal/display-product-modal.component';
 import { SalesProductComponent } from './sales-product/sales-product.component';
 import { FeaturedProductsComponent } from './featured-products/featured-products.component';
+import { NgxSlickJsModule } from 'ngx-slickjs';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,15 @@ import { FeaturedProductsComponent } from './featured-products/featured-products
     MatMenuModule,
     NgxPaginationModule,
     FontAwesomeModule,
-    MatTabsModule
+    MatTabsModule,
+    NgxSlickJsModule.forRoot({
+      links: {
+        jquery: "https://code.jquery.com/jquery-3.4.0.min.js",
+        slickJs: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
+        slickCss: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css",
+        slickThemeCss: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],

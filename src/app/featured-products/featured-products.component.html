@@ -1,29 +1,40 @@
 <div class="container">
-  <section>
-      <strong><h1 style="color: #0645AD; font-size: 21px;font-weight:bolder">Featured Books</h1></strong>
-    <br>
-    <div>
-      <ng-container>
-        <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
-          <div class="col" *ngFor="let item of showResults">
-            <div class="carousel-inner row w-30 mx-auto">
-              <div>
-                <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;">
-                <br>
-                <br>
-               <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-                 <h3 class="card-text" id="salesPrice">Price: <span id="salesPrice">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-              </div>
-              </div>
-               <br>
+  <strong><h1 style="color: #0645AD; font-size: 21px;font-weight:bolder" >Featured Books</h1></strong>
+<br>
+<!--https://stackblitz.com/edit/ngx-slickjs?file=src%2Fapp%2Fapp.component.html-->
+<div class="slick-wrapper">
+  <div slickContainer #slickController="slick" [slickConfig]="config" >
+    <ng-container *ngIf="slickController.initialize" >
+      <div slickItem *ngFor="let item of showResults">
+            <img [src]="item.bookImage"  (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" class="p-10">
+          <br><br>
 
-            </div>
+        <div>
+          <div slickItem style="margin: auto; color: black; text-align:left; position: absolute; bottom: 0; left: 0;"><strong>Book Title: </strong> {{item.bookName}} <br>
+           <h3 slickItem id="salesPrice" style="margin: auto; color: black; text-align:left; position: absolute; bottom: 0; left: 0;">Price: <span id="salesPrice">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
          </div>
         </div>
-      </ng-container>
+         <br>
+
+      </div>
+    </ng-container>
+
+  </div>
+
+</div>
+  <div style="margin: auto; padding: 10px; text-align: center; ">
+    <button mat-stroked-button color="primary" (click)="slickController.prev()">Previous</button> &nbsp;&nbsp;&nbsp;
+    <!-- <button mat-stroked-button (click)="slickController.play()">Play</button> &nbsp;
+    <button mat-stroked-button (click)="slickController.pause()">Pause</button> &nbsp;&nbsp;&nbsp; -->
+    <button mat-stroked-button color="primary" (click)="slickController.next()">Next</button>
 
 
-    </div>
-  </section>
+  </div>
+
 </div>
 
+
+<!-- <pre>
+  config: {{ config | json}}
+</pre>
+ -->

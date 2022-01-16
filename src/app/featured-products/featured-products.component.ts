@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { animate, AnimationBuilder, AnimationFactory, style } from '@angular/animations';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Slick } from 'ngx-slickjs';
 import { SearchProducts } from 'SearchProduct';
 import { CartService } from 'src/service/cart.service';
 import { User } from 'User';
@@ -15,13 +17,17 @@ import { SearchProductsService } from '../search-products.service';
 })
 export class FeaturedProductsComponent implements OnInit {
 
-  constructor(private getGenreService: SearchProductsService, private cartService: CartService, private router: Router,  private featuredService: SearchProductsService, private loginService: LoginService, public dialog: MatDialog) { }
+  constructor(private getGenreService: SearchProductsService, private cartService: CartService, private router: Router,
+    private featuredService: SearchProductsService, private loginService: LoginService, public dialog: MatDialog,
+    private elementRef: ElementRef, private animationBuilder: AnimationBuilder) { }
 
   cartId!: number;
   showResults: SearchProducts[] = [];
   selectedProducts!: SearchProducts;
   dialogResult!: string;
 
+  // carousel
+  arrayLength = 10;
 
   ngOnInit(): void {
     this.checkLoginStatus();
@@ -76,4 +82,21 @@ export class FeaturedProductsComponent implements OnInit {
     });
 
   }
+
+  // carousel animation using ngx slick js
+
+  config: Slick.Config = {
+    infinite: true,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 10000,
+    cssEase: 'linear'
+  }
+
+  getArray(count: number){
+    return new Array(count);
+  }
+
 }
