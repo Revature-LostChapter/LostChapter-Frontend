@@ -52,7 +52,7 @@
           <a routerLink="/admin-feature"><span class="material-icons-outlined md-light">account_circle</span></a>
         </div>
         <!-- This "button" for the routerLink is to still show the icon incase no users are logged in -->
-        <div class="p-3" *ngIf="loggedIn">
+        <div class="p-3" *ngIf="notLoggedIn">
           <a routerLink="/login"><span class="material-icons-outlined md-light">account_circle</span></a>
         </div>
     </div>

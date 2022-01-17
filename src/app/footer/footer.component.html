@@ -28,9 +28,18 @@
           <!-- Grid column -->
 
           <!-- Grid column -->
-          <div class="col-md-2">
+          <div class="col-md-2" *ngIf="roleIsCustomer">
             <h6 class="text-uppercase font-weight-bold">
               <a href="/userprofile" class="text-white text-decoration-none">Profile</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+          
+          <!-- Sends user to admin-feature if they're an admin -->
+          <!-- Grid column -->
+          <div class="col-md-2" *ngIf="roleIsAdmin">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="/admin-feature" class="text-white text-decoration-none">Profile</a>
             </h6>
           </div>
           <!-- Grid column -->

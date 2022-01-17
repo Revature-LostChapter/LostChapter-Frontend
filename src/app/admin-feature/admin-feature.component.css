@@ -86,7 +86,7 @@ ul li {
 }
 
 b {
-  color: black;
+  color: white;
 }
 
 .fa {
@@ -267,4 +267,38 @@ b {
     position: relative;
     left: -40px;
   }
+}
+
+/* CSS below is for styling the Add a book section */
+#Add-a-book-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 5px;
+  padding-bottom: 10px;
+}
+
+.isOnSale-checkbox {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  
+}
+
+.isOnSale-margin {
+  margin: 0 10px;
+}
+
+/* for the amount CSS styling */
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
 }

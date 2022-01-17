@@ -24,8 +24,8 @@ export class IndexnavbarComponent implements OnInit {
   currentUser!: String;
 
   // boolean check to properly redirect user to their profile page
-  roleIsCustomer!:boolean;
-  roleIsAdmin!:boolean;
+  roleIsCustomer:boolean= false;
+  roleIsAdmin:boolean = false;
   
   checkIfLoggedIn() {
     this.loginService.checkLoginStatus().subscribe((res) => {
@@ -41,11 +41,11 @@ export class IndexnavbarComponent implements OnInit {
         // the two if statements below control the *ngIf for the profile button
         if(body.role === 'Customer'){
           this.roleIsCustomer = true;
-          this.roleIsAdmin = !this.roleIsAdmin; 
+          this.roleIsAdmin = false; 
         }
         if(body.role === 'Admin'){
           this.roleIsAdmin = true;
-          this.roleIsCustomer = !this.roleIsCustomer; 
+          this.roleIsCustomer = false; 
         }
       }
       

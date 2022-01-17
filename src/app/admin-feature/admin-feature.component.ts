@@ -1,8 +1,6 @@
 import { Component,  EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatDividerModule} from '@angular/material/divider';
-import { MatTabChangeEvent } from '@angular/material/tabs';
-import { MatCardModule } from '@angular/material/card';
+import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { SearchProducts } from 'SearchProduct';
 import { DisplayProductModalComponent } from '../display-product-modal/display-product-modal.component';
@@ -34,7 +32,32 @@ export class AdminFeatureComponent implements OnInit {
   errorMessage!: string;
 
   currentUser!: User;
-  constructor(private loginService: LoginService, private router: Router, public dialog: MatDialog) { }
+
+  // variables for quantity
+  options!: FormGroup;
+  quantityControl = new FormControl(10, Validators.min(1));
+
+  // variables for year
+  yearControl = new FormControl(1500,Validators.min(1000))
+
+  // variables for edition
+  editionControl = new FormControl(1,Validators.min(1))
+
+  // variables for sale
+  isOnSale = false; 
+  saleControl = new FormControl(.10, Validators.min(.10))
+  // maxSaleControl = new FormControl(.10, Validators.max(.90))
+  
+
+  constructor(private loginService: LoginService, private router: Router, public dialog: MatDialog, fb: FormBuilder) { 
+    this.options = fb.group({
+      selectedQuantity: this.quantityControl,
+      yearPublished: this.yearControl,
+      bookEdition: this.editionControl,
+      minSaleAmount: this.saleControl,
+      // maxSaleAmount: this.maxSaleControl,
+    });
+  }
 
   async getLoggedUser() {
     this.loginService.checkLoginStatus().subscribe((res) => {
@@ -88,6 +111,11 @@ export class AdminFeatureComponent implements OnInit {
         }
         console.log(res.body);
       });
+  }
+
+  addBookClick(){
+    // Need to add code to actually get values and push them to database, updating profile maybe a good reference, but will need to make a new service, 
+    // or use search-products service, and add fields to that
   }
 
 

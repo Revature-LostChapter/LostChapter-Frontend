@@ -14,6 +14,7 @@ import { MatRadioModule} from '@angular/material/radio';
 import { MatCardModule} from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -74,6 +75,7 @@ import { AdminFeatureComponent } from './admin-feature/admin-feature.component';
     MatExpansionModule,
     MatGridListModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
     FormsModule,
     MatSelectModule,
     FlexLayoutModule,
