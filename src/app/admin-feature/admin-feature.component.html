@@ -1,47 +1,148 @@
 <app-indexnavbar></app-indexnavbar>
-<div id="admin-page">
-  <mat-sidenav-container>
-    <mat-sidenav id="profile-section" mode="side" opened>
-      Profile
-    </mat-sidenav>
-    
-    <div class="content mat-elevation-z8">
-      <div class="m-3 p-3">
-        <mat-card-title>Metrics</mat-card-title>
-        <mat-card-content>
-          Testing
-        </mat-card-content>
-      </div>
-      
-    </div>
-    
-    <mat-divider class="m-3"></mat-divider>
-    
-    <div class="content mat-elevation-z8">
-      <div class="m-3 p-3">
-        <mat-card-title>Add a new Book</mat-card-title>
-        <mat-card-content>
-          Testing
-        </mat-card-content>
-        
-      </div>  
-    </div>
-      
-    
-    <!-- <div class="content mat-elevation-z8">
-      <div>
-        <mat-card-title>Metrics</mat-card-title>
-        
-      </div>
-      
-      <mat-divider></mat-divider>
-      
-      <div>
-        <mat-card-title>Add a new Book</mat-card-title>
-        
-      </div>
-      
-    </div> -->
+<!-- Using angular flex-layout https://github.com/angular/flex-layout -->
+<div fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="10px">
+  <div class="content mat-elevation-z8" id="profile" >
+    <mat-card style="background: #69626d; color: white; border-radius: 10px">
+      <!-- because of mat-card, inline-styling is needed, and to ensure that it meets the design and colors of the website -->
+      <mat-card-header>
+        <div mat-card-avatar class="material-icons-outlined">account_circle</div>
+        <mat-card-title><strong>Profile</strong></mat-card-title>
+        <mat-card-subtitle style=" color: white">Admin</mat-card-subtitle>
+      </mat-card-header>
+      <section>
+        <label for="fileToUpload">
+          <i class="fa fa-camera"></i>
+          <input
+            type="file"
+            id="fileToUpload"
+            style="visibility: hidden"
+            accept=".png,.jpg,jpeg,.PNG,.JPEG"
+            name="fileToUpload"
+          />
+        </label>
+        <img style="padding: 3px"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS353z701u_xboQT-5iQe6TPhrzKyKMSsFqSw&usqp=CAU"
+        />
+      </section>
+      <mat-card-content>
+        <ul>
+          <li>
+            <b>First Name</b> &nbsp;&nbsp;
+            <input
+              type="text"
+              name="fullname"
+              id="fullname"
+              required
+              [(ngModel)]="currentUser.firstName"
+            />
+          </li>
+          <li>
+            <b>Last Name</b> &nbsp;&nbsp;
+            <input
+              type="text"
+              name="fullname"
+              id="fullname"
+              [(ngModel)]="currentUser.lastName"
+            />
+          </li>
+          <li>
+            <b>Email</b> &nbsp;&nbsp;
+            <input
+              type="email"
+              name="email"
+              id="email"
+              [(ngModel)]="currentUser.email"
+              required
+            />
+          </li>
+          <li>
+            <b>Role</b> &nbsp;&nbsp;
+            <input
+              type="text"
+              name="role"
+              id="role"
+              [(ngModel)]="currentUser.role"
+              required
+            />
+          </li>
+          <li>
+            <b>Age</b> &nbsp;&nbsp;
+            <input
+              type="number"
+              name="age"
+              id="age"
+              [(ngModel)]="currentUser.age"
+              required
+            />
+          </li>
+          <li>
+            <b>Username</b> &nbsp;&nbsp;
+            <input
+              name="username"
+              type="text"
+              id="username"
+              [(ngModel)]="currentUser.username"
+              required
+            />
+          </li>
+          <li>
+            <b>Address</b> &nbsp;&nbsp;
+            <input
+              name="address"
+              type="text"
+              id="address"
+              [(ngModel)]="currentUser.address"
+              required
+            />
+          </li>
+        </ul>
+        <button
+          mat-raised-button
+          color="primary"
+          style="float: right"
+          (click)="onUpdateClick()"
+        >
+          Update Profile
+        </button>
+        <div class="mb-2">{{ successMessage }}</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
   
-  </mat-sidenav-container>
+  <div fxLayout="column" fxLayoutAlign="start stretch">
+    <div class="content mat-elevation-z8">
+        <mat-card style="border-radius: 10px; color: #69626d;">
+          <mat-card-header>
+            <div mat-card-avatar class="material-icons-outlined">trending_up</div>
+            <mat-card-title>Metrics</mat-card-title>
+            <mat-card-subtitle style="color: #69626d">Keep track of sales through the provided graph</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="https://www.researchgate.net/profile/John-Kros/publication/27826995/figure/fig17/AS:668233992515599@1536330807461/Graph-of-Year-Versus-Sales.png" 
+          style="transform: scaleY(.5);" alt="Place holder photo of a graph">
+          
+          <mat-card-content style="color: #69626d">
+            <p>
+              Note that this photo of a graph is a place
+            </p>
+          </mat-card-content>
+        </mat-card>
+    </div>
+        
+  <mat-divider class="m-3"></mat-divider>
+  
+    <div class="content mat-elevation-z8">
+        <mat-card style="border-radius: 10px; color: #69626d">
+          <mat-card-header>
+            <div mat-card-avatar class="material-icons-outlined">bookmark_add</div>
+            <mat-card-title>Add A Book</mat-card-title>
+            <mat-card-subtitle style="color: #69626d">Add a new book to the database</mat-card-subtitle>
+          </mat-card-header>
+          
+          <mat-card-content style="color: #69626d">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur perferendis repellat asperiores dolorum delectus sint? Ut fugiat ex perspiciatis tempore nemo officiis atque! Cum, necessitatibus blanditiis tenetur odit corrupti harum.
+          </mat-card-content>
+        </mat-card>
+    </div>
+  
 </div>
+    
