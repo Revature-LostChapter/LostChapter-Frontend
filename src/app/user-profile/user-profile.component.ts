@@ -65,7 +65,6 @@ export class UserProfileComponent implements OnInit {
           setTimeout(() => window.location.reload(), 200);
           this.router.navigate(['user-profile']);
         }
-        console.log(res.body);
       });
   }
 }

@@ -40,6 +40,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { DisplayProductModalComponent } from './display-product-modal/display-product-modal.component';
 import { SalesProductComponent } from './sales-product/sales-product.component';
 import { AdminFeatureComponent } from './admin-feature/admin-feature.component';
+import { UpdateBookComponent } from './update-book/update-book.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { AdminFeatureComponent } from './admin-feature/admin-feature.component';
     HomeComponent,
     DisplayProductModalComponent,
     SalesProductComponent,
-    AdminFeatureComponent
+    AdminFeatureComponent,
+    UpdateBookComponent
   ],
   imports: [
     BrowserModule,

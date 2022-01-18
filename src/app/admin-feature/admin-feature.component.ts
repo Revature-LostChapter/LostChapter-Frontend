@@ -1,12 +1,12 @@
 import { Component,  EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SearchProducts } from 'SearchProduct';
-import { DisplayProductModalComponent } from '../display-product-modal/display-product-modal.component';
 import { LoginService } from '../login.service';
 import { User } from 'User';
 import { SearchProductsService } from '../search-products.service';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-admin-feature',
@@ -24,6 +24,22 @@ export class AdminFeatureComponent implements OnInit {
   birthday!: string;
   address!: string;
   role!: string;
+
+  bookId!: number;
+  bookName!: string;
+  synoposis!: string;
+  author!: string;
+  genre!: string;
+  id!: number;
+  quantity!: number;
+  year!: number;
+  edition!: string;
+  publisher!: string;
+  salesIsActive!: boolean;
+  salesDiscountRate!: number;
+  bookPrice!: number;
+  bookImamge!: string;
+  isbn!: string;
 
   // success message
   successMessage!: string;
@@ -44,12 +60,12 @@ export class AdminFeatureComponent implements OnInit {
   editionControl = new FormControl(1,Validators.min(1))
 
   // variables for sale
-  isOnSale = false; 
+  isOnSale = false;
   saleControl = new FormControl(.10, Validators.min(.10))
   // maxSaleControl = new FormControl(.10, Validators.max(.90))
-  
 
-  constructor(private loginService: LoginService, private router: Router, public dialog: MatDialog, fb: FormBuilder) { 
+
+  constructor(private searchProductService: SearchProductsService, private route: ActivatedRoute, private adminService: AdminService, private loginService: LoginService, private router: Router, public dialog: MatDialog, fb: FormBuilder) {
     this.options = fb.group({
       selectedQuantity: this.quantityControl,
       yearPublished: this.yearControl,
@@ -64,25 +80,23 @@ export class AdminFeatureComponent implements OnInit {
       if (res.status === 200) {
         let body = <User>res.body;
         this.currentUser = body;
-        console.log(this.currentUser);
       } else {
-        console.log(res);
       }
     });
   }
   public settingUser(newUser: User): void {}
-  
+
   // Checking if the current user is a admin, if they're not then it redirects them to profile
   // User profile should have a checking like this to redirect to their appropriate profile page based on their role
   checkIfLoggedIn() {
     this.loginService.checkLoginStatus().subscribe((res) => {
-      if (res.status === 200 || res.status === 201){ // depending on the status
+      if (res.status === 200){ // depending on the status
         let body = <User> res.body;
-
         if(body.role === 'Customer'){
           this.router.navigate(['']);
         }
-        
+      } else if (res.status === 400){
+        this.router.navigate(['']);
       }
     },
     (err) => {
@@ -113,15 +127,41 @@ export class AdminFeatureComponent implements OnInit {
       });
   }
 
-  addBookClick(){
-    // Need to add code to actually get values and push them to database, updating profile maybe a good reference, but will need to make a new service, 
-    // or use search-products service, and add fields to that
+  addBooksProd!: SearchProducts;
+
+  updateBooksClick(){
+    this.adminService.updateBooks(this.bookId, this.bookName, this.synoposis, this.author, this.genre, this.id, this.quantity,
+      this.year, this.edition, this.publisher, this.salesIsActive, this.salesDiscountRate, this.bookPrice,
+       this.bookImamge, this.isbn).subscribe((res) => {
+      let responseObj = <SearchProducts>res.body;
+      this.addBooksProd = responseObj;
+    })
   }
+  private sub: any;
 
 
   ngOnInit(): void {
     this.checkIfLoggedIn();
     this.getLoggedUser();
+    this.sub = this.route.params.subscribe(params => {
+      this.bookId = params[`bookId`];
+      this.getBookById();
+    })
+  }
+
+  updateBook!: SearchProducts;
+
+  getBookById() {
+    this.searchProductService.getBookById(this.bookId).subscribe((res) => {
+      let body = <SearchProducts> res.body;
+      console.log(body);
+      this.updateBook = body;
+
+    });
+  }
+
+  ngOnDestory(){
+    this.sub.unsubscribe();
   }
 
 }

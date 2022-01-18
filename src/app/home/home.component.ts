@@ -59,7 +59,6 @@ export class HomeComponent implements OnInit {
           let instance = modalRef.componentInstance;
           instance.selectedProducts = this.selectedProducts;
 
-          console.log('modalRef', modalRef)
       });
 
     modalRef.afterClosed().subscribe(result => {

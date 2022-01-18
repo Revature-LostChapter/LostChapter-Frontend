@@ -9,6 +9,7 @@ import { CheckoutSummaryComponent } from 'src/app/checkout-summary/checkout-summ
 import { SearchResultsComponent } from 'src/app/search-results/search-results.component';
 import { HomeComponent } from 'src/app/home/home.component';
 import { AdminFeatureComponent } from 'src/app/admin-feature/admin-feature.component';
+import { UpdateBookComponent } from 'src/app/update-book/update-book.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -21,7 +22,7 @@ const routes: Routes = [
   {path: 'cart', component: CartComponent},
   {path: 'search-results/:searchKeyword', component: SearchResultsComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'admin-feature', component: AdminFeatureComponent}
+  {path: 'admin/book/:bookId', component: UpdateBookComponent}
 ];
 
 @NgModule({

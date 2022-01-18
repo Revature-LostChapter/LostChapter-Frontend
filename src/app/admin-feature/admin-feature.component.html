@@ -108,7 +108,7 @@
       </mat-card-content>
     </mat-card>
   </div>
-  
+
   <div fxLayout="column" fxLayoutAlign="start stretch">
     <div class="content mat-elevation-z8">
         <mat-card style="border-radius: 10px; color: #69626d;">
@@ -117,9 +117,9 @@
             <mat-card-title>Metrics</mat-card-title>
             <mat-card-subtitle style="color: #69626d">Keep track of sales through the provided graph</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image src="https://www.researchgate.net/profile/John-Kros/publication/27826995/figure/fig17/AS:668233992515599@1536330807461/Graph-of-Year-Versus-Sales.png" 
+          <img mat-card-image src="https://www.researchgate.net/profile/John-Kros/publication/27826995/figure/fig17/AS:668233992515599@1536330807461/Graph-of-Year-Versus-Sales.png"
           style="transform: scaleY(.5);" alt="Place holder photo of a graph">
-          
+
           <mat-card-content style="color: #69626d">
             <p>
               Note that this photo of a graph is a place
@@ -127,9 +127,9 @@
           </mat-card-content>
         </mat-card>
     </div>
-        
+
   <mat-divider class="m-3"></mat-divider>
-  
+
     <div class="content mat-elevation-z8">
         <mat-card style="border-radius: 10px; color: #69626d">
           <mat-card-header>
@@ -137,7 +137,7 @@
             <mat-card-title>Add A Book</mat-card-title>
             <mat-card-subtitle style="color: #69626d">Add a new book to the database</mat-card-subtitle>
           </mat-card-header>
-          
+
           <mat-card-content id="Add-a-book-fields" style="color: #69626d">
             <section>
               <section>
@@ -205,7 +205,7 @@
                 <mat-label>Publisher</mat-label>
                 <input matInput>
               </mat-form-field>
-            
+
               <section class="isOnSale-checkbox">
                 <mat-checkbox class="isOnSale-margin" [(ngModel)]="isOnSale">Is the Book on Sale</mat-checkbox>
                 <!-- If the checkbox is marked, then the section below appears -->
@@ -237,7 +237,7 @@
                   mat-raised-button
                   color="primary"
                   style="float: right"
-                  (click)="addBookClick()"
+
                 >
                   Add Book
                 </button>
@@ -245,6 +245,5 @@
           </mat-card-content>
         </mat-card>
     </div>
-  
+
 </div>
-    
