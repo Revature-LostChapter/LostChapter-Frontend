@@ -7,31 +7,32 @@
 <hr class="mb-5">
 
 <div class="container">
-  <strong><h1 style="color: #0645AD; font-size: 21px;font-weight:bolder">List of Genres</h1></strong>
+  <strong><h1 style="color: #0645AD; font-size: 21px;font-weight:bolder">Books with Genres</h1></strong>
   <mat-tab-group dynamicHeight [selectedIndex]="getSelectedIndex()" (selectedTabChange)="onTabChange($event)" (selectedTabChange)="getGenreById(selectedIndex)">
 
    <mat-tab label="Adventure" >
 
-     <ng-template matTabContent>
+    <ng-template matTabContent>
       <br>
       <br>
       <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
         <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-          <div class="card h-30 w-30">
-             <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
-             <br>
-            <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-             <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-             <div *ngIf="item.saleIsActive === true">
-              <h3 id="salesPrice">Sales Price: <span id="salesPrice">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-            </div>
-           </div>
-             <br>
+            <div>
+               <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
+               <br>
+               <br>
+              <div class="book-title" style="margin: auto; color: black; text-align: left;"><strong>Book Title: </strong> {{item.bookName}} <br>
+               <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;text-align: left;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+               <div *ngIf="item.saleIsActive === true">
+                <h3 id="salesPrice" style="text-align: left;" >Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+              </div>
+              </div>
+               <br>
 
-          </div>
-       </div>
-      </div>
-     </ng-template>
+            </div>
+         </div>
+        </div>
+      </ng-template>
 
     </mat-tab>
 
@@ -39,15 +40,16 @@
       <ng-template matTabContent>
       <br>
       <br>
-        <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
-          <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-            <div class="card h-30 w-30">
-               <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+            <div>
+               <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
                <br>
-              <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-               <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+               <br>
+              <div class="book-title" style="margin: auto; color: black; text-align: left;"><strong>Book Title: </strong> {{item.bookName}} <br>
+               <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;text-align: left;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
                <div *ngIf="item.saleIsActive === true">
-                <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+                <h3 id="salesPrice" style="text-align: left;" >Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
               </div>
               </div>
                <br>
@@ -63,23 +65,24 @@
       <ng-template matTabContent>
         <br>
         <br>
-         <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
-           <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-             <div class="card h-30 w-30">
-                <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
-                <br>
-               <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-                <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-                <div *ngIf="item.saleIsActive === true">
-                 <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-               </div>
-               </div>
-                <br>
+        <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+          <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+              <div>
+                 <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
+                 <br>
+                 <br>
+                <div class="book-title" style="margin: auto; color: black; text-align: left;"><strong>Book Title: </strong> {{item.bookName}} <br>
+                 <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;text-align: left;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+                 <div *ngIf="item.saleIsActive === true">
+                  <h3 id="salesPrice" style="text-align: left;" >Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+                </div>
+                </div>
+                 <br>
 
-             </div>
+              </div>
+           </div>
           </div>
-         </div>
-      </ng-template>
+        </ng-template>
 
     </mat-tab>
 
@@ -87,23 +90,24 @@
       <ng-template matTabContent>
         <br>
         <br>
-         <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
-           <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-             <div class="card h-30 w-30">
-                <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
-                <br>
-               <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-                <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-                <div *ngIf="item.saleIsActive === true">
-                 <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-               </div>
-               </div>
-                <br>
+        <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+          <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+              <div>
+                 <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
+                 <br>
+                 <br>
+                <div class="book-title" style="margin: auto; color: black; text-align: left;"><strong>Book Title: </strong> {{item.bookName}} <br>
+                 <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;text-align: left;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+                 <div *ngIf="item.saleIsActive === true">
+                  <h3 id="salesPrice" style="text-align: left;" >Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+                </div>
+                </div>
+                 <br>
 
-             </div>
+              </div>
+           </div>
           </div>
-         </div>
-      </ng-template>
+        </ng-template>
 
     </mat-tab>
 
@@ -111,23 +115,24 @@
       <ng-template matTabContent>
         <br>
         <br>
-         <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
-           <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-             <div class="card h-30 w-30">
-                <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
-                <br>
-               <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-                <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-                <div *ngIf="item.saleIsActive === true">
-                 <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-               </div>
-               </div>
-                <br>
+        <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+          <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+              <div>
+                 <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
+                 <br>
+                 <br>
+                <div class="book-title" style="margin: auto; color: black; text-align: left;"><strong>Book Title: </strong> {{item.bookName}} <br>
+                 <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;text-align: left;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+                 <div *ngIf="item.saleIsActive === true">
+                  <h3 id="salesPrice" style="text-align: left;" >Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+                </div>
+                </div>
+                 <br>
 
-             </div>
+              </div>
+           </div>
           </div>
-         </div>
-      </ng-template>
+        </ng-template>
 
     </mat-tab>
 
@@ -135,47 +140,48 @@
       <ng-template matTabContent>
         <br>
         <br>
-         <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
-           <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-             <div class="card h-30 w-30">
-                <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
-                <br>
-               <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-                <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-                <div *ngIf="item.saleIsActive === true">
-                 <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-               </div>
-               </div>
-                <br>
+        <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+          <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+              <div>
+                 <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
+                 <br>
+                 <br>
+                <div class="book-title" style="margin: auto; color: black; text-align: left;"><strong>Book Title: </strong> {{item.bookName}} <br>
+                 <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;text-align: left;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+                 <div *ngIf="item.saleIsActive === true">
+                  <h3 id="salesPrice" style="text-align: left;" >Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+                </div>
+                </div>
+                 <br>
 
-             </div>
+              </div>
+           </div>
           </div>
-         </div>
-      </ng-template>
-
+        </ng-template>
     </mat-tab>
 
     <mat-tab label="Technology">
       <ng-template matTabContent>
         <br>
         <br>
-         <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
-           <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-             <div class="card h-30 w-30">
-                <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
-                <br>
-               <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-                <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-                <div *ngIf="item.saleIsActive === true">
-                 <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-               </div>
-               </div>
-                <br>
+        <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+          <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+              <div>
+                 <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
+                 <br>
+                 <br>
+                <div class="book-title" style="margin: auto; color: black; text-align: left;"><strong>Book Title: </strong> {{item.bookName}} <br>
+                 <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;text-align: left;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+                 <div *ngIf="item.saleIsActive === true">
+                  <h3 id="salesPrice" style="text-align: left;" >Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+                </div>
+                </div>
+                 <br>
 
-             </div>
+              </div>
+           </div>
           </div>
-         </div>
-      </ng-template>
+        </ng-template>
 
     </mat-tab>
 
@@ -183,23 +189,24 @@
       <ng-template matTabContent>
         <br>
         <br>
-         <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
-           <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-             <div class="card h-30 w-30">
-                <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
-                <br>
-               <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-                <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-                <div *ngIf="item.saleIsActive === true">
-                 <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-               </div>
-               </div>
-                <br>
+        <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+          <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+              <div>
+                 <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
+                 <br>
+                 <br>
+                <div class="book-title" style="margin: auto; color: black; text-align: left;"><strong>Book Title: </strong> {{item.bookName}} <br>
+                 <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;text-align: left;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+                 <div *ngIf="item.saleIsActive === true">
+                  <h3 id="salesPrice" style="text-align: left;" >Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+                </div>
+                </div>
+                 <br>
 
-             </div>
+              </div>
+           </div>
           </div>
-         </div>
-      </ng-template>
+        </ng-template>
 
     </mat-tab>
 
@@ -207,24 +214,24 @@
       <ng-template matTabContent>
         <br>
         <br>
-         <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
-           <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-             <div class="card h-30 w-30">
-                <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
-                <br>
-               <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-                <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-                <div *ngIf="item.saleIsActive === true">
-                 <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-               </div>
-               </div>
-                <br>
+        <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+          <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+              <div>
+                 <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
+                 <br>
+                 <br>
+                <div class="book-title" style="margin: auto; color: black; text-align: left;"><strong>Book Title: </strong> {{item.bookName}} <br>
+                 <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;text-align: left;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+                 <div *ngIf="item.saleIsActive === true">
+                  <h3 id="salesPrice" style="text-align: left;" >Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+                </div>
+                </div>
+                 <br>
 
-             </div>
+              </div>
+           </div>
           </div>
-         </div>
-      </ng-template>
-
+        </ng-template>
     </mat-tab>
 
     <mat-tab label="Education">
@@ -233,45 +240,46 @@
         <br>
         <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
           <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-            <div class="card h-30 w-30">
-               <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
-               <br>
-              <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-               <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-               <div *ngIf="item.saleIsActive === true">
-                <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-              </div>
-              </div>
-               <br>
+              <div>
+                 <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
+                 <br>
+                 <br>
+                <div class="book-title" style="margin: auto; color: black; text-align: left;"><strong>Book Title: </strong> {{item.bookName}} <br>
+                 <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;text-align: left;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+                 <div *ngIf="item.saleIsActive === true">
+                  <h3 id="salesPrice" style="text-align: left;" >Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+                </div>
+                </div>
+                 <br>
 
-            </div>
-         </div>
-        </div>
-      </ng-template>
-
+              </div>
+           </div>
+          </div>
+        </ng-template>
     </mat-tab>
 
     <mat-tab label="Action">
       <ng-template matTabContent>
         <br>
         <br>
-         <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
-           <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-             <div class="card h-30 w-30">
-                <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)"  style="object-fit: fill;" alt="Placeholder">
-                <br>
-               <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-                <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-                <div *ngIf="item.saleIsActive === true">
-                 <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-               </div>
-               </div>
-                <br>
+        <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+          <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+              <div>
+                 <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
+                 <br>
+                 <br>
+                <div class="book-title" style="margin: auto; color: black; text-align: left;"><strong>Book Title: </strong> {{item.bookName}} <br>
+                 <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;text-align: left;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+                 <div *ngIf="item.saleIsActive === true">
+                  <h3 id="salesPrice" style="text-align: left;" >Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+                </div>
+                </div>
+                 <br>
 
-             </div>
+              </div>
+           </div>
           </div>
-         </div>
-      </ng-template>
+        </ng-template>
 
     </mat-tab>
 
@@ -279,45 +287,47 @@
       <ng-template matTabContent>
         <br>
         <br>
-         <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
-           <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-             <div class="card h-30 w-30">
-                <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
-                <br>
-               <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-                <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-                <div *ngIf="item.saleIsActive === true">
-                 <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-               </div>
-               </div>
-                <br>
+        <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+          <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+              <div>
+                 <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
+                 <br>
+                 <br>
+                <div class="book-title" style="margin: auto; color: black; text-align: left;"><strong>Book Title: </strong> {{item.bookName}} <br>
+                 <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;text-align: left;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+                 <div *ngIf="item.saleIsActive === true">
+                  <h3 id="salesPrice" style="text-align: left;" >Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+                </div>
+                </div>
+                 <br>
 
-             </div>
+              </div>
+           </div>
           </div>
-         </div>
-      </ng-template>
-
+        </ng-template>
     </mat-tab>
-    <mat-tab label="Romance">
-      <ng-template matTabContent>
-        <br>
-        <br>
-         <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
-           <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-             <div class="card h-30 w-30">
-                <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
-                <br>
-               <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-                <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-                <div *ngIf="item.saleIsActive === true">
-                 <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-               </div>
-               </div>
-                <br>
 
-             </div>
-          </div>
+    <mat-tab label="Romance">
+       <ng-template matTabContent>
+      <br>
+      <br>
+      <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+        <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+            <div>
+               <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
+               <br>
+               <br>
+              <div class="book-title" style="margin: auto; color: black; text-align: left;"><strong>Book Title: </strong> {{item.bookName}} <br>
+               <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;text-align: left;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+               <div *ngIf="item.saleIsActive === true">
+                <h3 id="salesPrice" style="text-align: left;" >Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+              </div>
+              </div>
+               <br>
+
+            </div>
          </div>
+        </div>
       </ng-template>
 
     </mat-tab>
@@ -326,24 +336,24 @@
       <ng-template matTabContent>
         <br>
         <br>
-         <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
-           <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-             <div class="card h-30 w-30">
-                <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
-                <br>
-               <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-                <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-                <div *ngIf="item.saleIsActive === true">
-                 <h3 id="salesPrice">Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-               </div>
-               </div>
-                <br>
+        <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
+          <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
+              <div>
+                 <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
+                 <br>
+                 <br>
+                <div class="book-title" style="margin: auto; color: black; text-align: left;"><strong>Book Title: </strong> {{item.bookName}} <br>
+                 <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;text-align: left;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+                 <div *ngIf="item.saleIsActive === true">
+                  <h3 id="salesPrice" style="text-align: left;" >Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+                </div>
+                </div>
+                 <br>
 
-             </div>
+              </div>
+           </div>
           </div>
-         </div>
-      </ng-template>
-
+        </ng-template>
     </mat-tab>
 
     <mat-tab label="Fantasy">
@@ -352,22 +362,22 @@
         <br>
         <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-6 mb-4 pb-4 g-5">
           <div class="col" *ngFor="let item of displayProducts"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-            <div class="card h-30 w-30">
-               <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="object-fit: fill;" alt="Placeholder">
-               <br>
-              <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{item.bookName}} <br>
-               <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-               <div *ngIf="item.saleIsActive === true">
-                <h3 id="salesPrice">Sales Price: <span id="salesPrice">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-              </div>
-              </div>
-               <br>
+              <div>
+                 <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)" style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
+                 <br>
+                 <br>
+                <div class="book-title" style="margin: auto; color: black; text-align: left;"><strong>Book Title: </strong> {{item.bookName}} <br>
+                 <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;text-align: left;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
+                 <div *ngIf="item.saleIsActive === true">
+                  <h3 id="salesPrice" style="text-align: left;" >Sales Price: <span id="price">${{(item.bookPrice - (item.bookPrice * item.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
+                </div>
+                </div>
+                 <br>
 
-            </div>
-         </div>
-        </div>
-      </ng-template>
-
+              </div>
+           </div>
+          </div>
+        </ng-template>
     </mat-tab>
     <br>
 
