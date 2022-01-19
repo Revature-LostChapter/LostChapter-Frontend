@@ -19,7 +19,7 @@ export class CartService {
     parameter = parameter.append('productId', pId);
     parameter = parameter.append('quantity', quantity);
     return this.http.post(
-      `http://localhost:8081/carts/${cartId}`,
+      `http://ec2-54-84-57-117.compute-1.amazonaws.com:8081/carts/${cartId}`,
       {},
       {
         params: parameter,
@@ -30,7 +30,7 @@ export class CartService {
   }
 
   getCartFromCustomerPage(userId: string) {
-    return this.http.get<Cart>(`http://localhost:8081/users/${userId}/cart`, {
+    return this.http.get<Cart>(`http://ec2-54-84-57-117.compute-1.amazonaws.com:8081/users/${userId}/cart`, {
         withCredentials: true
       }).subscribe((res)=> {
         this.sub.next(res);

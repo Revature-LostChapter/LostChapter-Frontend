@@ -55,7 +55,7 @@
 
           <h3>ISBN: <span id="isbn" style="color: burlywood;"> <strong>{{selectedProducts?.isbn}}</strong> </span></h3>
           <h3>Edition: <span id="edition" style="color: burlywood;"><strong>{{selectedProducts?.edition}}</strong> </span></h3>
-          <h3>Price: <span id="price">${{selectedProducts?.bookPrice}}</span></h3>
+          <h3>Price: <span style = "color: burlywood;">${{selectedProducts?.bookPrice}}</span></h3>
           <div *ngIf="selectedProducts?.saleIsActive === true">
             <h3>Sales Price: <span id="price">${{(selectedProducts.bookPrice - (selectedProducts.bookPrice * selectedProducts.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
           </div>

@@ -34,7 +34,7 @@ export class SearchResultsComponent implements OnInit {
   private sub: any;
 
   ngOnInit(): void {
-    this.checkIfLoggedIn();
+    // this.checkIfLoggedIn();
     this.sub = this.route.params.subscribe(params => {
     this.showKeyword = params['searchKeyword'];
     this.showSearchResults()
@@ -46,27 +46,27 @@ export class SearchResultsComponent implements OnInit {
     this.sub.unsubscribe();
   }
 
-  checkIfLoggedIn() {
-    this.loginService.checkLoginStatus().subscribe({
-      next: (res)=> {
-        if(res.status === 200 || res.status === 201){
-          let body = <User> res.body;
+  // checkIfLoggedIn() {
+  //   this.loginService.checkLoginStatus().subscribe({
+  //     next: (res)=> {
+  //       if(res.status === 200 || res.status === 201){
+  //         let body = <User> res.body;
 
-          if(body.role === 'Customer'){
-              this.cartId = body.id;
-          }
-          if(body.role === 'Admin'){
-            this.router.navigate(['/admin']);
-          }
-        }
-      },
-      error:(err) => {
-        if(err.status === 400 || err.status === 404){
-          this.router.navigate(['']);
-        }
-      }
-    })
-  }
+  //         if(body.role === 'Customer'){
+  //             this.cartId = body.id;
+  //         }
+  //         if(body.role === 'Admin'){
+  //           this.router.navigate(['/admin']);
+  //         }
+  //       }
+  //     },
+  //     error:(err) => {
+  //       if(err.status === 400 || err.status === 404){
+  //         this.router.navigate(['']);
+  //       }
+  //     }
+  //   })
+  // }
 
   onAddToCart(productId: number){
     this.addProductToCartService.addToCart(String(productId), String("1"), String(this.cartId)).subscribe({
