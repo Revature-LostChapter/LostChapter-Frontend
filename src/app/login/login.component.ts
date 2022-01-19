@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         }
 
         if (body.role === 'Admin'){
-          this.router.navigate(['/admin-feature']); // navigates to admin route page
+          this.router.navigate(['/home']); // navigates to admin route page
         }
       }
     }, (err) => {

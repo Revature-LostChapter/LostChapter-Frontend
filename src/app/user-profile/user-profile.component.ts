@@ -24,9 +24,7 @@ export class UserProfileComponent implements OnInit {
       if (res.status === 200) {
         let body = <User>res.body;
         this.currentUser = body;
-        console.log(this.currentUser);
       } else {
-        console.log(res);
       }
     });
   }

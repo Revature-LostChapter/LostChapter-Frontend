@@ -60,7 +60,7 @@ import { NgxSlickJsModule } from 'ngx-slickjs';
     DisplayProductModalComponent,
     SalesProductComponent,
     AdminFeatureComponent,
-    UpdateBookComponent
+    UpdateBookComponent,
     FeaturedProductsComponent
   ],
   imports: [

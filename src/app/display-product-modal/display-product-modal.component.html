@@ -5,10 +5,14 @@
       <div style="width: 95%;">
         <h4><strong>{{data}}</strong></h4>
       </div>
-      <div style="flex-grow:1;" class="example-button-row" >
+      <div style="flex-grow:1;" class="example-button-row" *ngIf="role==='Customer'">
        <button  mat-raised-button color="primary" (click)="onAddToCart(selectedProducts.bookId)" a routerLink="/cart"> {{addToCart}}
           <i class="material-icons">shopping_cart</i></button>
       </div>
+      <div style="flex-grow:1;" class="example-button-row" *ngIf="role==='Admin'">
+        <button  mat-raised-button color="primary" (click)="onCloseDisplayProduct()" a routerLink="/admin/book/{{selectedProducts.bookId}}"> Update Book
+         </button>
+       </div>
       <div *ngIf="errorMessage" id="error-message" class="text-danger">
         {{ errorMessage }}
       </div>
@@ -74,10 +78,6 @@
         <h4>Description</h4> <br>
         <div style="overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; padding-right: 12px; margin: 0 auto; max-width: fit-content;">
         <strong> <h3 style="color: burlywood;">{{selectedProducts?.synopsis}}</h3></strong>
-        </div>
-
-        <div *ngIf="errorMessage" id="error-message" class="text-danger"  style="overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; padding-right: 12px; margin: 0 auto; max-width: fit-content;">
-          {{ errorMessage }}
         </div>
       <hr>
         <br>
