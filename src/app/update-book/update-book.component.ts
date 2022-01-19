@@ -33,20 +33,6 @@ export class UpdateBookComponent implements OnInit {
   private sub: any;
 
   bookId!: number;
-  bookName!: string;
-  synoposis!: string;
-  author!: string;
-  genre!: string;
-  id!: number;
-  quantity!: number;
-  year!: number;
-  edition!: string;
-  publisher!: string;
-  salesIsActive!: boolean;
-  salesDiscountRate!: number;
-  bookPrice!: number;
-  bookImamge!: string;
-  isbn!: string;
 
   checkIfLoggedIn() {
     this.loginService.checkLoginStatus().subscribe((res) => {
@@ -79,12 +65,22 @@ export class UpdateBookComponent implements OnInit {
     this.sub.unsubscribe();
   }
 
+  showBook!: SearchProducts;
+
   updateBooksClick(){
-    this.adminService.updateBooks(this.bookId, this.bookName, this.synoposis, this.author, this.genre, this.id, this.quantity,
-      this.year, this.edition, this.publisher, this.salesIsActive, this.salesDiscountRate, this.bookPrice,
-       this.bookImamge, this.isbn).subscribe((res) => {
-      let responseObj = <SearchProducts>res.body;
-    })
+    this.adminService.updateBooks(this.bookId, this.updateBook.bookName, this.updateBook.synopsis, this.updateBook.author, this.updateBook.genre.id, this.updateBook.quantity,
+      this.updateBook.year, this.updateBook.edition, this.updateBook.publisher, this.updateBook.saleIsActive, this.updateBook.saleDiscountRate, this.updateBook.bookPrice,
+       this.updateBook.bookImage, this.updateBook.isbn).subscribe((res) => {
+         if(res.status === 200){
+          this.successMessage = 'Update is Successful';
+          let responseObj = <SearchProducts>res.body;
+          this.showBook = responseObj;
+         }
+
+    },
+    (err) => {
+      this.errorMessage = err.error;
+    });
   }
 
 }

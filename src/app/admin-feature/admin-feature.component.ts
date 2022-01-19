@@ -29,7 +29,7 @@ export class AdminFeatureComponent implements OnInit {
   bookName!: string;
   synoposis!: string;
   author!: string;
-  genre!: string;
+  genre!: number;
   id!: number;
   quantity!: number;
   year!: number;
@@ -130,7 +130,7 @@ export class AdminFeatureComponent implements OnInit {
   addBooksProd!: SearchProducts;
 
   updateBooksClick(){
-    this.adminService.updateBooks(this.bookId, this.bookName, this.synoposis, this.author, this.genre, this.id, this.quantity,
+    this.adminService.updateBooks(this.bookId, this.bookName, this.synoposis, this.author, this.genre,  this.quantity,
       this.year, this.edition, this.publisher, this.salesIsActive, this.salesDiscountRate, this.bookPrice,
        this.bookImamge, this.isbn).subscribe((res) => {
       let responseObj = <SearchProducts>res.body;

@@ -8,7 +8,6 @@ import { CheckoutComponent } from 'src/app/checkout/checkout.component';
 import { CheckoutSummaryComponent } from 'src/app/checkout-summary/checkout-summary.component';
 import { SearchResultsComponent } from 'src/app/search-results/search-results.component';
 import { HomeComponent } from 'src/app/home/home.component';
-import { AdminFeatureComponent } from 'src/app/admin-feature/admin-feature.component';
 import { UpdateBookComponent } from 'src/app/update-book/update-book.component';
 
 const routes: Routes = [
