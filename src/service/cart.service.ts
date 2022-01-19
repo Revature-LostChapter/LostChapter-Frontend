@@ -38,7 +38,7 @@ export class CartService {
   }
 
   deleteProductFromCart(bookId: string, userId: string) {
-    return this.http.delete(`http://localhost:8081/users/${userId}/cart`, {
+    return this.http.delete(`http://ec2-54-84-57-117.compute-1.amazonaws.com:8081/users/${userId}/cart`, {
 
       withCredentials: true,
       observe: 'response',
