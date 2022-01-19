@@ -1,0 +1,249 @@
+<app-indexnavbar></app-indexnavbar>
+<!-- Using angular flex-layout https://github.com/angular/flex-layout -->
+<div fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="10px">
+  <div class="content mat-elevation-z8" id="profile" >
+    <mat-card style="background: #69626d; color: white; border-radius: 10px">
+      <!-- because of mat-card, inline-styling is needed, and to ensure that it meets the design and colors of the website -->
+      <mat-card-header>
+        <div mat-card-avatar class="material-icons-outlined">account_circle</div>
+        <mat-card-title><strong>Profile</strong></mat-card-title>
+        <mat-card-subtitle style=" color: white">Admin</mat-card-subtitle>
+      </mat-card-header>
+      <section>
+        <label for="fileToUpload">
+          <i class="fa fa-camera"></i>
+          <input
+            type="file"
+            id="fileToUpload"
+            style="visibility: hidden"
+            accept=".png,.jpg,jpeg,.PNG,.JPEG"
+            name="fileToUpload"
+          />
+        </label>
+        <img style="padding: 3px"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS353z701u_xboQT-5iQe6TPhrzKyKMSsFqSw&usqp=CAU"
+        />
+      </section>
+      <mat-card-content>
+        <ul>
+          <li>
+            <b>First Name</b> &nbsp;&nbsp;
+            <input
+              type="text"
+              name="fullname"
+              id="fullname"
+              required
+              [(ngModel)]="currentUser.firstName"
+            />
+          </li>
+          <li>
+            <b>Last Name</b> &nbsp;&nbsp;
+            <input
+              type="text"
+              name="fullname"
+              id="fullname"
+              [(ngModel)]="currentUser.lastName"
+            />
+          </li>
+          <li>
+            <b>Email</b> &nbsp;&nbsp;
+            <input
+              type="email"
+              name="email"
+              id="email"
+              [(ngModel)]="currentUser.email"
+              required
+            />
+          </li>
+          <li>
+            <b>Role</b> &nbsp;&nbsp;
+            <input
+              type="text"
+              name="role"
+              id="role"
+              [(ngModel)]="currentUser.role"
+              required
+            />
+          </li>
+          <li>
+            <b>Age</b> &nbsp;&nbsp;
+            <input
+              type="number"
+              name="age"
+              id="age"
+              [(ngModel)]="currentUser.age"
+              required
+            />
+          </li>
+          <li>
+            <b>Username</b> &nbsp;&nbsp;
+            <input
+              name="username"
+              type="text"
+              id="username"
+              [(ngModel)]="currentUser.username"
+              required
+            />
+          </li>
+          <li>
+            <b>Address</b> &nbsp;&nbsp;
+            <input
+              name="address"
+              type="text"
+              id="address"
+              [(ngModel)]="currentUser.address"
+              required
+            />
+          </li>
+        </ul>
+        <button
+          mat-raised-button
+          color="primary"
+          style="float: right"
+          (click)="onUpdateClick()"
+        >
+          Update Profile
+        </button>
+        <div class="mb-2">{{ successMessage }}</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="start stretch">
+    <div class="content mat-elevation-z8">
+        <mat-card style="border-radius: 10px; color: #69626d;">
+          <mat-card-header>
+            <div mat-card-avatar class="material-icons-outlined">trending_up</div>
+            <mat-card-title>Metrics</mat-card-title>
+            <mat-card-subtitle style="color: #69626d">Keep track of sales through the provided graph</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="https://www.researchgate.net/profile/John-Kros/publication/27826995/figure/fig17/AS:668233992515599@1536330807461/Graph-of-Year-Versus-Sales.png"
+          style="transform: scaleY(.5);" alt="Place holder photo of a graph">
+
+          <mat-card-content style="color: #69626d">
+            <p>
+              Note that this photo of a graph is a place
+            </p>
+          </mat-card-content>
+        </mat-card>
+    </div>
+
+  <mat-divider class="m-3"></mat-divider>
+
+    <div class="content mat-elevation-z8">
+        <mat-card style="border-radius: 10px; color: #69626d">
+          <mat-card-header>
+            <div mat-card-avatar class="material-icons-outlined">bookmark_add</div>
+            <mat-card-title>Add A Book</mat-card-title>
+            <mat-card-subtitle style="color: #69626d">Add a new book to the database</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content id="Add-a-book-fields" style="color: #69626d">
+            <section>
+              <section>
+                <mat-form-field appearance="fill">
+                  <mat-label>ISBN</mat-label>
+                  <input matInput>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Book Name</mat-label>
+                  <input matInput>
+                </mat-form-field>
+              </section>
+              <section>
+                <mat-form-field appearance="fill">
+                  <mat-label>Synopsis</mat-label>
+                  <textarea matInput #synopsisLength maxlength="800" placeholder="In the year...."></textarea>
+                  <mat-hint align="end">{{synopsisLength.value.length}} / 800</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Author</mat-label>
+                  <input matInput>
+                </mat-form-field>
+              </section>
+            </section>
+            <section>
+              <mat-form-field appearance="fill">
+                <mat-label>Genre</mat-label>
+                <mat-select>
+                  <mat-option value="one">Adventure</mat-option>
+                  <mat-option value="two">Novel</mat-option>
+                  <mat-option value="three">Mystery</mat-option>
+                  <mat-option value="four">Fiction</mat-option>
+                  <mat-option value="five">Non Fiction</mat-option>
+                  <mat-option value="six">Science</mat-option>
+                  <mat-option value="seven">Technology</mat-option>
+                  <mat-option value="eight">Self Improvement</mat-option>
+                  <mat-option value="nine">International</mat-option>
+                  <mat-option value="ten">Education</mat-option>
+                  <mat-option value="eleven">Action</mat-option>
+                  <mat-option value="twelve">Horror</mat-option>
+                  <mat-option value="thirteen">Romance</mat-option>
+                  <mat-option value="fourteen">Comedy</mat-option>
+                  <mat-option value="fifteen">Fantasy</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Quantity</mat-label>
+                <input matInput type="number" placeholder="3" [formControl]="quantityControl" min="1">
+                <mat-error *ngIf="quantityControl.invalid">Min Quantity: 1</mat-error>
+              </mat-form-field>
+            </section>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Year published</mat-label>
+                <!-- Note that if developers add a book older than 1000, then that min="" will have to be changed -->
+                <input matInput type="number" placeholder="1500" [formControl]="yearControl" min="1000">
+                <mat-error *ngIf="yearControl.invalid">Min Year: 1000</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Edition</mat-label>
+                <input matInput type="number" placeholder="1" [formControl]="editionControl" min="1">
+                <mat-error *ngIf="editionControl.invalid">Min Edition: 1</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Publisher</mat-label>
+                <input matInput>
+              </mat-form-field>
+
+              <section class="isOnSale-checkbox">
+                <mat-checkbox class="isOnSale-margin" [(ngModel)]="isOnSale">Is the Book on Sale</mat-checkbox>
+                <!-- If the checkbox is marked, then the section below appears -->
+                <section >
+                  <input matInput type="number" placeholder="0.1" [disabled]="!isOnSale" [formControl]="saleControl" min="0.1">
+                  <mat-error *ngIf="saleControl.invalid">Min Sale Amount: .10</mat-error>
+                  <!-- The mat-error below is WIP to add a error message if the amount is over .90 -->
+                  <!-- <mat-error *ngIf="saleControl.invalid">Max Sale Amount: .90</mat-error> -->
+                </section>
+              </section>
+
+              <section>
+                <mat-form-field appearance="fill" floatLabel="always">
+                  <mat-label>Amount</mat-label>
+                  <input matInput type="number" class="example-right-align" placeholder="0">
+                  <span matPrefix>$&nbsp;</span>
+                  <span matSuffix>.00</span>
+                </mat-form-field>
+              </section>
+
+              <section>
+                <mat-form-field appearance="fill">
+                  <mat-label>Enter book cover URL</mat-label>
+                  <input matInput>
+                </mat-form-field>
+              </section>
+              <section>
+                <button
+                  mat-raised-button
+                  color="primary"
+                  style="float: right"
+
+                >
+                  Add Book
+                </button>
+              </section>
+          </mat-card-content>
+        </mat-card>
+    </div>
+
+</div>

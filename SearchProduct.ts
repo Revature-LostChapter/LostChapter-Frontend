@@ -3,7 +3,7 @@ export interface SearchProducts  {
   bookName: string;
   author: string;
   bookImage: string;
-  genre: {genre: string;}
+  genre: {genre: string; id: number;}
   edition: string;
   bookPrice: number;
   publisher: string;

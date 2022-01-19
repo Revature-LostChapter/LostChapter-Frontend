@@ -14,13 +14,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./indexnavbar.component.css']
 })
 export class IndexnavbarComponent implements OnInit {
+  // boolean checks to make the navbar dynamic based on login status
   loggedIn:boolean= false;
   notLoggedIn:boolean= true;
   ableToSignUp:boolean= true;
   ableToLogIn:boolean= true;
+  
   role!:String;
   currentUser!: String;
 
+  // boolean check to properly redirect user to their profile page
+  roleIsCustomer:boolean= false;
+  roleIsAdmin:boolean = false;
+  
   checkIfLoggedIn() {
     this.loginService.checkLoginStatus().subscribe((res) => {
       if (res.status === 200 || res.status === 201){ // depending on the status
@@ -31,7 +37,18 @@ export class IndexnavbarComponent implements OnInit {
         this.ableToLogIn = !this.ableToLogIn;
         this.loggedIn = !this.loggedIn;
         this.notLoggedIn = !this.notLoggedIn;
+        
+        // the two if statements below control the *ngIf for the profile button
+        if(body.role === 'Customer'){
+          this.roleIsCustomer = true;
+          this.roleIsAdmin = false; 
+        }
+        if(body.role === 'Admin'){
+          this.roleIsAdmin = true;
+          this.roleIsCustomer = false; 
+        }
       }
+      
     },
     (err) => {
 
