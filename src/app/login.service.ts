@@ -47,7 +47,7 @@ export class LoginService {
     role: string
   ) {
     return this.http.put(
-      `http://localhost:8081/update`,
+      `http://localhost:8081/user`,
       {
         username: username,
         password: password,

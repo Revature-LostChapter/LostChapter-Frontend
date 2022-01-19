@@ -51,6 +51,11 @@ export class UserProfileComponent implements OnInit {
           let body = <User>res.body;
           this.currentUser = body;
         }
+      },
+      (err) => {
+        this.errorMessage = '';
+        this.errorMessage = err.error;
+
       });
   }
 }
