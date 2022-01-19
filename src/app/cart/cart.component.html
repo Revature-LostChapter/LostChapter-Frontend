@@ -26,10 +26,10 @@
                 </div>
               </div>
             </td>
-            <!-- <td data-th="Price" *ngIf="p.books.saleIsActive === true">${{ p.books.bookPrice }}</td> -->
-            <div *ngIf="p.books.saleisActive === true">
+            <td data-th="Price">${{ p.books.bookPrice }}</td>
+            <!-- <div *ngIf="p.books.saleisActive === true">
               <h3>Sales Price: <span id="price">${{ (p.books.bookPrice - (p.books.bookPrice * p.books.saleDiscountRate)) | number:'1.2-2' }}</span></h3>
-            </div>
+            </div> -->
             <td data-th="Quantity">{{ p.quantityToBuy }}
             </td>
             <td data-th="Total" class="text-center">${{ p.quantityToBuy * p.books.bookPrice }}</td>
