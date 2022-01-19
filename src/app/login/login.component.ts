@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'User';
 import { LoginService } from '../login.service';
@@ -60,11 +59,6 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/admin']);
           }
         }
-      },
-      (err) => {
-        this.errorMessage = err.error;
-
-      }
-    );
+      });
   }
 }

@@ -86,7 +86,7 @@ export class FeaturedProductsComponent implements OnInit {
   // carousel animation using ngx slick js
 
   config: Slick.Config = {
-    infinite: true,
+    infinite: false,
     slidesToShow: 5,
     slidesToScroll: 5,
     dots: true,

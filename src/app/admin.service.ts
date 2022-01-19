@@ -9,7 +9,7 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   updateBooks(bookId: Number, bookName: string, synopsis: string, author: string, genre: number, quantity: number, year: number, edition: string, publisher: string, saleIsActive: boolean, saleDiscountRate: number, bookPrice: number, bookImage: string, isbn: string){
-    return this.http.put(`http://localhost:8081/books/${bookId}`, {
+    return this.http.put(`http://ec2-54-84-57-117.compute-1.amazonaws.com:8081/books/${bookId}`, {
       bookName: bookName,
       synopsis: synopsis,
       author: author,

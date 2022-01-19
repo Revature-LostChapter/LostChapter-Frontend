@@ -11,6 +11,8 @@ export interface Cart {
       bookName: string;
       synopsis: string;
       bookPrice: number;
+      saleisActive: boolean;
+      saleDiscountRate: number;
       bookImage: string;
 
     };

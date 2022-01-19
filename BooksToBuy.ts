@@ -5,6 +5,8 @@ export interface BooksToBuy {
       bookName: string;
       synopsis: string;
       bookPrice: number;
+      saleIsActive: boolean;
+      saleDiscountRate: number;
       bookImage: string;
 
     };

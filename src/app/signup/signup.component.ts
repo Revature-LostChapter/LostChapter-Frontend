@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'User';
 import { LoginService } from '../login.service';
 import { SignupService } from '../signup.service';
-import { DOCUMENT } from '@angular/common';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -11,7 +11,7 @@ import { DOCUMENT } from '@angular/common';
 })
 
 export class SignupComponent implements OnInit {
-  constructor(private domDocument: Document, private router: Router, private loginService: LoginService, private signupService: SignupService, private route: ActivatedRoute) { }
+  constructor(private router: Router, private loginService: LoginService, private signupService: SignupService, private route: ActivatedRoute) { }
 
   username!: string;
   password!: string;
@@ -49,11 +49,6 @@ export class SignupComponent implements OnInit {
           this.router.navigate(['/admin']); // navigates to admin route page
         }
       }
-    },
-    (err) => {
-      this.errorMessage = '';
-      this.errorMessage = err.error;
-
     });
   }
 

@@ -6,7 +6,7 @@
         <h4><strong>{{data}}</strong></h4>
       </div>
       <div style="flex-grow:1;" class="example-button-row" *ngIf="role==='Customer'">
-       <button  mat-raised-button color="primary" (click)="onAddToCart(selectedProducts.bookId)" a routerLink="/cart"> {{addToCart}}
+       <button  mat-raised-button color="primary" (click)="onAddToCart(selectedProducts.bookId)"> {{addToCart}}
           <i class="material-icons">shopping_cart</i></button>
       </div>
       <div style="flex-grow:1;" class="example-button-row" *ngIf="role==='Admin'">

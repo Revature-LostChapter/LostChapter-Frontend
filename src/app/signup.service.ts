@@ -9,7 +9,7 @@ export class SignupService {
   constructor(private http: HttpClient) { }
 
   signup(username: string, password: string, firstName: string, lastName: string, age: number, email: string, birthday: string, address: string, role: string){
-    return this.http.post(`http://localhost:8081/signup`, {
+    return this.http.post(`http://ec2-54-84-57-117.compute-1.amazonaws.com:8081/signup`, {
       "username": username,
       "password": password,
       "firstName": firstName,

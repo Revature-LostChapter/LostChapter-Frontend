@@ -19,39 +19,38 @@ export class IndexnavbarComponent implements OnInit {
   notLoggedIn:boolean= true;
   ableToSignUp:boolean= true;
   ableToLogIn:boolean= true;
-  
+
   role!:String;
   currentUser!: String;
 
   // boolean check to properly redirect user to their profile page
   roleIsCustomer:boolean= false;
   roleIsAdmin:boolean = false;
-  
+
   checkIfLoggedIn() {
     this.loginService.checkLoginStatus().subscribe((res) => {
       if (res.status === 200 || res.status === 201){ // depending on the status
-        let body = <User> res.body; 
+        let body = <User> res.body;
         this.role = body.role;
         this.ableToSignUp = !this.ableToSignUp;
         this.currentUser = body.username;
         this.ableToLogIn = !this.ableToLogIn;
         this.loggedIn = !this.loggedIn;
         this.notLoggedIn = !this.notLoggedIn;
-        
+
         // the two if statements below control the *ngIf for the profile button
         if(body.role === 'Customer'){
           this.roleIsCustomer = true;
-          this.roleIsAdmin = false; 
+          this.roleIsAdmin = false;
         }
         if(body.role === 'Admin'){
           this.roleIsAdmin = true;
-          this.roleIsCustomer = false; 
+          this.roleIsCustomer = false;
         }
       }
-      
     },
     (err) => {
-
+      console.log(err);
     });
   }
 
@@ -66,7 +65,7 @@ export class IndexnavbarComponent implements OnInit {
           this.notLoggedIn = !this.notLoggedIn;
         }
       });
-      
+
     }
     if (this.role  === 'Admin'){
       this.loginService.logout().subscribe((res) => {
@@ -78,7 +77,7 @@ export class IndexnavbarComponent implements OnInit {
           this.notLoggedIn = !this.notLoggedIn;
         }
       });
-      
+
     }
   }
   constructor(private loginService:LoginService, private http: HttpClient, private searchProductService: SearchProductsService, private router: Router) { }
