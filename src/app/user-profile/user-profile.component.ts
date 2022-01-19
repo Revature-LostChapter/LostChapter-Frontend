@@ -9,15 +9,7 @@ import { LoginService } from '../login.service';
   styleUrls: ['./user-profile.component.css'],
 })
 export class UserProfileComponent implements OnInit {
-  username!: string;
-  password!: string;
-  firstName!: string;
-  lastName!: string;
-  age!: number;
-  email!: string;
-  birthday!: string;
-  address!: string;
-  role!: string;
+  constructor(private router: Router, private loginService: LoginService) {}
 
   // succssmessage
   successMessage!: string;
@@ -27,7 +19,7 @@ export class UserProfileComponent implements OnInit {
 
   currentUser!: User;
 
-  async getLoggedUser() {
+  getLoggedUser() {
     this.loginService.checkLoginStatus().subscribe((res) => {
       if (res.status === 200) {
         let body = <User>res.body;
@@ -36,9 +28,6 @@ export class UserProfileComponent implements OnInit {
       }
     });
   }
-  public settingUser(newUser: User): void {}
-
-  constructor(private router: Router, private loginService: LoginService) {}
   ngOnInit(): void {
     this.getLoggedUser();
   }
@@ -58,12 +47,9 @@ export class UserProfileComponent implements OnInit {
       )
       .subscribe((res) => {
         if (res.status === 200) {
-          let body = <User><unknown>res.body;
+          this.successMessage = 'Your update is successful';
+          let body = <User>res.body;
           this.currentUser = body;
-
-          this.successMessage = "";
-          this.successMessage = 'Your profile will update after logging out';
-
         }
       });
   }
