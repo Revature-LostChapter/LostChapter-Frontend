@@ -37,9 +37,11 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/home']); // navigates to admin route page
         }
       }
-    }, (err) => {
-      this.errorMessage = err.error;
-    });
+    },
+      (err) => {
+        this.errorMessage = err.error;
+      });
+
   }
 
 
@@ -59,7 +61,10 @@ export class LoginComponent implements OnInit {
           }
         }
       },
-      (err) => {}
+      (err) => {
+        this.errorMessage = err.error;
+
+      }
     );
   }
 }
