@@ -6,10 +6,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule} from '@angular/material/divider';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule} from '@angular/material/icon';
 import { MatListModule} from '@angular/material/list';
 import { MatRadioModule} from '@angular/material/radio';
 import { MatCardModule} from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -34,7 +39,10 @@ import { HomeComponent } from './home/home.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { DisplayProductModalComponent } from './display-product-modal/display-product-modal.component';
 import { SalesProductComponent } from './sales-product/sales-product.component';
+import { AdminFeatureComponent } from './admin-feature/admin-feature.component';
+import { UpdateBookComponent } from './update-book/update-book.component';
 import { FeaturedProductsComponent } from './featured-products/featured-products.component';
+import { NgxSlickJsModule } from 'ngx-slickjs';
 
 @NgModule({
   declarations: [
@@ -51,6 +59,8 @@ import { FeaturedProductsComponent } from './featured-products/featured-products
     HomeComponent,
     DisplayProductModalComponent,
     SalesProductComponent,
+    AdminFeatureComponent,
+    UpdateBookComponent,
     FeaturedProductsComponent
   ],
   imports: [
@@ -59,13 +69,18 @@ import { FeaturedProductsComponent } from './featured-products/featured-products
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatDialogModule,
+    MatDividerModule,
+    MatSidenavModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
     MatListModule,
     MatRadioModule,
     MatCardModule,
+    MatExpansionModule,
+    MatGridListModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
     FormsModule,
     MatSelectModule,
     FlexLayoutModule,
@@ -76,7 +91,15 @@ import { FeaturedProductsComponent } from './featured-products/featured-products
     MatMenuModule,
     NgxPaginationModule,
     FontAwesomeModule,
-    MatTabsModule
+    MatTabsModule,
+    NgxSlickJsModule.forRoot({
+      links: {
+        jquery: "https://code.jquery.com/jquery-3.4.0.min.js",
+        slickJs: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
+        slickCss: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css",
+        slickThemeCss: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],

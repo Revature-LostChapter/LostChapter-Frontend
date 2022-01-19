@@ -1,0 +1,141 @@
+<app-indexnavbar></app-indexnavbar>
+
+<div class="container">
+<body style="color: bisque">
+  <div class="container" style="width: auto">
+    <strong> <h1 style="text-align: center; color: black">Update Book</h1></strong>
+    <table>
+      <tr>
+        <td>
+          <ul>
+            <li style="color: black;">
+              Book Name:
+              <input type="text" name="bookName" id="bookName" size="25" style="margin: 8px;" required [(ngModel)]="updateBook.bookName"/>
+            </li>
+            <li style="color: black;">
+              Book Price
+              <input type="text" name="bookPrice" id="bookPrice" size="25" style="margin: 8px;" [(ngModel)]="updateBook.bookPrice"/>
+            </li>
+            <li style="color: black;">
+              Book Image
+              <input type="text" name="bookImage" id="bookImage" size="25" style="margin: 8px;" [(ngModel)]="updateBook.bookImage"/>
+            </li>
+            <li style="color: black;">
+              Edition
+              <input type="text" name="edition" id="edition" size="25" style="margin: 8px;" [(ngModel)]="updateBook.edition"/>
+            </li>
+            <li style="color: black;">
+              <b>Genre ID</b> &nbsp;&nbsp;
+              <input type="genre" name="genre" id="genre" size="25" style="margin: 8px;" [(ngModel)]="updateBook.genre.id"/>
+            </li>
+            <li style="color: black;">
+              <b>ISBN</b> &nbsp;&nbsp;
+              <input type="text" name="isbn" id="isbn" size="25" style="margin: 8px;" [(ngModel)]="updateBook.isbn"/>
+            </li>
+            <li style="color: black;">
+              <b>Publisher</b> &nbsp;&nbsp;
+              <input type="text" name="publisher" id="publisher" size="25" style="margin: 8px;" [(ngModel)]="updateBook.publisher"/>
+            </li>
+            <li style="color: black;">
+              <b>Quantity</b> &nbsp;&nbsp;
+              <input type="text" name="quantity" id="quantity" style="margin: 8px;" [(ngModel)]="updateBook.quantity"/>
+            </li>
+            <li style="color: black;">
+              <b>Sales Discount</b> &nbsp;&nbsp;
+              <input type="text" name="discount" id="discount" size="25" style="margin: 8px;" [(ngModel)]="updateBook.saleDiscountRate"/>
+            </li>
+            <li style="color: black;">
+              <b>Sales Is Active</b> &nbsp;&nbsp;
+              <input type="text" name="salesActive" id="salesActive" size="25" style="margin: 8px;" [(ngModel)]="updateBook.saleIsActive"/>
+            </li>
+            <li style="color: black;">
+              <b>Synopsis</b> &nbsp;&nbsp;
+              <input type="text" name="synopsis" id="synopsis" size="500" style="margin: 8px;" [(ngModel)]="updateBook.synopsis"/>
+            </li>
+
+          </ul>
+
+          <div class="mb-2" style="color: green;">{{ successMessage }}</div>
+          <div class="mb-2" style="color: red;">{{ errorMessage }}</div>
+
+        </td>
+      </tr>
+    </table>
+    <div>
+      <button mat-raised-button color="primary" style="float: right" (click)="updateBooksClick()">Update Book
+      </button>
+    </div>
+
+    <section>
+      <table style="color: black;">
+        <tr>
+          <th>Genre ID</th>
+          <th>Genre Name</th>
+        </tr>
+        <tr>
+          <th>1 </th>
+          <th>Adventure</th>
+        </tr>
+        <tr>
+          <th>2 </th>
+          <th>Novel </th>
+        </tr>
+        <tr>
+          <th>3 </th>
+          <th>Mystery</th>
+        </tr>
+        <tr>
+          <th>4 </th>
+          <th>Fiction</th>
+        </tr>
+        <tr>
+          <th>5 </th>
+          <th>Non Fiction</th>
+        </tr>
+        <tr>
+          <th>6 </th>
+          <th>Science</th>
+        </tr>
+        <tr>
+          <th>7 </th>
+          <th>Technology</th>
+        </tr>
+        <tr>
+          <th>8 </th>
+          <th>Self Improvement</th>
+        </tr>
+        <tr>
+          <th>9 </th>
+          <th>International</th>
+        </tr>
+        <tr>
+          <th>10 </th>
+          <th>Education</th>
+        </tr>
+        <tr>
+          <th>11 </th>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <th>12 </th>
+          <th>Horror</th>
+        </tr>
+        <tr>
+          <th>13 </th>
+          <th>Romance</th>
+        </tr>
+        <tr>
+          <th>14 </th>
+          <th>Comedy</th>
+        </tr>
+        <tr>
+          <th>15 </th>
+          <th>Fantasy</th>
+        </tr>
+
+      </table>
+    </section>
+  </div>
+</body>
+
+</div>

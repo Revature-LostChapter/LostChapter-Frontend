@@ -3,7 +3,7 @@
   <body class="container">
 
     <div class="header-title">
-      <p> <span style="font-weight: bold; font-size: larger; ">You Searched: </span>
+      <p> <span style="font-weight: bold; font-size: larger; ">You Searched for: </span>
          <span style="font-weight: bold; font-size: larger; color: #69626d;">{{showKeyword}}</span></p>
     </div>
 
@@ -120,14 +120,10 @@
              <div class="row row-cols-4 row-cols-sm-3 row-cols-xl-4 mb-4 pb-4 g-5">
 
                 <div class="col" *ngFor="let item of showResults"> <!--*ngFor="let item of collection | paginate {itemsPerPage: 5, currentPage: p}">-->
-                   <div class="card h-40 w-40">
-                      <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)"  style="object-fit: fill;" alt="Placeholder">
+                      <img [src]="item.bookImage" (click)="onDisplayProduct(item.bookId)"  style="border-radius: 8px;width: 200px; height: 200px; position: relative;" alt="Placeholder">
                       <br>
                      <div class="book-title" style="margin: auto; color: black; text-align: center;"><strong>Book Title: </strong> {{  item.bookName}} <br>
                       <span class="flex-grow-1" style="color: black; text-align: left; margin: auto;"><strong>Price:</strong> ${{item.bookPrice}}</span> <br>
-
-                    </div>
-
                       <br>
 
                       <div >

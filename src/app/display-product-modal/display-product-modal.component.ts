@@ -25,6 +25,8 @@ export class DisplayProductModalComponent implements OnInit {
   added?: boolean;
   addedToCart = "Item have been added to Cart";
 
+  role!: String;
+
   addToCart = "Add to Cart";
 
   ngOnInit(): void {
@@ -40,6 +42,8 @@ export class DisplayProductModalComponent implements OnInit {
       next: (res) => {
         if (res.status === 200) {
           let body = <User>res.body;
+          this.role = body.role;
+          console.log(this.role);
           if (body.role === 'Customer') {
             this.cartId = body.id;
             this.cartService.getCartFromCustomerPage(String(this.cartId));
@@ -57,23 +61,16 @@ export class DisplayProductModalComponent implements OnInit {
   onAddToCart(productId: number){
     this.addProductToCartService.addToCart(String(productId), String(this.quantity), String(this.cartId)).subscribe({
       next: (res) => {
-
-        if(res.status === 200 || res.status === 201) {
+        if(res.status === 200) {
           let body = <Cart> res.body;
           this.added = true;
         }
-        if(res.status == 404 || res.status === 401 || res.status === 403 || res.status === 400){
-          this.router.navigate(['']);
-        }
-
-
       },
       error: (err) => {
-        this.errorMessage = err;
+        this.errorMessage = err.error;
 
       }
     })
-
   }
 
 }
