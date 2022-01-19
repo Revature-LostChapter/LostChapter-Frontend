@@ -31,6 +31,7 @@
     "jquery": "^3.6.0",
     "material-icons": "^1.10.4",
     "ngx-pagination": "^5.1.1",
+    "ngx-slickjs": "^1.5.2",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
