@@ -41,6 +41,7 @@ import { DisplayProductModalComponent } from './display-product-modal/display-pr
 import { SalesProductComponent } from './sales-product/sales-product.component';
 import { AdminFeatureComponent } from './admin-feature/admin-feature.component';
 import { UpdateBookComponent } from './update-book/update-book.component';
+import { FeaturedProductsComponent } from './featured-products/featured-products.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { UpdateBookComponent } from './update-book/update-book.component';
     SalesProductComponent,
     AdminFeatureComponent,
     UpdateBookComponent
+    FeaturedProductsComponent
   ],
   imports: [
     BrowserModule,

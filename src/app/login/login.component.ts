@@ -7,21 +7,18 @@ import { LoginService } from '../login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private router: Router, private loginService: LoginService) { }
+  constructor(private router: Router, private loginService: LoginService) {}
 
   ngOnInit(): void {
     this.checkIfLoggedIn();
-
   }
 
   username!: string;
   password!: string;
   errorMessage!: string;
-
 
   // show / hide password
   hide = true;
@@ -45,23 +42,24 @@ export class LoginComponent implements OnInit {
     });
   }
 
+
   checkIfLoggedIn() {
-    this.loginService.checkLoginStatus().subscribe((res) => {
-      if (res.status === 200 || res.status === 201){ // depending on the status
-        let body = <User> res.body;
+    this.loginService.checkLoginStatus().subscribe(
+      (res) => {
+        if (res.status === 200 || res.status === 201) {
+          // depending on the status
+          let body = <User>res.body;
 
-        if(body.role === 'Customer'){
-          this.router.navigate(['']);
+          if (body.role === 'Customer') {
+            this.router.navigate(['']);
+          }
+
+          if (body.role === 'Admin') {
+            this.router.navigate(['/admin']);
+          }
         }
-
-        if(body.role === 'Admin'){
-          this.router.navigate(['']);
-        }
-      }
-    },
-    (err) => {
-
-    });
+      },
+      (err) => {}
+    );
   }
-
 }

@@ -14,18 +14,14 @@ export class LoginService {
     });
   }
 
-  login(username: string, password: string) {
-    return this.http.post(
-      'http://localhost:8081/login',
-      {
-        username: username,
-        password: password,
-      },
-      {
-        withCredentials: true,
-        observe: 'response',
-      }
-    );
+  login(username: string, password: string){
+    return this.http.post('http://localhost:8081/login', {
+      "username": username,
+      "password": password
+    }, {
+      withCredentials: true,
+      observe: 'response'
+    })
   }
 
   logout() {
@@ -66,7 +62,6 @@ export class LoginService {
       {
         withCredentials: true,
         observe: 'response',
-        responseType: 'text',
       }
     );
   }

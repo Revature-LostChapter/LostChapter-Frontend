@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'checkout', component: CheckoutComponent},
-  {path: 'checkout-summary', component: CheckoutSummaryComponent},
+  {path: 'checkout-summary/:transactionId', component: CheckoutSummaryComponent},
   {path: 'userprofile', component: UserProfileComponent},
   {path: 'cart', component: CartComponent},
   {path: 'search-results/:searchKeyword', component: SearchResultsComponent},

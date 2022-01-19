@@ -21,7 +21,6 @@ export class SalesProductComponent implements OnInit {
     this.getGenreService.getBookBySales().subscribe((res) => {
       let body = <SearchProducts[]> res.body;
       this.displayProducts = body;
-      console.log(this.displayProducts);
     })
   }
 
@@ -45,7 +44,6 @@ export class SalesProductComponent implements OnInit {
           let instance = modalRef.componentInstance;
           instance.selectedProducts = this.selectedProducts;
 
-          console.log('modalRef', modalRef)
       });
 
     modalRef.afterClosed().subscribe(result => {
